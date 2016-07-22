@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '7.0'
 
-    s.resources = "resources/**/*.bundle"
+    s.resources = "Skins/**/*.bundle"
 
     s.frameworks = 'Foundation', 'CoreGraphics', 'UIKit'
 
