@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>familyName</key>
+	<string>System</string>
+	<key>largeSize</key>
+	<integer>18</integer>
+	<key>middleSize</key>
+	<integer>14</integer>
+	<key>smallSize</key>
+	<integer>12</integer>
+	<key>headerSize</key>
+	<string>12</string>
+</dict>
+</plist>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>foreground</key>
+	<string>white</string>
+	<key>background</key>
+	<string>black</string>
+	<key>explain</key>
+	<string>yellow</string>
+	<key>desc</key>
+	<string>blue</string>
+	<key>stress</key>
+	<string>green</string>
+	<key>weakStress</key>
+	<string>0x123456</string>
+	<key>link</key>
+	<string>0x223456</string>
+	<key>warnning</key>
+	<string>0x444444</string>
+	<key>error</key>
+	<string>red</string>
+	<key>highlight</key>
+	<string>0xcccccc</string>
+	<key>enable</key>
+	<string>0x888888</string>
+	<key>selected</key>
+	<string>0xccce2d</string>
+	<key>disabled</key>
+	<string>0x22cc44</string>
+	<key>hover</key>
+	<string>0xcc22dd</string>
+</dict>
+</plist>
