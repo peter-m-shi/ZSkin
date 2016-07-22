@@ -15,6 +15,7 @@ NSString *ZSSkinChangedNotificationKey = @"ZSSkinChangedNotificationKey";
 
 @interface ZSSkinManager ()
 
+@property (nonatomic) ZSSkinLoader *skinLoader;
 @property (readwrite, strong, nonatomic) NSArray *skins;
 
 @end
@@ -37,7 +38,8 @@ NSString *ZSSkinChangedNotificationKey = @"ZSSkinChangedNotificationKey";
     self = [super init];
     if (self)
     {
-        _skins = [ZSSkinLoader loadSkins];
+        _skinLoader = [ZSSkinLoader new];
+        _skins = [_skinLoader loadSkins];
         [self setCurrentSkin:[_skins firstObject]];
     }
 
@@ -50,7 +52,7 @@ NSString *ZSSkinChangedNotificationKey = @"ZSSkinChangedNotificationKey";
     if (skin != _currentSkin)
     {
         _currentSkin = skin;
-
+        [_skinLoader loadSkin:_currentSkin];
         [[NSNotificationCenter defaultCenter] postNotificationName:ZSSkinChangedNotificationKey
                                                             object:_currentSkin
                                                           userInfo:nil];

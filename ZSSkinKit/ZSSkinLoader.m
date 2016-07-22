@@ -9,46 +9,85 @@
 #import "ZSSkinLoader.h"
 #import "ZSSkin.h"
 
+#define KDefaultSkinFolderName @"Skins"
+
+@interface ZSSkinLoader()
+
+@property (nonatomic) NSString *innerSkinsFolderPath;
+
+@end
+
 @implementation ZSSkinLoader
 
-
-+ (NSArray *)loadSkins
+- (instancetype)init
 {
-    NSBundle *skinsBundle = [ZSSkinLoader skinsBundle];
-    NSArray *subFolders = [skinsBundle pathsForResourcesOfType:nil inDirectory:nil];
-    NSMutableArray *skins = [NSMutableArray new];
-    for (NSString *subFolder in subFolders)
+    self = [super init];
+    if (self)
     {
-        ZSSkin *skin = [ZSSkinLoader loadSkin:subFolder];
-        [skins addObject:skin];
+        self.skinFolderPath = [NSString stringWithFormat:@"%@/Library/Caches/%@/",NSHomeDirectory(),KDefaultSkinFolderName];
+        self.innerSkinsFolderPath = [NSString stringWithFormat:@"%@/%@",[[NSBundle mainBundle] bundlePath],KDefaultSkinFolderName];
+        [self checkSkinFolder];
+    }
+
+    return self;
+}
+
+- (void)checkSkinFolder
+{
+    BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:self.skinFolderPath];
+    if (!exists)
+    {
+        NSError *error;
+        BOOL ret = [[NSFileManager defaultManager] copyItemAtPath:self.innerSkinsFolderPath toPath:self.skinFolderPath error:&error];
+        if (!ret)
+        {
+            NSLog(@"copy skins folder to cache folder failed! %@",error);
+        }
+    }
+}
+
+- (NSArray *)loadSkins
+{
+    NSDirectoryEnumerator* enumerator = [[NSFileManager defaultManager] enumeratorAtPath:self.skinFolderPath];
+    NSString *file;
+    NSMutableArray *skins = [NSMutableArray new];
+    while (file = [enumerator nextObject])
+    {
+        if ([[file pathExtension] hasSuffix:@"bundle"])
+        {
+            ZSSkin *skin = [[ZSSkin alloc] init];
+            skin.name = [file stringByDeletingPathExtension];
+            skin.path = [NSString stringWithFormat:@"%@%@",self.skinFolderPath,file];
+            [skins addObject:skin];
+        }
     }
     return skins;
 }
 
 
-+ (ZSSkin *)loadSkin:(NSString *)path
+- (void)loadSkin:(ZSSkin *)skin
 {
-    NSAssert(path, @"loadSkin path nil");
-
-    ZSSkin *skin = [[ZSSkin alloc] init];
-
-    skin.name = path.lastPathComponent;
-    skin.path = path;
-    skin.color = [[ZSColorSkin alloc] initWithDictionary:[ZSSkinLoader loadSkinConfig:skin.name config:@"color" type:@"plist"]];
-    skin.font = [[ZSFontSkin alloc] initWithDictionary:[ZSSkinLoader loadSkinConfig:skin.name config:@"font" type:@"plist"]];
-    skin.picture = [[ZSPictureSkin alloc] initWithPath:[NSString stringWithFormat:@"skins.bundle/%@/", skin.name]];
-
-    return skin;
+    if (!skin.color)
+    {
+        skin.color = [[ZSColorSkin alloc] initWithDictionary:[self loadSkinContent:skin.name type:@"color"]];
+    }
+    if (!skin.font)
+    {
+        skin.font = [[ZSFontSkin alloc] initWithDictionary:[self loadSkinContent:skin.name type:@"font"]];
+    }
+    if (!skin.picture)
+    {
+        skin.picture = [[ZSPictureSkin alloc] initWithPath:[NSString stringWithFormat:@"%@%@.bundle/",self.skinFolderPath,skin.name]];
+    }
 }
 
 
-+ (NSDictionary *)loadSkinConfig:(NSString *)name config:(NSString *)config type:(NSString *)ext
+- (NSDictionary *)loadSkinContent:(NSString *)name type:(NSString *)type
 {
     NSAssert(name, @"loadFontSkin name nil");
-    NSAssert(config, @"loadFontSkin config nil");
+    NSAssert(type, @"loadFontSkin type nil");
 
-    NSBundle *skinsBundle = [ZSSkinLoader skinsBundle];
-    NSString *filePath = [skinsBundle pathForResource:config ofType:ext inDirectory:name];
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@.bundle/%@.plist",self.skinFolderPath,name,type];
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:filePath];
 
     return dictionary;
@@ -57,11 +96,6 @@
 
 #pragma mark - private function -
 
-
-+ (NSBundle *)skinsBundle
-{
-    NSString *skinsBundlePath = [[NSBundle mainBundle] pathForResource:@"skins" ofType:@"bundle"];
-    return [NSBundle bundleWithPath:skinsBundlePath];
-}
+#pragma mark - utility function -
 
 @end

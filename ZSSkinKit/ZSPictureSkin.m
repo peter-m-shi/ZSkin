@@ -23,7 +23,7 @@
 
 - (UIImage *)imageNamed:(NSString *)name
 {
-    return [UIImage imageNamed:[NSString stringWithFormat:@"%@/%@", self.path, name]];
+    return [UIImage imageNamed:[NSString stringWithFormat:@"%@/picture/%@", self.path, name]];
 }
 
 

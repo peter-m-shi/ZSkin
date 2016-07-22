@@ -25,15 +25,15 @@
 		D075D8471D40CF700020AE9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D075D8451D40CF700020AE9A /* LaunchScreen.storyboard */; };
 		D075D8521D40CF700020AE9A /* ZSSkinKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D075D8511D40CF700020AE9A /* ZSSkinKitDemoTests.m */; };
 		D075D85D1D40CF700020AE9A /* ZSSkinKitDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D075D85C1D40CF700020AE9A /* ZSSkinKitDemoUITests.m */; };
-		D075D86F1D40D1D90020AE9A /* 1403909a57b446bb8e55094e7450ff8f.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D075D86B1D40D1D90020AE9A /* 1403909a57b446bb8e55094e7450ff8f.bundle */; };
-		D075D8701D40D1D90020AE9A /* e02ae0e472604e47bfcf389e4ccf37ba.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D075D86C1D40D1D90020AE9A /* e02ae0e472604e47bfcf389e4ccf37ba.bundle */; };
-		D075D8711D40D1D90020AE9A /* skins.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D075D86D1D40D1D90020AE9A /* skins.bundle */; };
-		D075D8721D40D1D90020AE9A /* test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D075D86E1D40D1D90020AE9A /* test@2x.png */; };
 		D075D8951D40D2970020AE9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D075D8931D40D2970020AE9A /* Main.storyboard */; };
 		D075D89E1D40D2D50020AE9A /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D075D8971D40D2D50020AE9A /* BaseViewController.m */; };
 		D075D89F1D40D2D50020AE9A /* ViewControllerImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D075D8991D40D2D50020AE9A /* ViewControllerImage.m */; };
 		D075D8A01D40D2D50020AE9A /* ViewControllerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D075D89B1D40D2D50020AE9A /* ViewControllerLabel.m */; };
 		D075D8A11D40D2D50020AE9A /* ViewControllerMain.m in Sources */ = {isa = PBXBuildFile; fileRef = D075D89D1D40D2D50020AE9A /* ViewControllerMain.m */; };
+		D0C0759A1D4209830086167D /* 1403909a57b446bb8e55094e7450ff8f.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0C075971D4209830086167D /* 1403909a57b446bb8e55094e7450ff8f.bundle */; };
+		D0C0759B1D4209830086167D /* e02ae0e472604e47bfcf389e4ccf37ba.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0C075981D4209830086167D /* e02ae0e472604e47bfcf389e4ccf37ba.bundle */; };
+		D0C0759C1D4209830086167D /* test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0C075991D4209830086167D /* test@2x.png */; };
+		D0C075BE1D421D3A0086167D /* Skins in Resources */ = {isa = PBXBuildFile; fileRef = D0C075BD1D421D3A0086167D /* Skins */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,10 +92,6 @@
 		D075D8581D40CF700020AE9A /* ZSSkinKitDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZSSkinKitDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D075D85C1D40CF700020AE9A /* ZSSkinKitDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZSSkinKitDemoUITests.m; sourceTree = "<group>"; };
 		D075D85E1D40CF700020AE9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D075D86B1D40D1D90020AE9A /* 1403909a57b446bb8e55094e7450ff8f.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = 1403909a57b446bb8e55094e7450ff8f.bundle; sourceTree = "<group>"; };
-		D075D86C1D40D1D90020AE9A /* e02ae0e472604e47bfcf389e4ccf37ba.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = e02ae0e472604e47bfcf389e4ccf37ba.bundle; sourceTree = "<group>"; };
-		D075D86D1D40D1D90020AE9A /* skins.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = skins.bundle; sourceTree = "<group>"; };
-		D075D86E1D40D1D90020AE9A /* test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test@2x.png"; sourceTree = "<group>"; };
 		D075D8941D40D2970020AE9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D075D8961D40D2D50020AE9A /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		D075D8971D40D2D50020AE9A /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
@@ -105,6 +101,10 @@
 		D075D89B1D40D2D50020AE9A /* ViewControllerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerLabel.m; sourceTree = "<group>"; };
 		D075D89C1D40D2D50020AE9A /* ViewControllerMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerMain.h; sourceTree = "<group>"; };
 		D075D89D1D40D2D50020AE9A /* ViewControllerMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerMain.m; sourceTree = "<group>"; };
+		D0C075971D4209830086167D /* 1403909a57b446bb8e55094e7450ff8f.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = 1403909a57b446bb8e55094e7450ff8f.bundle; sourceTree = "<group>"; };
+		D0C075981D4209830086167D /* e02ae0e472604e47bfcf389e4ccf37ba.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = e02ae0e472604e47bfcf389e4ccf37ba.bundle; sourceTree = "<group>"; };
+		D0C075991D4209830086167D /* test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test@2x.png"; sourceTree = "<group>"; };
+		D0C075BD1D421D3A0086167D /* Skins */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Skins; path = ../Skins; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +135,8 @@
 		D075D82B1D40CF700020AE9A = {
 			isa = PBXGroup;
 			children = (
-				D075D86A1D40D1D90020AE9A /* Res */,
+				D0C075BD1D421D3A0086167D /* Skins */,
+				D0C075961D4209830086167D /* Resources */,
 				D075D8731D40D1E70020AE9A /* ZSSkinKit */,
 				D075D8361D40CF700020AE9A /* ZSSkinKitDemo */,
 				D075D8501D40CF700020AE9A /* ZSSkinKitDemoTests */,
@@ -204,17 +205,6 @@
 			path = ZSSkinKitDemoUITests;
 			sourceTree = "<group>";
 		};
-		D075D86A1D40D1D90020AE9A /* Res */ = {
-			isa = PBXGroup;
-			children = (
-				D075D86B1D40D1D90020AE9A /* 1403909a57b446bb8e55094e7450ff8f.bundle */,
-				D075D86C1D40D1D90020AE9A /* e02ae0e472604e47bfcf389e4ccf37ba.bundle */,
-				D075D86D1D40D1D90020AE9A /* skins.bundle */,
-				D075D86E1D40D1D90020AE9A /* test@2x.png */,
-			);
-			path = Res;
-			sourceTree = "<group>";
-		};
 		D075D8731D40D1E70020AE9A /* ZSSkinKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +234,16 @@
 			);
 			name = ZSSkinKit;
 			path = ../ZSSkinKit;
+			sourceTree = "<group>";
+		};
+		D0C075961D4209830086167D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D0C075971D4209830086167D /* 1403909a57b446bb8e55094e7450ff8f.bundle */,
+				D0C075981D4209830086167D /* e02ae0e472604e47bfcf389e4ccf37ba.bundle */,
+				D0C075991D4209830086167D /* test@2x.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,13 +349,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0C0759C1D4209830086167D /* test@2x.png in Resources */,
 				D075D8951D40D2970020AE9A /* Main.storyboard in Resources */,
-				D075D8711D40D1D90020AE9A /* skins.bundle in Resources */,
+				D0C0759B1D4209830086167D /* e02ae0e472604e47bfcf389e4ccf37ba.bundle in Resources */,
+				D0C075BE1D421D3A0086167D /* Skins in Resources */,
+				D0C0759A1D4209830086167D /* 1403909a57b446bb8e55094e7450ff8f.bundle in Resources */,
 				D075D8471D40CF700020AE9A /* LaunchScreen.storyboard in Resources */,
-				D075D8701D40D1D90020AE9A /* e02ae0e472604e47bfcf389e4ccf37ba.bundle in Resources */,
-				D075D86F1D40D1D90020AE9A /* 1403909a57b446bb8e55094e7450ff8f.bundle in Resources */,
 				D075D8441D40CF700020AE9A /* Assets.xcassets in Resources */,
-				D075D8721D40D1D90020AE9A /* test@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

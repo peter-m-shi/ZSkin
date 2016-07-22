@@ -12,8 +12,10 @@
 
 @interface ZSSkinLoader : NSObject
 
-+ (NSArray *)loadSkins;
+@property (nonatomic) NSString *skinFolderPath;
 
-+ (ZSSkin *)loadSkin:(NSString *)name;
+- (NSArray *)loadSkins;
+
+- (void)loadSkin:(ZSSkin *)skin;
 
 @end
