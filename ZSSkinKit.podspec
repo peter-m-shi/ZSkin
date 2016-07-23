@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
     s.name         = "ZSSkinKit"
-    s.version      = "0.0.1"
+    s.version      = "0.0.2"
     s.summary      = "A iOS Kit For Skin"
 
     s.description  = <<-DESC
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
     s.author       = { "peter.shi" => "peter.m.shi@outlook.com" }
 
-    s.source       = { :git => "https://github.com/peter-m-shi/ZSSkinKit.git", :tag => "0.0.1"}
+    s.source       = { :git => "https://github.com/peter-m-shi/ZSSkinKit.git", :tag => "0.0.2"}
 
     s.source_files  = 'ZSSkinKit/**/*.{h,m}'
 
