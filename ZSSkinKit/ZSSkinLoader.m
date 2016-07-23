@@ -34,6 +34,10 @@
 
 - (void)checkSkinFolder
 {
+#ifdef DEBUG
+    //To make the skin files always be latest when developing period
+    [[NSFileManager defaultManager] removeItemAtPath:self.skinFolderPath error:nil];
+#endif
     BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:self.skinFolderPath];
     if (!exists)
     {
@@ -77,7 +81,7 @@
     }
     if (!skin.picture)
     {
-        skin.picture = [[ZSPictureSkin alloc] initWithPath:[NSString stringWithFormat:@"%@%@.bundle/",self.skinFolderPath,skin.name]];
+        skin.picture = [[ZSImageSkin alloc] initWithPath:[NSString stringWithFormat:@"%@%@.bundle/",self.skinFolderPath,skin.name]];
     }
 }
 

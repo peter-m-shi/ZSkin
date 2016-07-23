@@ -34,11 +34,11 @@
     [self.image2 bind:^(ZSSkin *skin) {
         if (self.count % 2 == 0)
         {
-            [self.image2 setImage:[ZSPictureSkin imageNamed:@"aspectSelect_btn0_normal" inBundle:@"1403909a57b446bb8e55094e7450ff8f"]];
+            [self.image2 setImage:[ZSImageSkin imageNamed:@"aspectSelect_btn0_normal" inBundle:@"1403909a57b446bb8e55094e7450ff8f"]];
         }
         else
         {
-            [self.image2 setImage:[ZSPictureSkin imageNamed:@"aspectSelect_btn0_normal" inBundle:@"e02ae0e472604e47bfcf389e4ccf37ba"]];
+            [self.image2 setImage:[ZSImageSkin imageNamed:@"aspectSelect_btn0_normal" inBundle:@"e02ae0e472604e47bfcf389e4ccf37ba"]];
         }
         self.count += 1;
     }];

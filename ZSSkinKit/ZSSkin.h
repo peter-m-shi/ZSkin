@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ZSColorSkin.h"
 #import "ZSFontSkin.h"
-#import "ZSPictureSkin.h"
+#import "ZSImageSkin.h"
 
 @interface ZSSkin : NSObject
 
@@ -17,6 +17,6 @@
 @property (nonatomic) NSString *path;
 @property (nonatomic) ZSColorSkin *color;
 @property (nonatomic) ZSFontSkin *font;
-@property (nonatomic) ZSPictureSkin *picture;
+@property (nonatomic) ZSImageSkin *picture;
 
 @end

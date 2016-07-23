@@ -12,7 +12,7 @@
 #import "ZSSkin.h"
 #import "ZSColorSkin.h"
 #import "ZSFontSkin.h"
-#import "ZSPictureSkin.h"
+#import "ZSImageSkin.h"
 #import "NSObject+Skin.h"
 #import "UIButton+ExProperty.h"
 
