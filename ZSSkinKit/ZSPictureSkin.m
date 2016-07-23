@@ -8,6 +8,8 @@
 
 #import "ZSPictureSkin.h"
 
+@import UIKit;
+
 @implementation ZSPictureSkin
 
 - (id)initWithPath:(NSString *)path

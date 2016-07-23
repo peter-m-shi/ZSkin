@@ -30,6 +30,7 @@
 		D075D89F1D40D2D50020AE9A /* ViewControllerImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D075D8991D40D2D50020AE9A /* ViewControllerImage.m */; };
 		D075D8A01D40D2D50020AE9A /* ViewControllerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D075D89B1D40D2D50020AE9A /* ViewControllerLabel.m */; };
 		D075D8A11D40D2D50020AE9A /* ViewControllerMain.m in Sources */ = {isa = PBXBuildFile; fileRef = D075D89D1D40D2D50020AE9A /* ViewControllerMain.m */; };
+		D0972BD11D434BEA0039BD51 /* ZSColorSkin+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = D0972BD01D434BEA0039BD51 /* ZSColorSkin+Custom.m */; };
 		D0C0759A1D4209830086167D /* 1403909a57b446bb8e55094e7450ff8f.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0C075971D4209830086167D /* 1403909a57b446bb8e55094e7450ff8f.bundle */; };
 		D0C0759B1D4209830086167D /* e02ae0e472604e47bfcf389e4ccf37ba.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0C075981D4209830086167D /* e02ae0e472604e47bfcf389e4ccf37ba.bundle */; };
 		D0C0759C1D4209830086167D /* test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0C075991D4209830086167D /* test@2x.png */; };
@@ -101,6 +102,9 @@
 		D075D89B1D40D2D50020AE9A /* ViewControllerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerLabel.m; sourceTree = "<group>"; };
 		D075D89C1D40D2D50020AE9A /* ViewControllerMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerMain.h; sourceTree = "<group>"; };
 		D075D89D1D40D2D50020AE9A /* ViewControllerMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerMain.m; sourceTree = "<group>"; };
+		D0972BCE1D4349E50039BD51 /* ZSSkinKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSkinKit.h; sourceTree = "<group>"; };
+		D0972BCF1D434BEA0039BD51 /* ZSColorSkin+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZSColorSkin+Custom.h"; sourceTree = "<group>"; };
+		D0972BD01D434BEA0039BD51 /* ZSColorSkin+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZSColorSkin+Custom.m"; sourceTree = "<group>"; };
 		D0C075971D4209830086167D /* 1403909a57b446bb8e55094e7450ff8f.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = 1403909a57b446bb8e55094e7450ff8f.bundle; sourceTree = "<group>"; };
 		D0C075981D4209830086167D /* e02ae0e472604e47bfcf389e4ccf37ba.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = e02ae0e472604e47bfcf389e4ccf37ba.bundle; sourceTree = "<group>"; };
 		D0C075991D4209830086167D /* test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test@2x.png"; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 				D075D8451D40CF700020AE9A /* LaunchScreen.storyboard */,
 				D075D8481D40CF700020AE9A /* Info.plist */,
 				D075D8371D40CF700020AE9A /* Supporting Files */,
+				D0972BCF1D434BEA0039BD51 /* ZSColorSkin+Custom.h */,
+				D0972BD01D434BEA0039BD51 /* ZSColorSkin+Custom.m */,
 			);
 			path = ZSSkinKitDemo;
 			sourceTree = "<group>";
@@ -208,6 +214,7 @@
 		D075D8731D40D1E70020AE9A /* ZSSkinKit */ = {
 			isa = PBXGroup;
 			children = (
+				D0972BCE1D4349E50039BD51 /* ZSSkinKit.h */,
 				D00DA5781D41BB1200328BA6 /* UIButton+ExProperty.h */,
 				D00DA5791D41BB1200328BA6 /* UIButton+ExProperty.m */,
 				D00DA5541D40F39800328BA6 /* NSObject+Skin.h */,
@@ -394,6 +401,7 @@
 				D075D83C1D40CF700020AE9A /* AppDelegate.m in Sources */,
 				D075D8A11D40D2D50020AE9A /* ViewControllerMain.m in Sources */,
 				D075D8391D40CF700020AE9A /* main.m in Sources */,
+				D0972BD11D434BEA0039BD51 /* ZSColorSkin+Custom.m in Sources */,
 				D00DA56B1D40F39800328BA6 /* ZSFontSkin.m in Sources */,
 				D00DA56F1D40F39800328BA6 /* ZSSkin.m in Sources */,
 				D075D8A01D40D2D50020AE9A /* ViewControllerLabel.m in Sources */,

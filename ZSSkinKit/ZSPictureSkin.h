@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@import UIKit;
+@class UIImage;
 
 @interface ZSPictureSkin : NSObject
 
