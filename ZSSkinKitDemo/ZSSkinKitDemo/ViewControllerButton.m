@@ -46,7 +46,12 @@
     OBS(self.button, titleColorNormal) = SK(color.foreground);
     OBS(self.button, titleColorHightlight) = SK(color.foreground);
     OBS(self.button, titleColorSelected) = SK(color.foreground);
-
+    
+    OBS(self.button2, backgroundColor) = SK(color.foreground);
+    OBS(self.button2, titleColorNormal) = SK(color.background);
+    OBS(self.button2, titleColorHightlight) = SK(color.background);
+    OBS(self.button2, titleColorSelected) = SK(color.background);
+    
     //Custom Binding
     [self.button3 bind:^(ZSSkin *skin) {
         [self.button3 setBackgroundColor:skin.color.foreground];

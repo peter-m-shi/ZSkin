@@ -176,7 +176,6 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    NSLog(@"1");
     NSMutableArray *binderInfoList = self.binderInfoMap[keyPath];
     assert(binderInfoList);
 

@@ -22,4 +22,7 @@
 
 - (NSDictionary *)map;
 
+//subclass can overwrite this function to deal special key-value
+- (id)handleParseFor:(id)value key:(NSString *)key;
+
 @end

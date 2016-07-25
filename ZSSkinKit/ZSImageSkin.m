@@ -26,6 +26,7 @@
 - (UIImage *)imageNamed:(NSString *)name
 {
 //    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%@/image/%@", self.path, name]];
+    //TODO:imageNamed获取图片有缓存问题。暂时支持绝对全路径。
     UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/image/%@", self.path, name]];
     
     if (!image)

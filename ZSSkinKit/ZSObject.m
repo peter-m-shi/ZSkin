@@ -54,76 +54,12 @@ Class nsArrayClass;
                 continue;
             }
 
-            // handle dictionary
-            if ([value isKindOfClass:nsDictionaryClass])
+            id ret = [self handleParseFor:value key:key];
+            if (ret)
             {
-                Class klass = [ZSRuntimeUtility propertyClassForPropertyName:key ofClass:[self class]];
-                value = [[klass alloc] initWithDictionary:value];
-            }
-                // handle array
-            else if ([value isKindOfClass:nsArrayClass])
-            {
-
-                NSMutableArray *childObjects = [NSMutableArray arrayWithCapacity:[(NSArray *)value count]];
-
-                for (id child in value)
-                {
-                    if ([[child class] isSubclassOfClass:nsDictionaryClass])
-                    {
-                        Class arrayItemType = [[self class] performSelector:NSSelectorFromString([NSString stringWithFormat:@"%@_class", key])];
-                        if ([arrayItemType isSubclassOfClass:[NSDictionary class]])
-                        {
-                            [childObjects addObject:child];
-                        }
-                        else if ([arrayItemType isSubclassOfClass:[ZSObject class]])
-                        {
-                            ZSObject *childDTO = [[arrayItemType alloc] initWithDictionary:child];
-                            [childObjects addObject:childDTO];
-                        }
-                    }
-                    else
-                    {
-                        [childObjects addObject:child];
-                    }
-                }
-
-                value = childObjects;
-            }
-            else if ([value isKindOfClass:[NSString class]])
-            {
-                NSString *str = value;
-                unsigned int intValue = [str intValue];
-                float alpha = 1;
-
-                if ([str characterAtIndex:0] == '0' && [str characterAtIndex:1] == 'x')
-                {
-                    NSScanner *scanner = [NSScanner scannerWithString:str];
-                    [scanner scanHexInt:&intValue];
-                }
-
-                Class klass = [ZSRuntimeUtility propertyClassForPropertyName:key ofClass:[self class]];
-                if ([klass isEqual:[UIColor class]])
-                {
-                    SEL selector = NSSelectorFromString([NSString stringWithFormat:@"%@Color", value]);
-                    if ([UIColor respondsToSelector:selector])
-                    {
-                        value = [UIColor performSelector:selector];
-                    }
-                    else
-                    {
-                        float r = ((float)((intValue & 0xff0000) >> 16)) / 255.0;
-                        float g = ((float)((intValue & 0xff00) >> 8)) / 255.0;
-                        float b = ((float)((intValue & 0xff) >> 0)) / 255.0;
-                        value = [UIColor colorWithRed:r green:g blue:b alpha:alpha];
-                    }
-                }
-                else if ([klass isEqual:[NSNumber class]])
-                {
-                    value = [NSNumber numberWithInt:intValue];
-                }
+                value = ret;
             }
 
-            // handle all others
             [self setValue:value forKey:key];
         }
 
@@ -140,6 +76,48 @@ Class nsArrayClass;
     return self;
 }
 
+
+- (id)handleParseFor:(id)value key:(NSString *)key
+{
+    id result;
+
+    if ([value isKindOfClass:nsDictionaryClass])
+    {
+        Class klass = [ZSRuntimeUtility propertyClassForPropertyName:key ofClass:[self class]];
+        result = [[klass alloc] initWithDictionary:value];
+    }
+        // handle array
+    else if ([value isKindOfClass:nsArrayClass])
+    {
+
+        NSMutableArray *childObjects = [NSMutableArray arrayWithCapacity:[(NSArray *)value count]];
+
+        for (id child in value)
+        {
+            if ([[child class] isSubclassOfClass:nsDictionaryClass])
+            {
+                Class arrayItemType = [[self class] performSelector:NSSelectorFromString([NSString stringWithFormat:@"%@_class", key])];
+                if ([arrayItemType isSubclassOfClass:[NSDictionary class]])
+                {
+                    [childObjects addObject:child];
+                }
+                else if ([arrayItemType isSubclassOfClass:[ZSObject class]])
+                {
+                    ZSObject *childDTO = [[arrayItemType alloc] initWithDictionary:child];
+                    [childObjects addObject:childDTO];
+                }
+            }
+            else
+            {
+                [childObjects addObject:child];
+            }
+        }
+
+        result = childObjects;
+    }
+
+    return result;
+}
 
 - (void)encodeWithCoder:(NSCoder *)encoder
 {

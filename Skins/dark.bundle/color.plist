@@ -5,7 +5,7 @@
 	<key>foreground</key>
 	<string>white</string>
 	<key>background</key>
-	<string>black</string>
+	<string>15,16,17,0.5</string>
 	<key>explain</key>
 	<string>yellow</string>
 	<key>desc</key>
@@ -13,11 +13,11 @@
 	<key>stress</key>
 	<string>green</string>
 	<key>weakStress</key>
-	<string>0x123456</string>
+	<string>0xffdd8877</string>
 	<key>link</key>
 	<string>0x223456</string>
 	<key>warnning</key>
-	<string>0x444444</string>
+	<string>255,255,255</string>
 	<key>error</key>
 	<string>red</string>
 	<key>highlight</key>
