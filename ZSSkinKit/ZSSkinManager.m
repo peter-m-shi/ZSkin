@@ -59,5 +59,23 @@ NSString *ZSSkinChangedNotificationKey = @"ZSSkinChangedNotificationKey";
     }
 }
 
+- (void)setSkinWithIndex:(NSInteger)index
+{
+    assert(index >= 0 < self.skins.count);
+    self.currentSkin = [self.skins objectAtIndex:index];
+}
+
+- (void)setSkinWithName:(NSString *)name
+{
+    for (ZSSkin *skin in self.skins)
+    {
+        if ([skin.name isEqualToString:name])
+        {
+            self.currentSkin = skin;
+            return;
+        }
+    }
+}
+
 @end
 

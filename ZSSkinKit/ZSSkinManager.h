@@ -19,4 +19,8 @@ extern NSString *ZSSkinChangedNotificationKey;
 
 + (instancetype)instance;
 
+- (void)setSkinWithIndex:(NSInteger)index;
+
+- (void)setSkinWithName:(NSString *)name;
+
 @end
