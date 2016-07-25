@@ -25,7 +25,9 @@
 
 - (UIImage *)imageNamed:(NSString *)name
 {
-    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%@/image/%@", self.path, name]];
+//    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%@/image/%@", self.path, name]];
+    UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/image/%@", self.path, name]];
+    
     if (!image)
     {
         image = [UIImage imageNamed:name];
