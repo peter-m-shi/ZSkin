@@ -17,6 +17,6 @@
 @property (nonatomic) NSString *path;
 @property (nonatomic) ZSColorSkin *color;
 @property (nonatomic) ZSFontSkin *font;
-@property (nonatomic) ZSImageSkin *picture;
+@property (nonatomic) ZSImageSkin *image;
 
 @end

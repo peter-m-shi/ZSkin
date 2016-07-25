@@ -23,11 +23,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.button bind:^(ZSSkin *skin) {
-        [self.button setImage:[skin.picture imageNamed:@"folder1/test.png"] forState:UIControlStateNormal];
+        [self.button setImage:[skin.image imageNamed:@"folder1/test.png"] forState:UIControlStateNormal];
     }];
 
     [self.image bind:^(ZSSkin *skin) {
-        [self.image setImage:[skin.picture imageNamed:@"folder1/test.png"]];
+        [self.image setImage:[skin.image imageNamed:@"folder1/test.png"]];
     }];
 
     [self.image2 setBackgroundColor:[UIColor redColor]];

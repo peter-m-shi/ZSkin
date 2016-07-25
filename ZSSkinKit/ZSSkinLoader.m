@@ -79,9 +79,9 @@
     {
         skin.font = [[ZSFontSkin alloc] initWithDictionary:[self loadSkinContent:skin.name type:@"font"]];
     }
-    if (!skin.picture)
+    if (!skin.image)
     {
-        skin.picture = [[ZSImageSkin alloc] initWithPath:[NSString stringWithFormat:@"%@%@.bundle/",self.skinFolderPath,skin.name]];
+        skin.image = [[ZSImageSkin alloc] initWithPath:[NSString stringWithFormat:@"%@%@.bundle/",self.skinFolderPath,skin.name]];
     }
 }
 

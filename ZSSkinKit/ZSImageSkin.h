@@ -1,5 +1,5 @@
 //
-//  ZSPictureSkin.h
+//  ZSImageSkin.h
 //  ZSSkinKit
 //
 //  Created by peter.shi on 16/7/14.
