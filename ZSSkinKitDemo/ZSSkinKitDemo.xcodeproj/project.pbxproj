@@ -35,6 +35,7 @@
 		D0C0759C1D4209830086167D /* test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0C075991D4209830086167D /* test@2x.png */; };
 		D0C075BE1D421D3A0086167D /* Skins in Resources */ = {isa = PBXBuildFile; fileRef = D0C075BD1D421D3A0086167D /* Skins */; };
 		D0FAFC6E1D43844E00F6DD1A /* ZSImageSkin.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FAFC6D1D43844E00F6DD1A /* ZSImageSkin.m */; };
+		D0FAFC721D45A92F00F6DD1A /* ZSBindingAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FAFC711D45A92F00F6DD1A /* ZSBindingAssistant.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,8 @@
 		D0C075991D4209830086167D /* test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test@2x.png"; sourceTree = "<group>"; };
 		D0C075BD1D421D3A0086167D /* Skins */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Skins; path = ../Skins; sourceTree = "<group>"; };
 		D0FAFC6D1D43844E00F6DD1A /* ZSImageSkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSImageSkin.m; sourceTree = "<group>"; };
+		D0FAFC701D45A92F00F6DD1A /* ZSBindingAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBindingAssistant.h; sourceTree = "<group>"; };
+		D0FAFC711D45A92F00F6DD1A /* ZSBindingAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBindingAssistant.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +217,8 @@
 		D075D8731D40D1E70020AE9A /* ZSSkinKit */ = {
 			isa = PBXGroup;
 			children = (
+				D0FAFC701D45A92F00F6DD1A /* ZSBindingAssistant.h */,
+				D0FAFC711D45A92F00F6DD1A /* ZSBindingAssistant.m */,
 				D0FAFC6D1D43844E00F6DD1A /* ZSImageSkin.m */,
 				D0972BCE1D4349E50039BD51 /* ZSSkinKit.h */,
 				D00DA5781D41BB1200328BA6 /* UIButton+ExProperty.h */,
@@ -402,6 +407,7 @@
 				D075D8A11D40D2D50020AE9A /* ViewControllerMain.m in Sources */,
 				D075D8391D40CF700020AE9A /* main.m in Sources */,
 				D0972BD11D434BEA0039BD51 /* ZSColorSkin+Custom.m in Sources */,
+				D0FAFC721D45A92F00F6DD1A /* ZSBindingAssistant.m in Sources */,
 				D00DA56B1D40F39800328BA6 /* ZSFontSkin.m in Sources */,
 				D00DA56F1D40F39800328BA6 /* ZSSkin.m in Sources */,
 				D075D8A01D40D2D50020AE9A /* ViewControllerLabel.m in Sources */,

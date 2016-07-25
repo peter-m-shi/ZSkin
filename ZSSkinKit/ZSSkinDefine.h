@@ -14,11 +14,14 @@
 
 typedef void (^callBackBlock)(ZSSkin *skin);
 
-#define PATH(target,keypath) @__keypath(target,keypath)
-#define VIEW(keypath) @__keypath(UIView.new,keypath)
-#define BUTTON(keypath) @__keypath(UIButton.new,keypath)
-#define LABEL(keypath) @__keypath(UILabel.new,keypath)
-#define SKIN(keypath) @__keypath(ZSSkin.new,keypath)
+//
+#define OP(target,keypath) @__keypath(target,keypath)
+#define OPLayer(keypath) @__keypath(CALayer.new,keypath)
+#define OPView(keypath) @__keypath(UIView.new,keypath)
+#define OPBtn(keypath) @__keypath(UIButton.new,keypath)
+#define OPLabel(keypath) @__keypath(UILabel.new,keypath)
+
+#define SK(keypath) @__keypath(ZSSkin.new,keypath)
 
 #define __keypath(OBJ, PATH) \
 (((void)(NO && ((void)OBJ.PATH, NO)), # PATH))
