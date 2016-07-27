@@ -166,7 +166,7 @@
     [self.callbacks addObject:[callback copy]];
     if (callback)
     {
-        id skin = self.skinManager.currentSkin;
+        id skin = self.skinManager.skin;
         callback(skin);
     }
 }

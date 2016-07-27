@@ -40,42 +40,51 @@ NSString *ZSSkinChangedNotificationKey = @"ZSSkinChangedNotificationKey";
     {
         _skinLoader = [ZSSkinLoader new];
         _skins = [_skinLoader loadSkins];
-        [self setCurrentSkin:[_skins firstObject]];
+        [self setSkin:[_skins firstObject]];
     }
 
     return self;
 }
 
 
-- (void)setCurrentSkin:(ZSSkin *)skin
+- (void)setSkin:(ZSSkin *)skin
 {
-    if (skin != _currentSkin)
+    if (skin != _skin)
     {
-        _currentSkin = skin;
-        [_skinLoader loadSkin:_currentSkin];
+        _skin = skin;
+        [_skinLoader loadSkin:_skin];
         [[NSNotificationCenter defaultCenter] postNotificationName:ZSSkinChangedNotificationKey
-                                                            object:_currentSkin
+                                                            object:_skin
                                                           userInfo:nil];
     }
 }
 
-- (void)setSkinWithIndex:(NSInteger)index
+
+- (void)setSkinNamed:(NSString *)name
 {
-    assert(index >= 0 < self.skins.count);
-    self.currentSkin = [self.skins objectAtIndex:index];
+    self.skin = [self skinNamed:name];
 }
 
-- (void)setSkinWithName:(NSString *)name
+
+- (void)setSkinIndexed:(NSInteger)index
 {
+    assert(index >= 0 < self.skins.count);
+    self.skin = [self.skins objectAtIndex:index];
+}
+
+
+- (ZSSkin *)skinNamed:(NSString *)name
+{
+    if (name.length <= 0)return nil;
+
     for (ZSSkin *skin in self.skins)
     {
         if ([skin.name isEqualToString:name])
         {
-            self.currentSkin = skin;
-            return;
+            return skin;
         }
     }
+    return nil;
 }
-
 @end
 

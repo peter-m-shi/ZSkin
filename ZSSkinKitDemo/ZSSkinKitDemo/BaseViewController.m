@@ -34,7 +34,7 @@
 
 - (void)prepareData
 {
-    self.currentSkin = [ZSSkinManager instance].currentSkin;
+    self.currentSkin = [ZSSkinManager instance].skin;
 
     [self.segment removeAllSegments];
     for (int i = 0; i < [ZSSkinManager instance].skins.count; ++i)
@@ -60,7 +60,8 @@
 - (IBAction)segmentValueChanged:(id)sender
 {
     self.currentSkin = [[ZSSkinManager instance].skins objectAtIndex:self.segment.selectedSegmentIndex];
-    [ZSSkinManager instance].currentSkin = self.currentSkin;
+    [ZSSkinManager instance].skin = self.currentSkin;
+    [ZSSkinManager instance]->setSkin();
 }
 
 - (void)didReceiveMemoryWarning {
