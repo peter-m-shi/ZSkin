@@ -8,6 +8,7 @@
 
 #import "ViewControllerButton.h"
 #import "ZSSkinKit.h"
+#import "ZSColorSkin+Custom.h"
 
 @interface ViewControllerButton ()
 
