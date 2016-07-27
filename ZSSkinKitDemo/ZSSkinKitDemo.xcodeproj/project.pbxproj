@@ -78,7 +78,7 @@
 		D00DA5751D40F43B00328BA6 /* ZSColorSkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSColorSkin.m; sourceTree = "<group>"; };
 		D00DA5781D41BB1200328BA6 /* UIButton+ExProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ExProperty.h"; sourceTree = "<group>"; };
 		D00DA5791D41BB1200328BA6 /* UIButton+ExProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ExProperty.m"; sourceTree = "<group>"; };
-		D075D8341D40CF700020AE9A /* ZSSkinKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZSSkinKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D075D8341D40CF700020AE9A /* ZSSkin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZSSkin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D075D8381D40CF700020AE9A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D075D83A1D40CF700020AE9A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D075D83B1D40CF700020AE9A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 		D075D8351D40CF700020AE9A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D075D8341D40CF700020AE9A /* ZSSkinKitDemo.app */,
+				D075D8341D40CF700020AE9A /* ZSSkin.app */,
 				D075D84D1D40CF700020AE9A /* ZSSkinKitDemoTests.xctest */,
 				D075D8581D40CF700020AE9A /* ZSSkinKitDemoUITests.xctest */,
 			);
@@ -275,7 +275,7 @@
 			);
 			name = ZSSkinKitDemo;
 			productName = ZSSkinKitDemo;
-			productReference = D075D8341D40CF700020AE9A /* ZSSkinKitDemo.app */;
+			productReference = D075D8341D40CF700020AE9A /* ZSSkin.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D075D84C1D40CF700020AE9A /* ZSSkinKitDemoTests */ = {
@@ -559,7 +559,8 @@
 				INFOPLIST_FILE = ZSSkinKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vstudio.ZSSkinKitDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ZSSkin;
 			};
 			name = Debug;
 		};
@@ -572,7 +573,8 @@
 				INFOPLIST_FILE = ZSSkinKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vstudio.ZSSkinKitDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ZSSkin;
 			};
 			name = Release;
 		};
