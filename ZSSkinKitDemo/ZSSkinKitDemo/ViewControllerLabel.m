@@ -52,7 +52,7 @@
 
         [colorLabel bind:^(ZSSkin *skin) {
             SEL selector = NSSelectorFromString(property);
-            UIColor *color = [self.currentSkin.color performSelector:selector];
+            UIColor *color = [self.skin.color performSelector:selector];
             CGFloat r, g, b, a;
             [color getRed:&r green:&g blue:&b alpha:&a];
 
@@ -67,7 +67,7 @@
         [descLabel setTextColor:[UIColor blackColor]];
         [descLabel bind:^(ZSSkin *skin) {
             SEL selector = NSSelectorFromString(property);
-            UIColor *color = [self.currentSkin.color performSelector:selector];
+            UIColor *color = [self.skin.color performSelector:selector];
             CGFloat r, g, b, a;
             [color getRed:&r green:&g blue:&b alpha:&a];
 

@@ -11,7 +11,7 @@
 
 @interface BaseViewController : UIViewController
 
-@property (nonatomic) ZSSkin *currentSkin;
+@property (nonatomic) ZSSkin *skin;
 
 - (void)prepareUI;
 - (void)prepareData;

@@ -50,7 +50,7 @@
 
 #pragma mark - ZSSkinBinder -
 
-#define K_SKIN_MANAGER_KEY_PATH @"self.skinManager.currentSkin"
+#define K_SKIN_MANAGER_KEY_PATH @"self.skinManager.skin"
 
 @interface ZSSkinBinder ()
 

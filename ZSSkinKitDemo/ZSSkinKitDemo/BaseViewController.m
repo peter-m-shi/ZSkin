@@ -34,14 +34,14 @@
 
 - (void)prepareData
 {
-    self.currentSkin = [ZSSkinManager instance].skin;
+    self.skin = [ZSSkinManager instance].skin;
 
     [self.segment removeAllSegments];
     for (int i = 0; i < [ZSSkinManager instance].skins.count; ++i)
     {
         ZSSkin *skin = [[ZSSkinManager instance].skins objectAtIndex:i];
         [self.segment insertSegmentWithTitle:skin.name atIndex:i animated:NO];
-        if (self.currentSkin == skin)
+        if (self.skin == skin)
         {
             [self.segment setSelectedSegmentIndex:i];
         }
@@ -59,9 +59,8 @@
 
 - (IBAction)segmentValueChanged:(id)sender
 {
-    self.currentSkin = [[ZSSkinManager instance].skins objectAtIndex:self.segment.selectedSegmentIndex];
-    [ZSSkinManager instance].skin = self.currentSkin;
-    [ZSSkinManager instance]->setSkin();
+    self.skin = [[ZSSkinManager instance].skins objectAtIndex:self.segment.selectedSegmentIndex];
+    [ZSSkinManager instance].skin = self.skin;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,6 +81,6 @@
 - (void)receiveNotification:(NSNotification *)notification
 {
     NSLog(@"receive skin change notifaction");
-    self.title = self.currentSkin.name;
+    self.title = self.skin.name;
 }
 @end

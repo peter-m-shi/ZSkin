@@ -205,14 +205,6 @@ Class nsArrayClass;
 }
 
 
-- (NSString *)description
-{
-    NSMutableDictionary *dic = [self toDictionary];
-
-    return [NSString stringWithFormat:@"#<%@: id = %@ %@>", [self class], self.objectId, [dic description]];
-}
-
-
 - (BOOL)isEqual:(id)object
 {
     if (object == nil || ![object isKindOfClass:[ZSObject class]])
@@ -223,4 +215,19 @@ Class nsArrayClass;
     return [self.objectId isEqualToString:model.objectId];
 }
 
+- (NSString *)description
+{
+    NSMutableString *description = [NSMutableString new];
+
+    [description appendString:[NSString stringWithFormat:@"#<%@: id = 0x%08x>\r\n", [self class], self]];
+
+    for (NSString *property in [ZSRuntimeUtility propertyNames:[self class]])
+    {
+        SEL selector = NSSelectorFromString(property);
+        id value = [self performSelector:selector];
+        [description appendString:[NSString stringWithFormat:@"   %@:%@\r\n",property,value]];
+    }
+
+    return description;
+}
 @end
