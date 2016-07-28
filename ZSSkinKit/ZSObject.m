@@ -219,7 +219,7 @@ Class nsArrayClass;
 {
     NSMutableString *description = [NSMutableString new];
 
-    [description appendString:[NSString stringWithFormat:@"#<%@: id = 0x%08x>\r\n", [self class], self]];
+    [description appendString:[NSString stringWithFormat:@"#<%@: id = %p>\r\n", [self class], self]];
 
     for (NSString *property in [ZSRuntimeUtility propertyNames:[self class]])
     {

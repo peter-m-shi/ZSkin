@@ -25,11 +25,24 @@
     [self prepareUI];
     [self prepareData];
 
+    [self.view bind:@"backgroundColor" to:@"color.error"];
+}
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveNotification:)
                                                  name:ZSSkinChangedNotificationKey
                                                object:nil];
-    [self.view bind:@"backgroundColor" to:@"color.error"];
+    [super viewDidAppear:animated];
+}
+
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super viewDidDisappear:animated];
 }
 
 - (void)prepareData
@@ -80,7 +93,7 @@
 
 - (void)receiveNotification:(NSNotification *)notification
 {
-    NSLog(@"receive skin change notifaction");
+    NSLog(@"%@ receive skin change notification", self.class);
     self.title = self.skin.name;
 }
 @end

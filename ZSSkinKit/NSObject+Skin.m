@@ -8,7 +8,7 @@
 
 #import "NSObject+Skin.h"
 #import "ZSSkinManager.h"
-#import "ZSSkinBinder.h"
+#import "ZSBinderManager.h"
 #import "ZSSkin.h"
 
 @implementation NSObject (Skin)
@@ -21,26 +21,54 @@
 
 - (void)bind:(NSString *)tKeyPath to:(NSString *)oKeyPath withParam:(void *)param
 {
-    [[ZSSkinBinder instance] bind:self tKeyPath:tKeyPath observer:[ZSSkinManager instance] oKeyPatrh:oKeyPath parameter:param];
+    [[ZSBinderManager instance] bind:self
+                          identifier:[self collectIdentifier]
+                            tKeyPath:tKeyPath
+                            observer:[ZSSkinManager instance]
+                           oKeyPatrh:oKeyPath
+                           parameter:param];
 }
 
 
 - (void)bind:(callBackBlock)callback
 {
-    [[ZSSkinBinder instance] bind:callback];
+    [[ZSBinderManager instance] bind:self identifier:[self collectIdentifier] callback:callback];
 }
 
 
 - (void)unBind:(NSString *)tKeyPath to:(NSString *)oKeyPath
 {
-    [[ZSSkinBinder instance] unBind:self tKeyPath:tKeyPath oKeyPath:oKeyPath];
+    [[ZSBinderManager instance] unBind:self tKeyPath:tKeyPath oKeyPath:oKeyPath];
 }
 
 
 - (NSString *)bindInfo:(NSString *)tKeyPath
 {
-    return [[ZSSkinBinder instance] bindInfo:self tKeyPath:tKeyPath];
+    return [[ZSBinderManager instance] bindInfo:self tKeyPath:tKeyPath];
 }
 
 
+#pragma mark - private function -
+
+
+- (NSString *)collectIdentifier
+{
+    NSArray *callStackSymbols = [NSThread callStackSymbols];
+    NSAssert(callStackSymbols.count >= 3, @"Object bind callStackSymbols count is too less.");
+
+    NSString *callStackInfo;
+    for (NSString *symbol in callStackSymbols)
+    {
+        if ([symbol rangeOfString:@"-[NSObject(Skin)"].length <= 0
+            && [symbol rangeOfString:@"-[ZSBindingAssistant setObject:forKeyedSubscript:]"].length <= 0)
+        {
+            callStackInfo = [symbol componentsSeparatedByString:@"0x"].lastObject;
+            break;
+        }
+    }
+
+    NSString *identifier = [NSString stringWithFormat:@"%p_%@_0x%@", self, [self class], callStackInfo];
+
+    return identifier;
+}
 @end

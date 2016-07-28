@@ -9,7 +9,7 @@
 #import "ZSSkinDefine.h"
 #import "ZSBindingAssistant.h"
 #import "ZSSkinManager.h"
-#import "ZSSkinBinder.h"
+#import "ZSBinderManager.h"
 #import "ZSSkin.h"
 #import "ZSColorSkin.h"
 #import "ZSFontSkin.h"

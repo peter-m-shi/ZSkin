@@ -43,13 +43,16 @@
                                 <rect key="frame" x="15" y="153" width="202" height="30"/>
                                 <state key="normal" title="Button Custom Style"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbP-Ut-fyC">
-                                <rect key="frame" x="17" y="213" width="139" height="30"/>
-                                <state key="normal" title="Button Icon Style"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uc3-af-gi2">
                                 <rect key="frame" x="15" y="93" width="143" height="30"/>
                                 <state key="normal" title="Button Style1"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbP-Ut-fyC">
+                                <rect key="frame" x="17" y="213" width="139" height="30"/>
+                                <state key="normal" title="Test rebind"/>
+                                <connections>
+                                    <action selector="clickTestRebind:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8OY-2w-veO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

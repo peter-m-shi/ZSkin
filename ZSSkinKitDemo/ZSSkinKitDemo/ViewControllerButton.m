@@ -10,6 +10,19 @@
 #import "ZSSkinKit.h"
 #import "ZSColorSkin+Custom.h"
 
+@interface MyButton : UIButton
+@end
+
+@implementation MyButton
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor
+{
+    NSLog(@"My Button setBackgroundColor be called");
+    [super setBackgroundColor:backgroundColor];
+}
+
+@end
+
 @interface ViewControllerButton ()
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
@@ -18,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *button3;
 @property (weak, nonatomic) IBOutlet UIButton *button4;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (nonatomic) MyButton *myButton;
 
 @end
 
@@ -28,6 +42,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    CGRect frame = CGRectMake(self.button4.frame.origin.x + 50,self.button4.frame.origin.y,self.button4.frame.size.width,self.button4.frame.size.height);
+    self.myButton = [[MyButton alloc] initWithFrame:frame];
+    [self.view addSubview:self.myButton];
+
     [self initUIColor];
 }
 
@@ -43,15 +61,15 @@
     [self.label bind:OPLabel(textColor) to:SK(color.background)];
 
     //Binding By Assignment As RAC
-    OBS(self.button, backgroundColor) = SK(color.background);
-    OBS(self.button, titleColorNormal) = SK(color.foreground);
-    OBS(self.button, titleColorHightlight) = SK(color.foreground);
-    OBS(self.button, titleColorSelected) = SK(color.foreground);
+    ZSB(self.button, backgroundColor) = SK(color.background);
+    ZSB(self.button, titleColorNormal) = SK(color.foreground);
+    ZSB(self.button, titleColorHightlight) = SK(color.foreground);
+    ZSB(self.button, titleColorSelected) = SK(color.foreground);
     
-    OBS(self.button2, backgroundColor) = SK(color.foreground);
-    OBS(self.button2, titleColorNormal) = SK(color.background);
-    OBS(self.button2, titleColorHightlight) = SK(color.background);
-    OBS(self.button2, titleColorSelected) = SK(color.background);
+    ZSB(self.button2, backgroundColor) = SK(color.foreground);
+    ZSB(self.button2, titleColorNormal) = SK(color.background);
+    ZSB(self.button2, titleColorHightlight) = SK(color.background);
+    ZSB(self.button2, titleColorSelected) = SK(color.background);
     
     //Custom Binding
     [self.button3 bind:^(ZSSkin *skin) {
@@ -79,8 +97,18 @@
         [btn bind:@"backgroundColor" to:@"color.foreground"];
         [btn setTitle:@"Click to unbind" forState:UIControlStateNormal];
     }
+
 }
 
+- (IBAction)clickTestRebind:(id)sender {
+    //Binding in repeatable function
+    [self.button4 bind:^(ZSSkin *skin) {
+        //TODO:do something
+        NSLog(@"repeatable examle called back");
+    }];
+
+    ZSB(self.myButton, backgroundColor) = SK(color.foreground);ZSB(self.myButton, titleColorNormal) = SK(color.background);
+}
 
 - (void)didReceiveMemoryWarning
 {
