@@ -88,9 +88,8 @@
 
 - (NSDictionary *)loadSkinContent:(NSString *)name type:(NSString *)type
 {
-    NSAssert(name, @"loadFontSkin name nil");
-    NSAssert(type, @"loadFontSkin type nil");
-
+    assert(name && type);
+    
     NSString *filePath = [NSString stringWithFormat:@"%@/%@.bundle/%@.plist",self.skinFolderPath,name,type];
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:filePath];
 

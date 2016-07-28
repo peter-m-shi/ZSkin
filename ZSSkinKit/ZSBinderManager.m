@@ -205,7 +205,7 @@
     }
     else
     {
-        NSAssert(NO,@"Unknow binder type be found.");
+        assert(false);
     }
 }
 

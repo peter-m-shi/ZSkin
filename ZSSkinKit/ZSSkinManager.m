@@ -68,7 +68,7 @@ NSString *ZSSkinChangedNotificationKey = @"ZSSkinChangedNotificationKey";
 
 - (void)setSkinIndexed:(NSInteger)index
 {
-    assert(index >= 0 < self.skins.count);
+    assert(index >= 0 && index < self.skins.count);
     self.skin = [self.skins objectAtIndex:index];
 }
 

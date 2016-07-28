@@ -54,7 +54,7 @@
 - (NSString *)collectIdentifier
 {
     NSArray *callStackSymbols = [NSThread callStackSymbols];
-    NSAssert(callStackSymbols.count >= 3, @"Object bind callStackSymbols count is too less.");
+    assert(callStackSymbols.count >= 3);
 
     NSString *callStackInfo;
     for (NSString *symbol in callStackSymbols)
