@@ -1,22 +1,22 @@
 Pod::Spec.new do |s|
 
-    s.name         = "ZSSkinKit"
+    s.name         = "ZSkin"
     s.version      = "0.0.9"
     s.summary      = "A iOS Kit For Skin"
 
     s.description  = <<-DESC
-        You can us ZSSkinKit to manage your app skins. dynamic skin loader of app.
+        You can us ZSkin to manage your app skins. dynamic skin loader of app.
     DESC
 
-    s.homepage     = "https://github.com/peter-m-shi/ZSSkinKit"
+    s.homepage     = "https://github.com/peter-m-shi/ZSkin"
 
     s.license      = "MIT"
 
     s.author       = { "peter.shi" => "peter.m.shi@outlook.com" }
 
-    s.source       = { :git => "https://github.com/peter-m-shi/ZSSkinKit.git", :tag => "0.0.9"}
+    s.source       = { :git => "https://github.com/peter-m-shi/ZSkin.git", :tag => "0.0.9"}
 
-    s.source_files  = 'ZSSkinKit/**/*.{h,m}'
+    s.source_files  = 'ZSkin/**/*.{h,m}'
 
     s.requires_arc = true
 
