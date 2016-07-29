@@ -15,7 +15,12 @@
 
 - (void)bind:(NSString *)tKeyPath to:(NSString *)oKeyPath;
 {
-    [self bind:tKeyPath to:oKeyPath withParam:nil];
+    [[ZBinderManager instance] bind:self
+                         identifier:[self collectIdentifier]
+                           tKeyPath:tKeyPath
+                           observer:[ZSkinManager instance]
+                          oKeyPatrh:oKeyPath
+                          parameter:nil];
 }
 
 
@@ -54,21 +59,13 @@
 - (NSString *)collectIdentifier
 {
     NSArray *callStackSymbols = [NSThread callStackSymbols];
-    assert(callStackSymbols.count >= 3);
+    assert(callStackSymbols.count >= 4);
 
-    NSString *callStackInfo;
-    for (NSString *symbol in callStackSymbols)
-    {
-        if ([symbol rangeOfString:@"-[NSObject(Skin)"].length <= 0
-            && [symbol rangeOfString:@"-[ZBindingAssistant setObject:forKeyedSubscript:]"].length <= 0)
-        {
-            callStackInfo = [symbol componentsSeparatedByString:@"0x"].lastObject;
-            break;
-        }
-    }
+    NSString *callStackInfo1 = [callStackSymbols[2] componentsSeparatedByString:@"0x"].lastObject;
+    NSString *callStackInfo2 = [callStackSymbols[3] componentsSeparatedByString:@"0x"].lastObject;
+    NSString *identifier = [NSString stringWithFormat:@"%p_%@_0x%@_0x%@", self, [self class], callStackInfo1,callStackInfo2];
 
-    NSString *identifier = [NSString stringWithFormat:@"%p_%@_0x%@", self, [self class], callStackInfo];
-
+//    NSLog(@"id : %@",identifier);
     return identifier;
 }
 @end

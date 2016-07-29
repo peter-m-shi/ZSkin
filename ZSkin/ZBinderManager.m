@@ -75,6 +75,7 @@
     NSString *key = K_BINDER_KEY_NORAML;
     if ([self binderExisted:key identifier:identifier])
     {
+        NSLog(@"existed binder identifier:%@",identifier);
         return;
     }
 
@@ -95,6 +96,7 @@
 
     if ([self binderExisted:key identifier:identifier])
     {
+        NSLog(@"existed binder identifier:%@",identifier);
         return;
     }
 

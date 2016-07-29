@@ -108,6 +108,15 @@
     }];
 
     ZSB(self.myButton, backgroundColor) = SK(color.foreground);ZSB(self.myButton, titleColorNormal) = SK(color.background);
+    
+    for (int i = 0; i < 3; i++) {
+        [self test];
+    }
+}
+
+- (void)test
+{
+    ZSB(self.myButton, titleColorHightlight) = SK(color.background);
 }
 
 - (void)didReceiveMemoryWarning
