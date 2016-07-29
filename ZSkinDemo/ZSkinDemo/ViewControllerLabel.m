@@ -7,7 +7,7 @@
 //
 
 #import "ViewControllerLabel.h"
-#import "ZSRuntimeUtility.h"
+#import "ZRuntimeUtility.h"
 #import "NSObject+Skin.h"
 
 @interface ViewControllerLabel ()
@@ -28,7 +28,7 @@
 - (void)prepareData
 {
     [super prepareData];
-    NSArray *propertys = [ZSRuntimeUtility propertyNames:[ZSColorSkin class]];
+    NSArray *propertys = [ZRuntimeUtility propertyNames:[ZColorSkin class]];
 
     CGFloat offsetY = 0;
     CGFloat interval = 5;
@@ -50,7 +50,7 @@
         [colorLabel setFont:font];
 
 
-        [colorLabel bind:^(ZSSkin *skin) {
+        [colorLabel bind:^(ZSkin *skin) {
             SEL selector = NSSelectorFromString(property);
             UIColor *color = [self.skin.color performSelector:selector];
             CGFloat r, g, b, a;
@@ -65,7 +65,7 @@
         UILabel *descLabel = [[UILabel alloc] initWithFrame:CGRectMake(nameWidth + colorWidth, offsetY, descWidth, height)];
         [descLabel setFont:font];
         [descLabel setTextColor:[UIColor blackColor]];
-        [descLabel bind:^(ZSSkin *skin) {
+        [descLabel bind:^(ZSkin *skin) {
             SEL selector = NSSelectorFromString(property);
             UIColor *color = [self.skin.color performSelector:selector];
             CGFloat r, g, b, a;

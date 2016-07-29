@@ -1,15 +1,15 @@
 //
 //  NSObject+Skin.h
-//  ZSSkinKit
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/14.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
 #import "NSObject+Skin.h"
-#import "ZSSkinManager.h"
-#import "ZSBinderManager.h"
-#import "ZSSkin.h"
+#import "ZSkinManager.h"
+#import "ZBinderManager.h"
+#import "ZSkin.h"
 
 @implementation NSObject (Skin)
 
@@ -21,10 +21,10 @@
 
 - (void)bind:(NSString *)tKeyPath to:(NSString *)oKeyPath withParam:(void *)param
 {
-    [[ZSBinderManager instance] bind:self
+    [[ZBinderManager instance] bind:self
                           identifier:[self collectIdentifier]
                             tKeyPath:tKeyPath
-                            observer:[ZSSkinManager instance]
+                            observer:[ZSkinManager instance]
                            oKeyPatrh:oKeyPath
                            parameter:param];
 }
@@ -32,19 +32,19 @@
 
 - (void)bind:(callBackBlock)callback
 {
-    [[ZSBinderManager instance] bind:self identifier:[self collectIdentifier] callback:callback];
+    [[ZBinderManager instance] bind:self identifier:[self collectIdentifier] callback:callback];
 }
 
 
 - (void)unBind:(NSString *)tKeyPath to:(NSString *)oKeyPath
 {
-    [[ZSBinderManager instance] unBind:self tKeyPath:tKeyPath oKeyPath:oKeyPath];
+    [[ZBinderManager instance] unBind:self tKeyPath:tKeyPath oKeyPath:oKeyPath];
 }
 
 
 - (NSString *)bindInfo:(NSString *)tKeyPath
 {
-    return [[ZSBinderManager instance] bindInfo:self tKeyPath:tKeyPath];
+    return [[ZBinderManager instance] bindInfo:self tKeyPath:tKeyPath];
 }
 
 
@@ -60,7 +60,7 @@
     for (NSString *symbol in callStackSymbols)
     {
         if ([symbol rangeOfString:@"-[NSObject(Skin)"].length <= 0
-            && [symbol rangeOfString:@"-[ZSBindingAssistant setObject:forKeyedSubscript:]"].length <= 0)
+            && [symbol rangeOfString:@"-[ZBindingAssistant setObject:forKeyedSubscript:]"].length <= 0)
         {
             callStackInfo = [symbol componentsSeparatedByString:@"0x"].lastObject;
             break;

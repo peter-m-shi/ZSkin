@@ -1,6 +1,6 @@
 //
-//  ZSSkinLoader.h
-//  ZSSkinKit
+//  ZSkinLoader.h
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/14.
 //  Copyright © 2016年 peter.shi. All rights reserved.
@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@class ZSSkin;
+@class ZSkin;
 
-@interface ZSSkinLoader : NSObject
+@interface ZSkinLoader : NSObject
 
 @property (nonatomic) NSString *skinFolderPath;
 
@@ -29,6 +29,6 @@
  *
  *  @param skin who want be loaded.
  */
-- (void)loadSkin:(ZSSkin *)skin;
+- (void)loadSkin:(ZSkin *)skin;
 
 @end

@@ -1,13 +1,13 @@
 //
-//  ZSFontSkin.m
-//  ZSSkinKit
+//  ZFontSkin.m
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/14.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
-#import "ZSFontSkin.h"
+#import "ZFontSkin.h"
 
-@implementation ZSFontSkin
+@implementation ZFontSkin
 
 @end

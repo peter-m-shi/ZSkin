@@ -1,36 +1,36 @@
 //
-//  ZSBinderManager.m
-//  ZSSkinKitDemo
+//  ZBinderManager.m
+//  ZSkinDemo
 //
 //  Created by peter.shi on 16/7/18.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
-#import "ZSBinderManager.h"
-#import "ZSSkinManager.h"
-#import "ZSSkin.h"
-#import "ZSBinder.h"
+#import "ZBinderManager.h"
+#import "ZSkinManager.h"
+#import "ZSkin.h"
+#import "ZBinder.h"
 
 @import UIKit;
 
 
-#pragma mark - ZSBinderManager -
+#pragma mark - ZBinderManager -
 
 #define K_BINDER_KEY_NORAML @"self.normal"
 #define K_SKIN_MANAGER_KEY_PATH @"self.skinManager.skin"
 
-@interface ZSBinderManager ()
+@interface ZBinderManager ()
 
-@property (nonatomic) ZSSkinManager *skinManager;
+@property (nonatomic) ZSkinManager *skinManager;
 @property (nonatomic) NSMutableDictionary *binderMap;
 
 @end
 
-@implementation ZSBinderManager
+@implementation ZBinderManager
 
 + (instancetype)instance
 {
-    static ZSBinderManager *staticInstance = nil;
+    static ZBinderManager *staticInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         staticInstance = [[self alloc] init];
@@ -54,7 +54,7 @@
 
 - (void)initVariable
 {
-    self.skinManager = [ZSSkinManager instance];
+    self.skinManager = [ZSkinManager instance];
     self.binderMap = [NSMutableDictionary new];
 }
 
@@ -63,7 +63,7 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(skinDidChanged:)
-                                                 name:ZSSkinChangedNotificationKey
+                                                 name:ZSkinChangedNotificationKey
                                                object:nil];
 }
 
@@ -78,7 +78,7 @@
         return;
     }
 
-    ZSBlockBinder *binder = [[ZSBlockBinder alloc] initWithTarget:target identifier:identifier block:callback];
+    ZBlockBinder *binder = [[ZBlockBinder alloc] initWithTarget:target identifier:identifier block:callback];
 
     [self appendBinder:binder forKey:key];
 }
@@ -98,7 +98,7 @@
         return;
     }
 
-    ZSKVOBinder *info = [[ZSKVOBinder alloc] initWithTarget:target
+    ZKVOBinder *info = [[ZKVOBinder alloc] initWithTarget:target
                                                  identifier:identifier
                                                    tKeyPath:tKeyPath
                                                    observer:observer
@@ -116,7 +116,7 @@
 
     for (int i = (int)binderInfoList.count - 1; i >= 0; --i)
     {
-        ZSKVOBinder *binderInfo = binderInfoList[i];
+        ZKVOBinder *binderInfo = binderInfoList[i];
         if (binderInfo.target == target
             && [binderInfo.tKeyPath isEqualToString:tKeyPath]
             && [binderInfo.oKeyPath isEqualToString:oKeyPath])
@@ -132,7 +132,7 @@
 {
     for (NSMutableArray *binderInfoList in [self.binderMap allValues])
     {
-        for (ZSKVOBinder *binderInfo in binderInfoList)
+        for (ZKVOBinder *binderInfo in binderInfoList)
         {
             if (binderInfo.target == target
                 && [binderInfo.tKeyPath isEqualToString:tKeyPath])
@@ -154,11 +154,11 @@
 
 - (void)skinDidChanged:(NSNotification *)notification
 {
-    for (ZSBinder *binder in self.binderMap[K_BINDER_KEY_NORAML])
+    for (ZBinder *binder in self.binderMap[K_BINDER_KEY_NORAML])
     {
-        if ([binder isKindOfClass:[ZSBlockBinder class]])
+        if ([binder isKindOfClass:[ZBlockBinder class]])
         {
-            callBackBlock block = ((ZSBlockBinder *)binder).block;
+            callBackBlock block = ((ZBlockBinder *)binder).block;
             if (block)
             {((callBackBlock)block)(notification.object);}
         }
@@ -171,7 +171,7 @@
 
 - (BOOL)binderExisted:(NSString *)key identifier:(NSString *)identifier
 {
-    for (ZSBinder *binder in self.binderMap[key])
+    for (ZBinder *binder in self.binderMap[key])
     {
         if ([binder.identifier isEqualToString:identifier])
         {
@@ -182,22 +182,22 @@
 }
 
 
-- (void)appendBinder:(ZSBinder *)binder forKey:(NSString *)key
+- (void)appendBinder:(ZBinder *)binder forKey:(NSString *)key
 {
     NSMutableArray *binderInfoList = [self binderListWithKey:key];
     [binderInfoList addObject:binder];
     [self.binderMap setObject:binderInfoList forKey:key];
 
-    if ([binder isKindOfClass:[ZSKVOBinder class]])
+    if ([binder isKindOfClass:[ZKVOBinder class]])
     {
         [self addObserver:binder
                forKeyPath:key
                   options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
                   context:nil];
     }
-    else if ([binder isKindOfClass:[ZSBlockBinder class]])
+    else if ([binder isKindOfClass:[ZBlockBinder class]])
     {
-        callBackBlock block = ((ZSBlockBinder *)binder).block;
+        callBackBlock block = ((ZBlockBinder *)binder).block;
         if (block)
         {
             block(self.skinManager.skin);

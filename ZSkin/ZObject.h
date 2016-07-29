@@ -1,6 +1,6 @@
 //
-//  ZSObject.h
-//  ZSSkinKit
+//  ZObject.h
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/14.
 //  Copyright © 2016年 peter.shi. All rights reserved.
@@ -10,7 +10,7 @@
 #import <objc/NSObject.h>
 #import <objc/objc.h>
 
-@interface ZSObject : NSObject<NSCoding>
+@interface ZObject : NSObject<NSCoding>
 
 @property (nonatomic, copy) NSString *objectId;
 

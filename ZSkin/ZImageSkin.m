@@ -1,16 +1,16 @@
 //
-//  ZSImageSkin.m
-//  ZSSkinKit
+//  ZImageSkin.m
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/14.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
-#import "ZSImageSkin.h"
+#import "ZImageSkin.h"
 
 @import UIKit;
 
-@implementation ZSImageSkin
+@implementation ZImageSkin
 
 - (id)initWithPath:(NSString *)path
 {

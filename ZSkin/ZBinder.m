@@ -1,23 +1,23 @@
 //
-//  ZSBinder.m
-//  ZSSkinKitDemo
+//  ZBinder.m
+//  ZSkinDemo
 //
 //  Created by peter.shi on 16/7/28.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
-#import "ZSBinder.h"
-#import "ZSRuntimeUtility.h"
+#import "ZBinder.h"
+#import "ZRuntimeUtility.h"
 
 #pragma mark - ZSKVOBinder -
 
-@interface ZSBinder ()
+@interface ZBinder ()
 
 @property (nonatomic, weak, readwrite) id target;
 @property (nonatomic, copy, readwrite) NSString *identifier;
 @end
 
-@implementation ZSBinder
+@implementation ZBinder
 
 - (instancetype)initWithTarget:(id)target identifier:(NSString *)identifier
 {
@@ -39,7 +39,7 @@
 
     [description appendString:[NSString stringWithFormat:@"#<%@: id = %p>\r\n", [self class], self]];
 
-    for (NSString *property in [ZSRuntimeUtility propertyNames:[self class]])
+    for (NSString *property in [ZRuntimeUtility propertyNames:[self class]])
     {
         SEL selector = NSSelectorFromString(property);
         id value = [self performSelector:selector];
@@ -52,7 +52,7 @@
 
 #pragma mark - ZSKVOBinder -
 
-@interface ZSKVOBinder ()
+@interface ZKVOBinder ()
 
 @property (nonatomic, readwrite) id observer;
 @property (nonatomic, copy, readwrite) NSString *tKeyPath;
@@ -61,7 +61,7 @@
 
 @end
 
-@implementation ZSKVOBinder
+@implementation ZKVOBinder
 
 - (instancetype)initWithTarget:(id)target
                     identifier:(NSString *)identifier
@@ -114,12 +114,12 @@
     }
     else
     {
-        NSLog(@"[ZSKVOBinder] target:%@ not response SEL: %@", self.target, NSStringFromSelector(self.selector));
+        NSLog(@"[ZKVOBinder] target:%@ not response SEL: %@", self.target, NSStringFromSelector(self.selector));
     }
 }
 
 
-- (SEL)selectorFromKeyPath:(ZSKVOBinder *)binderInfo
+- (SEL)selectorFromKeyPath:(ZKVOBinder *)binderInfo
 {
     NSString *headChar = [binderInfo.tKeyPath substringToIndex:1];
     NSString *bodyStr = [binderInfo.tKeyPath substringFromIndex:1];
@@ -137,14 +137,14 @@
 
 #pragma mark - ZSBlockBinder -
 
-@interface ZSBlockBinder ()
+@interface ZBlockBinder ()
 
 
 @property (nonatomic, copy, readwrite) callBackBlock block;
 
 @end
 
-@implementation ZSBlockBinder
+@implementation ZBlockBinder
 
 - (instancetype)initWithTarget:(id)target
                     identifier:(NSString *)identifier

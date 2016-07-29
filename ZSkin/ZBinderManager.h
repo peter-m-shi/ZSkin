@@ -1,17 +1,17 @@
 //
-//  ZSBinderManager.h
-//  ZSSkinKitDemo
+//  ZBinderManager.h
+//  ZSkinDemo
 //
 //  Created by peter.shi on 16/7/18.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "ZSSkinDefine.h"
+#import "ZSkinDefine.h"
 
-@class ZSSkin;
+@class ZSkin;
 
-@interface ZSBinderManager : NSObject
+@interface ZBinderManager : NSObject
 
 + (instancetype)instance;
 

@@ -1,16 +1,16 @@
 //
-//  ZSColorSkin+Custom.m
-//  ZSSkinKitDemo
+//  ZColorSkin+Custom.m
+//  ZSkinDemo
 //
 //  Created by peter.shi on 16/7/23.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
-#import "ZSColorSkin+Custom.h"
-#import "ZSSkinDefine.h"
+#import "ZColorSkin+Custom.h"
+#import "ZSkinDefine.h"
 
 
-@implementation ZSColorSkin (Custom)
+@implementation ZColorSkin (Custom)
 
 DYNAMIC(defaultc,setDefaultc,UIColor*)
 DYNAMIC(foreground,setForeground,UIColor*)

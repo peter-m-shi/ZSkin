@@ -1,17 +1,17 @@
 //
-//  ZSColorSkin.m
-//  ZSSkinKit
+//  ZColorSkin.m
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/14.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
-#import "ZSColorSkin.h"
-#import "ZSRuntimeUtility.h"
+#import "ZColorSkin.h"
+#import "ZRuntimeUtility.h"
 
 @import UIKit;
 
-@implementation ZSColorSkin
+@implementation ZColorSkin
 
 - (id)handleParseFor:(id)value key:(NSString *)key
 {
@@ -27,7 +27,7 @@
         [scanner scanHexInt:&intValue];
     }
 
-    Class klass = [ZSRuntimeUtility propertyClassForPropertyName:key ofClass:[self class]];
+    Class klass = [ZRuntimeUtility propertyClassForPropertyName:key ofClass:[self class]];
     if ([klass isEqual:[UIColor class]])
     {
         SEL selector = NSSelectorFromString([NSString stringWithFormat:@"%@Color", value]);

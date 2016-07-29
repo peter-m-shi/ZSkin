@@ -1,13 +1,13 @@
 //
-//  ZSBindingAssistant.h
-//  ZSSkinKit
+//  ZBindingAssistant.h
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/14.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "ZSSkinDefine.h"
+#import "ZSkinDefine.h"
 
 /// Assigns a keypath to an object property, automatically setting the given key
 /// path on every `next`. When the keypath value changed, the binding is automatically
@@ -33,9 +33,9 @@
 
 /// Do not use this directly. Use the RAC macro above.
 #define ZSB_(TARGET, KEYPATH) \
-    [[ZSBindingAssistant alloc] initWithTarget:(TARGET)][@__keypath(TARGET, KEYPATH)]
+    [[ZBindingAssistant alloc] initWithTarget:(TARGET)][@__keypath(TARGET, KEYPATH)]
 
-@interface ZSBindingAssistant : NSMutableDictionary
+@interface ZBindingAssistant : NSMutableDictionary
 
 - (id)initWithTarget:(id)target;
 - (void)setObject:(NSString *)tKeyPath forKeyedSubscript:(NSString *)oKeyPath;

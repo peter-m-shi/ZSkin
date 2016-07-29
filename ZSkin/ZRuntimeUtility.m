@@ -1,14 +1,14 @@
 //
-//  ZSRuntimeUtility.m
-//  ZSSkinKit
+//  ZRuntimeUtility.m
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/14.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
 #import <objc/runtime.h>
-#import "ZSRuntimeUtility.h"
-#import "ZSObject.h"
+#import "ZRuntimeUtility.h"
+#import "ZObject.h"
 
 
 static const char *property_getTypeName(objc_property_t property)
@@ -30,7 +30,7 @@ static const char *property_getTypeName(objc_property_t property)
 }
 
 
-@implementation ZSRuntimeUtility
+@implementation ZRuntimeUtility
 
 static NSMutableDictionary *propertyListByClass;
 static NSMutableDictionary *propertyClassByClassAndPropertyName;
@@ -49,7 +49,7 @@ static NSMutableDictionary *propertyClassByClassAndPropertyName;
 
 + (NSArray *)propertyNames:(Class)klass
 {
-    if (klass == [ZSObject class])
+    if (klass == [ZObject class])
     {
         return [NSArray array];
     }
@@ -80,7 +80,7 @@ static NSMutableDictionary *propertyClassByClassAndPropertyName;
     free(properties);
 
     [propertyListByClass setObject:propertyNamesArray forKey:className];
-    NSArray *arr = [ZSRuntimeUtility propertyNames:class_getSuperclass(klass)];
+    NSArray *arr = [ZRuntimeUtility propertyNames:class_getSuperclass(klass)];
     [propertyNamesArray addObjectsFromArray:arr];
     return propertyNamesArray;
 }

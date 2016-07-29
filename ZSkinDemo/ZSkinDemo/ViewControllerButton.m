@@ -1,14 +1,14 @@
 //
 //  ViewController.m
-//  ZSSkinKit
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/14.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
 #import "ViewControllerButton.h"
-#import "ZSSkinKit.h"
-#import "ZSColorSkin+Custom.h"
+#import "ZSkinKit.h"
+#import "ZColorSkin+Custom.h"
 
 @interface MyButton : UIButton
 @end
@@ -72,7 +72,7 @@
     ZSB(self.button2, titleColorSelected) = SK(color.background);
     
     //Custom Binding
-    [self.button3 bind:^(ZSSkin *skin) {
+    [self.button3 bind:^(ZSkin *skin) {
         [self.button3 setBackgroundColor:skin.color.foreground];
         [self.button3 setTitleColor:skin.color.background forState:UIControlStateNormal];
         [self.button3 setTitle:skin.name forState:UIControlStateNormal];
@@ -102,7 +102,7 @@
 
 - (IBAction)clickTestRebind:(id)sender {
     //Binding in repeatable function
-    [self.button4 bind:^(ZSSkin *skin) {
+    [self.button4 bind:^(ZSkin *skin) {
         //TODO:do something
         NSLog(@"repeatable examle called back");
     }];

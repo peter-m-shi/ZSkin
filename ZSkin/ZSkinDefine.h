@@ -1,6 +1,6 @@
 //
-//  ZSSkinDefine.h
-//  ZSSkinKit
+//  ZSkinDefine.h
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/14.
 //  Copyright © 2016年 peter.shi. All rights reserved.
@@ -10,9 +10,9 @@
 #import <objc/runtime.h>
 #import "UIButton+ExProperty.h"
 
-@class ZSSkin;
+@class ZSkin;
 
-typedef void (^callBackBlock)(ZSSkin *skin);
+typedef void (^callBackBlock)(ZSkin *skin);
 
 //
 #define OP(target,keypath) @__keypath(target,keypath)
@@ -21,7 +21,7 @@ typedef void (^callBackBlock)(ZSSkin *skin);
 #define OPBtn(keypath) @__keypath(UIButton.new,keypath)
 #define OPLabel(keypath) @__keypath(UILabel.new,keypath)
 
-#define SK(keypath) @__keypath(ZSSkin.new,keypath)
+#define SK(keypath) @__keypath(ZSkin.new,keypath)
 
 #define __keypath(OBJ, PATH) \
 (((void)(NO && ((void)OBJ.PATH, NO)), # PATH))

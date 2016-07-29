@@ -1,19 +1,19 @@
 //
-//  ZSObject.m
-//  ZSSkinKit
+//  ZObject.m
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/14.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
-#import "ZSObject.h"
-#import "ZSRuntimeUtility.h"
+#import "ZObject.h"
+#import "ZRuntimeUtility.h"
 
 @import UIKit;
 
 #pragma GCC diagnostic ignored "-Warc-performSelector-leaks"
 
-@implementation ZSObject
+@implementation ZObject
 
 @synthesize objectId;
 static NSString *idPropertyName = @"id";
@@ -39,7 +39,7 @@ Class nsArrayClass;
 
     if ((self = [super init]))
     {
-        for (NSString *key in [ZSRuntimeUtility propertyNames:[self class]])
+        for (NSString *key in [ZRuntimeUtility propertyNames:[self class]])
         {
 
             id value = [dictionary valueForKey:[[self map] valueForKey:key]];
@@ -49,7 +49,7 @@ Class nsArrayClass;
                 continue;
             }
 
-            if ([ZSRuntimeUtility isPropertyReadOnly:[self class] propertyName:key])
+            if ([ZRuntimeUtility isPropertyReadOnly:[self class] propertyName:key])
             {
                 continue;
             }
@@ -83,7 +83,7 @@ Class nsArrayClass;
 
     if ([value isKindOfClass:nsDictionaryClass])
     {
-        Class klass = [ZSRuntimeUtility propertyClassForPropertyName:key ofClass:[self class]];
+        Class klass = [ZRuntimeUtility propertyClassForPropertyName:key ofClass:[self class]];
         result = [[klass alloc] initWithDictionary:value];
     }
         // handle array
@@ -101,9 +101,9 @@ Class nsArrayClass;
                 {
                     [childObjects addObject:child];
                 }
-                else if ([arrayItemType isSubclassOfClass:[ZSObject class]])
+                else if ([arrayItemType isSubclassOfClass:[ZObject class]])
                 {
-                    ZSObject *childDTO = [[arrayItemType alloc] initWithDictionary:child];
+                    ZObject *childDTO = [[arrayItemType alloc] initWithDictionary:child];
                     [childObjects addObject:childDTO];
                 }
             }
@@ -122,7 +122,7 @@ Class nsArrayClass;
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
     [encoder encodeObject:self.objectId forKey:idPropertyNameOnObject];
-    for (NSString *key in [ZSRuntimeUtility propertyNames:[self class]])
+    for (NSString *key in [ZRuntimeUtility propertyNames:[self class]])
     {
         [encoder encodeObject:[self valueForKey:key] forKey:key];
     }
@@ -135,9 +135,9 @@ Class nsArrayClass;
     {
         [self setValue:[decoder decodeObjectForKey:idPropertyNameOnObject] forKey:idPropertyNameOnObject];
 
-        for (NSString *key in [ZSRuntimeUtility propertyNames:[self class]])
+        for (NSString *key in [ZRuntimeUtility propertyNames:[self class]])
         {
-            if ([ZSRuntimeUtility isPropertyReadOnly:[self class] propertyName:key])
+            if ([ZRuntimeUtility isPropertyReadOnly:[self class] propertyName:key])
             {
                 continue;
             }
@@ -160,17 +160,17 @@ Class nsArrayClass;
         [dic setObject:self.objectId forKey:idPropertyName];
     }
 
-    for (NSString *key in [ZSRuntimeUtility propertyNames:[self class]])
+    for (NSString *key in [ZRuntimeUtility propertyNames:[self class]])
     {
         id value = [self valueForKey:key];
-        if (value && [value isKindOfClass:[ZSObject class]])
+        if (value && [value isKindOfClass:[ZObject class]])
         {
             [dic setObject:[value toDictionary] forKey:[[self map] valueForKey:key]];
         }
         else if (value && [value isKindOfClass:[NSArray class]] && ((NSArray *)value).count > 0)
         {
             id internalValue = [value objectAtIndex:0];
-            if (internalValue && [internalValue isKindOfClass:[ZSObject class]])
+            if (internalValue && [internalValue isKindOfClass:[ZObject class]])
             {
                 NSMutableArray *internalItems = [NSMutableArray array];
                 for (id item in value)
@@ -195,7 +195,7 @@ Class nsArrayClass;
 
 - (NSDictionary *)map
 {
-    NSArray *properties = [ZSRuntimeUtility propertyNames:[self class]];
+    NSArray *properties = [ZRuntimeUtility propertyNames:[self class]];
     NSMutableDictionary *mapDictionary = [[NSMutableDictionary alloc] initWithCapacity:properties.count];
     for (NSString *property in properties)
     {
@@ -207,10 +207,10 @@ Class nsArrayClass;
 
 - (BOOL)isEqual:(id)object
 {
-    if (object == nil || ![object isKindOfClass:[ZSObject class]])
+    if (object == nil || ![object isKindOfClass:[ZObject class]])
     {return NO;}
 
-    ZSObject *model = (ZSObject *)object;
+    ZObject *model = (ZObject *)object;
 
     return [self.objectId isEqualToString:model.objectId];
 }
@@ -221,7 +221,7 @@ Class nsArrayClass;
 
     [description appendString:[NSString stringWithFormat:@"#<%@: id = %p>\r\n", [self class], self]];
 
-    for (NSString *property in [ZSRuntimeUtility propertyNames:[self class]])
+    for (NSString *property in [ZRuntimeUtility propertyNames:[self class]])
     {
         SEL selector = NSSelectorFromString(property);
         id value = [self performSelector:selector];

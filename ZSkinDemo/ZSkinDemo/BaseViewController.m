@@ -7,9 +7,9 @@
 //
 
 #import "BaseViewController.h"
-#import "ZSSkinManager.h"
+#import "ZSkinManager.h"
 #import "NSObject+Skin.h"
-#import "ZSSkinDefine.h"
+#import "ZSkinDefine.h"
 
 @interface BaseViewController ()
 
@@ -33,7 +33,7 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveNotification:)
-                                                 name:ZSSkinChangedNotificationKey
+                                                 name:ZSkinChangedNotificationKey
                                                object:nil];
     [super viewDidAppear:animated];
 }
@@ -47,12 +47,12 @@
 
 - (void)prepareData
 {
-    self.skin = [ZSSkinManager instance].skin;
+    self.skin = [ZSkinManager instance].skin;
 
     [self.segment removeAllSegments];
-    for (int i = 0; i < [ZSSkinManager instance].skins.count; ++i)
+    for (int i = 0; i < [ZSkinManager instance].skins.count; ++i)
     {
-        ZSSkin *skin = [[ZSSkinManager instance].skins objectAtIndex:i];
+        ZSkin *skin = [[ZSkinManager instance].skins objectAtIndex:i];
         [self.segment insertSegmentWithTitle:skin.name atIndex:i animated:NO];
         if (self.skin == skin)
         {
@@ -72,8 +72,8 @@
 
 - (IBAction)segmentValueChanged:(id)sender
 {
-    self.skin = [[ZSSkinManager instance].skins objectAtIndex:self.segment.selectedSegmentIndex];
-    [ZSSkinManager instance].skin = self.skin;
+    self.skin = [[ZSkinManager instance].skins objectAtIndex:self.segment.selectedSegmentIndex];
+    [ZSkinManager instance].skin = self.skin;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -1,14 +1,14 @@
 //
-//  ZSColorSkin+Custom.h
-//  ZSSkinKitDemo
+//  ZColorSkin+Custom.h
+//  ZSkinDemo
 //
 //  Created by peter.shi on 16/7/23.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
-#import "ZSColorSkin.h"
+#import "ZColorSkin.h"
 
-@interface ZSColorSkin (Custom)
+@interface ZColorSkin (Custom)
 
 @property (nonatomic) UIColor *defaultc;
 @property (nonatomic) UIColor *foreground;

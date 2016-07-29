@@ -9,17 +9,17 @@
 /* Begin PBXBuildFile section */
 		D00BD6FC1D4AF4CA008B4B24 /* NSObject+Skin.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6E11D4AF4CA008B4B24 /* NSObject+Skin.m */; };
 		D00BD6FD1D4AF4CA008B4B24 /* UIButton+ExProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6E31D4AF4CA008B4B24 /* UIButton+ExProperty.m */; };
-		D00BD6FE1D4AF4CA008B4B24 /* ZSBinder.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6E51D4AF4CA008B4B24 /* ZSBinder.m */; };
-		D00BD6FF1D4AF4CA008B4B24 /* ZSBinderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6E71D4AF4CA008B4B24 /* ZSBinderManager.m */; };
-		D00BD7001D4AF4CA008B4B24 /* ZSBindingAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6E91D4AF4CA008B4B24 /* ZSBindingAssistant.m */; };
-		D00BD7011D4AF4CA008B4B24 /* ZSColorSkin.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6EB1D4AF4CA008B4B24 /* ZSColorSkin.m */; };
-		D00BD7021D4AF4CA008B4B24 /* ZSFontSkin.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6ED1D4AF4CA008B4B24 /* ZSFontSkin.m */; };
-		D00BD7031D4AF4CA008B4B24 /* ZSImageSkin.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6EF1D4AF4CA008B4B24 /* ZSImageSkin.m */; };
-		D00BD7041D4AF4CA008B4B24 /* ZSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6F11D4AF4CA008B4B24 /* ZSObject.m */; };
-		D00BD7051D4AF4CA008B4B24 /* ZSRuntimeUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6F31D4AF4CA008B4B24 /* ZSRuntimeUtility.m */; };
-		D00BD7061D4AF4CA008B4B24 /* ZSSkin.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6F51D4AF4CA008B4B24 /* ZSSkin.m */; };
-		D00BD7071D4AF4CA008B4B24 /* ZSSkinLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6F91D4AF4CA008B4B24 /* ZSSkinLoader.m */; };
-		D00BD7081D4AF4CA008B4B24 /* ZSSkinManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6FB1D4AF4CA008B4B24 /* ZSSkinManager.m */; };
+		D00BD6FE1D4AF4CA008B4B24 /* ZBinder.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6E51D4AF4CA008B4B24 /* ZBinder.m */; };
+		D00BD6FF1D4AF4CA008B4B24 /* ZBinderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6E71D4AF4CA008B4B24 /* ZBinderManager.m */; };
+		D00BD7001D4AF4CA008B4B24 /* ZBindingAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6E91D4AF4CA008B4B24 /* ZBindingAssistant.m */; };
+		D00BD7011D4AF4CA008B4B24 /* ZColorSkin.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6EB1D4AF4CA008B4B24 /* ZColorSkin.m */; };
+		D00BD7021D4AF4CA008B4B24 /* ZFontSkin.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6ED1D4AF4CA008B4B24 /* ZFontSkin.m */; };
+		D00BD7031D4AF4CA008B4B24 /* ZImageSkin.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6EF1D4AF4CA008B4B24 /* ZImageSkin.m */; };
+		D00BD7041D4AF4CA008B4B24 /* ZObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6F11D4AF4CA008B4B24 /* ZObject.m */; };
+		D00BD7051D4AF4CA008B4B24 /* ZRuntimeUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6F31D4AF4CA008B4B24 /* ZRuntimeUtility.m */; };
+		D00BD7061D4AF4CA008B4B24 /* ZSkin.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6F51D4AF4CA008B4B24 /* ZSkin.m */; };
+		D00BD7071D4AF4CA008B4B24 /* ZSkinLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6F91D4AF4CA008B4B24 /* ZSkinLoader.m */; };
+		D00BD7081D4AF4CA008B4B24 /* ZSkinManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6FB1D4AF4CA008B4B24 /* ZSkinManager.m */; };
 		D00BD70A1D4AF4DA008B4B24 /* Skins in Resources */ = {isa = PBXBuildFile; fileRef = D00BD7091D4AF4DA008B4B24 /* Skins */; };
 		D00BD70F1D4AF552008B4B24 /* 1403909a57b446bb8e55094e7450ff8f.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D00BD70C1D4AF552008B4B24 /* 1403909a57b446bb8e55094e7450ff8f.bundle */; };
 		D00BD7101D4AF552008B4B24 /* e02ae0e472604e47bfcf389e4ccf37ba.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D00BD70D1D4AF552008B4B24 /* e02ae0e472604e47bfcf389e4ccf37ba.bundle */; };
@@ -37,7 +37,7 @@
 		D05256B41D4AF11F000876B9 /* ViewControllerImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D05256AB1D4AF11F000876B9 /* ViewControllerImage.m */; };
 		D05256B51D4AF11F000876B9 /* ViewControllerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D05256AD1D4AF11F000876B9 /* ViewControllerLabel.m */; };
 		D05256B61D4AF11F000876B9 /* ViewControllerMain.m in Sources */ = {isa = PBXBuildFile; fileRef = D05256AF1D4AF11F000876B9 /* ViewControllerMain.m */; };
-		D05256B71D4AF11F000876B9 /* ZSColorSkin+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = D05256B11D4AF11F000876B9 /* ZSColorSkin+Custom.m */; };
+		D05256B71D4AF11F000876B9 /* ZColorSkin+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = D05256B11D4AF11F000876B9 /* ZColorSkin+Custom.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,30 +62,30 @@
 		D00BD6E11D4AF4CA008B4B24 /* NSObject+Skin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Skin.m"; sourceTree = "<group>"; };
 		D00BD6E21D4AF4CA008B4B24 /* UIButton+ExProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ExProperty.h"; sourceTree = "<group>"; };
 		D00BD6E31D4AF4CA008B4B24 /* UIButton+ExProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ExProperty.m"; sourceTree = "<group>"; };
-		D00BD6E41D4AF4CA008B4B24 /* ZSBinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBinder.h; sourceTree = "<group>"; };
-		D00BD6E51D4AF4CA008B4B24 /* ZSBinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBinder.m; sourceTree = "<group>"; };
-		D00BD6E61D4AF4CA008B4B24 /* ZSBinderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBinderManager.h; sourceTree = "<group>"; };
-		D00BD6E71D4AF4CA008B4B24 /* ZSBinderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBinderManager.m; sourceTree = "<group>"; };
-		D00BD6E81D4AF4CA008B4B24 /* ZSBindingAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBindingAssistant.h; sourceTree = "<group>"; };
-		D00BD6E91D4AF4CA008B4B24 /* ZSBindingAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBindingAssistant.m; sourceTree = "<group>"; };
-		D00BD6EA1D4AF4CA008B4B24 /* ZSColorSkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSColorSkin.h; sourceTree = "<group>"; };
-		D00BD6EB1D4AF4CA008B4B24 /* ZSColorSkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSColorSkin.m; sourceTree = "<group>"; };
-		D00BD6EC1D4AF4CA008B4B24 /* ZSFontSkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSFontSkin.h; sourceTree = "<group>"; };
-		D00BD6ED1D4AF4CA008B4B24 /* ZSFontSkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSFontSkin.m; sourceTree = "<group>"; };
-		D00BD6EE1D4AF4CA008B4B24 /* ZSImageSkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSImageSkin.h; sourceTree = "<group>"; };
-		D00BD6EF1D4AF4CA008B4B24 /* ZSImageSkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSImageSkin.m; sourceTree = "<group>"; };
-		D00BD6F01D4AF4CA008B4B24 /* ZSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSObject.h; sourceTree = "<group>"; };
-		D00BD6F11D4AF4CA008B4B24 /* ZSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSObject.m; sourceTree = "<group>"; };
-		D00BD6F21D4AF4CA008B4B24 /* ZSRuntimeUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSRuntimeUtility.h; sourceTree = "<group>"; };
-		D00BD6F31D4AF4CA008B4B24 /* ZSRuntimeUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSRuntimeUtility.m; sourceTree = "<group>"; };
-		D00BD6F41D4AF4CA008B4B24 /* ZSSkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSkin.h; sourceTree = "<group>"; };
-		D00BD6F51D4AF4CA008B4B24 /* ZSSkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSkin.m; sourceTree = "<group>"; };
-		D00BD6F61D4AF4CA008B4B24 /* ZSSkinDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSkinDefine.h; sourceTree = "<group>"; };
-		D00BD6F71D4AF4CA008B4B24 /* ZSSkinKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSkinKit.h; sourceTree = "<group>"; };
-		D00BD6F81D4AF4CA008B4B24 /* ZSSkinLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSkinLoader.h; sourceTree = "<group>"; };
-		D00BD6F91D4AF4CA008B4B24 /* ZSSkinLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSkinLoader.m; sourceTree = "<group>"; };
-		D00BD6FA1D4AF4CA008B4B24 /* ZSSkinManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSkinManager.h; sourceTree = "<group>"; };
-		D00BD6FB1D4AF4CA008B4B24 /* ZSSkinManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSkinManager.m; sourceTree = "<group>"; };
+		D00BD6E41D4AF4CA008B4B24 /* ZBinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBinder.h; sourceTree = "<group>"; };
+		D00BD6E51D4AF4CA008B4B24 /* ZBinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBinder.m; sourceTree = "<group>"; };
+		D00BD6E61D4AF4CA008B4B24 /* ZBinderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBinderManager.h; sourceTree = "<group>"; };
+		D00BD6E71D4AF4CA008B4B24 /* ZBinderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBinderManager.m; sourceTree = "<group>"; };
+		D00BD6E81D4AF4CA008B4B24 /* ZBindingAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBindingAssistant.h; sourceTree = "<group>"; };
+		D00BD6E91D4AF4CA008B4B24 /* ZBindingAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBindingAssistant.m; sourceTree = "<group>"; };
+		D00BD6EA1D4AF4CA008B4B24 /* ZColorSkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZColorSkin.h; sourceTree = "<group>"; };
+		D00BD6EB1D4AF4CA008B4B24 /* ZColorSkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZColorSkin.m; sourceTree = "<group>"; };
+		D00BD6EC1D4AF4CA008B4B24 /* ZFontSkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFontSkin.h; sourceTree = "<group>"; };
+		D00BD6ED1D4AF4CA008B4B24 /* ZFontSkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFontSkin.m; sourceTree = "<group>"; };
+		D00BD6EE1D4AF4CA008B4B24 /* ZImageSkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZImageSkin.h; sourceTree = "<group>"; };
+		D00BD6EF1D4AF4CA008B4B24 /* ZImageSkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZImageSkin.m; sourceTree = "<group>"; };
+		D00BD6F01D4AF4CA008B4B24 /* ZObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZObject.h; sourceTree = "<group>"; };
+		D00BD6F11D4AF4CA008B4B24 /* ZObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZObject.m; sourceTree = "<group>"; };
+		D00BD6F21D4AF4CA008B4B24 /* ZRuntimeUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRuntimeUtility.h; sourceTree = "<group>"; };
+		D00BD6F31D4AF4CA008B4B24 /* ZRuntimeUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRuntimeUtility.m; sourceTree = "<group>"; };
+		D00BD6F41D4AF4CA008B4B24 /* ZSkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSkin.h; sourceTree = "<group>"; };
+		D00BD6F51D4AF4CA008B4B24 /* ZSkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSkin.m; sourceTree = "<group>"; };
+		D00BD6F61D4AF4CA008B4B24 /* ZSkinDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSkinDefine.h; sourceTree = "<group>"; };
+		D00BD6F71D4AF4CA008B4B24 /* ZSkinKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSkinKit.h; sourceTree = "<group>"; };
+		D00BD6F81D4AF4CA008B4B24 /* ZSkinLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSkinLoader.h; sourceTree = "<group>"; };
+		D00BD6F91D4AF4CA008B4B24 /* ZSkinLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSkinLoader.m; sourceTree = "<group>"; };
+		D00BD6FA1D4AF4CA008B4B24 /* ZSkinManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSkinManager.h; sourceTree = "<group>"; };
+		D00BD6FB1D4AF4CA008B4B24 /* ZSkinManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSkinManager.m; sourceTree = "<group>"; };
 		D00BD7091D4AF4DA008B4B24 /* Skins */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Skins; path = ../Skins; sourceTree = "<group>"; };
 		D00BD70C1D4AF552008B4B24 /* 1403909a57b446bb8e55094e7450ff8f.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = 1403909a57b446bb8e55094e7450ff8f.bundle; sourceTree = "<group>"; };
 		D00BD70D1D4AF552008B4B24 /* e02ae0e472604e47bfcf389e4ccf37ba.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = e02ae0e472604e47bfcf389e4ccf37ba.bundle; sourceTree = "<group>"; };
@@ -116,8 +116,8 @@
 		D05256AD1D4AF11F000876B9 /* ViewControllerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerLabel.m; sourceTree = "<group>"; };
 		D05256AE1D4AF11F000876B9 /* ViewControllerMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerMain.h; sourceTree = "<group>"; };
 		D05256AF1D4AF11F000876B9 /* ViewControllerMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerMain.m; sourceTree = "<group>"; };
-		D05256B01D4AF11F000876B9 /* ZSColorSkin+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZSColorSkin+Custom.h"; sourceTree = "<group>"; };
-		D05256B11D4AF11F000876B9 /* ZSColorSkin+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZSColorSkin+Custom.m"; sourceTree = "<group>"; };
+		D05256B01D4AF11F000876B9 /* ZColorSkin+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZColorSkin+Custom.h"; sourceTree = "<group>"; };
+		D05256B11D4AF11F000876B9 /* ZColorSkin+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZColorSkin+Custom.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,30 +152,30 @@
 				D00BD6E11D4AF4CA008B4B24 /* NSObject+Skin.m */,
 				D00BD6E21D4AF4CA008B4B24 /* UIButton+ExProperty.h */,
 				D00BD6E31D4AF4CA008B4B24 /* UIButton+ExProperty.m */,
-				D00BD6E41D4AF4CA008B4B24 /* ZSBinder.h */,
-				D00BD6E51D4AF4CA008B4B24 /* ZSBinder.m */,
-				D00BD6E61D4AF4CA008B4B24 /* ZSBinderManager.h */,
-				D00BD6E71D4AF4CA008B4B24 /* ZSBinderManager.m */,
-				D00BD6E81D4AF4CA008B4B24 /* ZSBindingAssistant.h */,
-				D00BD6E91D4AF4CA008B4B24 /* ZSBindingAssistant.m */,
-				D00BD6EA1D4AF4CA008B4B24 /* ZSColorSkin.h */,
-				D00BD6EB1D4AF4CA008B4B24 /* ZSColorSkin.m */,
-				D00BD6EC1D4AF4CA008B4B24 /* ZSFontSkin.h */,
-				D00BD6ED1D4AF4CA008B4B24 /* ZSFontSkin.m */,
-				D00BD6EE1D4AF4CA008B4B24 /* ZSImageSkin.h */,
-				D00BD6EF1D4AF4CA008B4B24 /* ZSImageSkin.m */,
-				D00BD6F01D4AF4CA008B4B24 /* ZSObject.h */,
-				D00BD6F11D4AF4CA008B4B24 /* ZSObject.m */,
-				D00BD6F21D4AF4CA008B4B24 /* ZSRuntimeUtility.h */,
-				D00BD6F31D4AF4CA008B4B24 /* ZSRuntimeUtility.m */,
-				D00BD6F41D4AF4CA008B4B24 /* ZSSkin.h */,
-				D00BD6F51D4AF4CA008B4B24 /* ZSSkin.m */,
-				D00BD6F61D4AF4CA008B4B24 /* ZSSkinDefine.h */,
-				D00BD6F71D4AF4CA008B4B24 /* ZSSkinKit.h */,
-				D00BD6F81D4AF4CA008B4B24 /* ZSSkinLoader.h */,
-				D00BD6F91D4AF4CA008B4B24 /* ZSSkinLoader.m */,
-				D00BD6FA1D4AF4CA008B4B24 /* ZSSkinManager.h */,
-				D00BD6FB1D4AF4CA008B4B24 /* ZSSkinManager.m */,
+				D00BD6E41D4AF4CA008B4B24 /* ZBinder.h */,
+				D00BD6E51D4AF4CA008B4B24 /* ZBinder.m */,
+				D00BD6E61D4AF4CA008B4B24 /* ZBinderManager.h */,
+				D00BD6E71D4AF4CA008B4B24 /* ZBinderManager.m */,
+				D00BD6E81D4AF4CA008B4B24 /* ZBindingAssistant.h */,
+				D00BD6E91D4AF4CA008B4B24 /* ZBindingAssistant.m */,
+				D00BD6EA1D4AF4CA008B4B24 /* ZColorSkin.h */,
+				D00BD6EB1D4AF4CA008B4B24 /* ZColorSkin.m */,
+				D00BD6EC1D4AF4CA008B4B24 /* ZFontSkin.h */,
+				D00BD6ED1D4AF4CA008B4B24 /* ZFontSkin.m */,
+				D00BD6EE1D4AF4CA008B4B24 /* ZImageSkin.h */,
+				D00BD6EF1D4AF4CA008B4B24 /* ZImageSkin.m */,
+				D00BD6F01D4AF4CA008B4B24 /* ZObject.h */,
+				D00BD6F11D4AF4CA008B4B24 /* ZObject.m */,
+				D00BD6F21D4AF4CA008B4B24 /* ZRuntimeUtility.h */,
+				D00BD6F31D4AF4CA008B4B24 /* ZRuntimeUtility.m */,
+				D00BD6F41D4AF4CA008B4B24 /* ZSkin.h */,
+				D00BD6F51D4AF4CA008B4B24 /* ZSkin.m */,
+				D00BD6F61D4AF4CA008B4B24 /* ZSkinDefine.h */,
+				D00BD6F71D4AF4CA008B4B24 /* ZSkinKit.h */,
+				D00BD6F81D4AF4CA008B4B24 /* ZSkinLoader.h */,
+				D00BD6F91D4AF4CA008B4B24 /* ZSkinLoader.m */,
+				D00BD6FA1D4AF4CA008B4B24 /* ZSkinManager.h */,
+				D00BD6FB1D4AF4CA008B4B24 /* ZSkinManager.m */,
 			);
 			name = ZSkin;
 			path = ../ZSkin;
@@ -228,8 +228,8 @@
 				D05256AD1D4AF11F000876B9 /* ViewControllerLabel.m */,
 				D05256AE1D4AF11F000876B9 /* ViewControllerMain.h */,
 				D05256AF1D4AF11F000876B9 /* ViewControllerMain.m */,
-				D05256B01D4AF11F000876B9 /* ZSColorSkin+Custom.h */,
-				D05256B11D4AF11F000876B9 /* ZSColorSkin+Custom.m */,
+				D05256B01D4AF11F000876B9 /* ZColorSkin+Custom.h */,
+				D05256B11D4AF11F000876B9 /* ZColorSkin+Custom.m */,
 				D05256761D4AEFCA000876B9 /* AppDelegate.h */,
 				D05256771D4AEFCA000876B9 /* AppDelegate.m */,
 				D05256791D4AEFCA000876B9 /* ViewController.h */,
@@ -403,27 +403,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D00BD7021D4AF4CA008B4B24 /* ZSFontSkin.m in Sources */,
-				D00BD7061D4AF4CA008B4B24 /* ZSSkin.m in Sources */,
-				D00BD7031D4AF4CA008B4B24 /* ZSImageSkin.m in Sources */,
+				D00BD7021D4AF4CA008B4B24 /* ZFontSkin.m in Sources */,
+				D00BD7061D4AF4CA008B4B24 /* ZSkin.m in Sources */,
+				D00BD7031D4AF4CA008B4B24 /* ZImageSkin.m in Sources */,
 				D00BD6FC1D4AF4CA008B4B24 /* NSObject+Skin.m in Sources */,
-				D00BD7071D4AF4CA008B4B24 /* ZSSkinLoader.m in Sources */,
-				D00BD7041D4AF4CA008B4B24 /* ZSObject.m in Sources */,
+				D00BD7071D4AF4CA008B4B24 /* ZSkinLoader.m in Sources */,
+				D00BD7041D4AF4CA008B4B24 /* ZObject.m in Sources */,
 				D05256B51D4AF11F000876B9 /* ViewControllerLabel.m in Sources */,
-				D00BD7081D4AF4CA008B4B24 /* ZSSkinManager.m in Sources */,
-				D00BD6FF1D4AF4CA008B4B24 /* ZSBinderManager.m in Sources */,
+				D00BD7081D4AF4CA008B4B24 /* ZSkinManager.m in Sources */,
+				D00BD6FF1D4AF4CA008B4B24 /* ZBinderManager.m in Sources */,
 				D05256B41D4AF11F000876B9 /* ViewControllerImage.m in Sources */,
-				D05256B71D4AF11F000876B9 /* ZSColorSkin+Custom.m in Sources */,
-				D00BD7001D4AF4CA008B4B24 /* ZSBindingAssistant.m in Sources */,
-				D00BD7051D4AF4CA008B4B24 /* ZSRuntimeUtility.m in Sources */,
+				D05256B71D4AF11F000876B9 /* ZColorSkin+Custom.m in Sources */,
+				D00BD7001D4AF4CA008B4B24 /* ZBindingAssistant.m in Sources */,
+				D00BD7051D4AF4CA008B4B24 /* ZRuntimeUtility.m in Sources */,
 				D052567B1D4AEFCA000876B9 /* ViewController.m in Sources */,
-				D00BD7011D4AF4CA008B4B24 /* ZSColorSkin.m in Sources */,
+				D00BD7011D4AF4CA008B4B24 /* ZColorSkin.m in Sources */,
 				D05256B61D4AF11F000876B9 /* ViewControllerMain.m in Sources */,
 				D00BD6FD1D4AF4CA008B4B24 /* UIButton+ExProperty.m in Sources */,
 				D05256B21D4AF11F000876B9 /* BaseViewController.m in Sources */,
 				D05256781D4AEFCA000876B9 /* AppDelegate.m in Sources */,
 				D05256751D4AEFCA000876B9 /* main.m in Sources */,
-				D00BD6FE1D4AF4CA008B4B24 /* ZSBinder.m in Sources */,
+				D00BD6FE1D4AF4CA008B4B24 /* ZBinder.m in Sources */,
 				D05256B31D4AF11F000876B9 /* ViewControllerButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

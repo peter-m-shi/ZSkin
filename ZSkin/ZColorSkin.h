@@ -1,17 +1,17 @@
 //
-//  ZSColorSkin.h
-//  ZSSkinKit
+//  ZColorSkin.h
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/14.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "ZSObject.h"
+#import "ZObject.h"
 
 @class UIColor;
 
-@interface ZSColorSkin : ZSObject
+@interface ZColorSkin : ZObject
 
 /*
  *  a Category Class Named(Custom) should be created if you add any key to "color.plist"
@@ -19,9 +19,9 @@
  *
  *  etc.
  *
- *  ZSColorSkin+Custom.h
+ *  ZColorSkin+Custom.h
  *
- *  @interface ZSColorSkin (Custom)
+ *  @interface ZColorSkin (Custom)
  *
  *  @property (nonatomic) UIColor *customColor;
  *
@@ -29,9 +29,9 @@
  *
  *
  *
- *  ZSColorSkin+Custom.m
+ *  ZColorSkin+Custom.m
  *
- *  @implementation ZSColorSkin (Custom)
+ *  @implementation ZColorSkin (Custom)
  *
  *  DYNAMIC(customColor,setCustomColor,UIColor*)
  *

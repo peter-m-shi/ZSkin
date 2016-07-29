@@ -1,23 +1,23 @@
 //
-//  ZSSkinLoader.m
-//  ZSSkinKit
+//  ZSkinLoader.m
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/14.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
-#import "ZSSkinLoader.h"
-#import "ZSSkin.h"
+#import "ZSkinLoader.h"
+#import "ZSkin.h"
 
 #define KDefaultSkinFolderName @"Skins"
 
-@interface ZSSkinLoader()
+@interface ZSkinLoader()
 
 @property (nonatomic) NSString *innerSkinsFolderPath;
 
 @end
 
-@implementation ZSSkinLoader
+@implementation ZSkinLoader
 
 - (instancetype)init
 {
@@ -59,7 +59,7 @@
     {
         if ([[file pathExtension] hasSuffix:@"bundle"])
         {
-            ZSSkin *skin = [[ZSSkin alloc] init];
+            ZSkin *skin = [[ZSkin alloc] init];
             skin.name = [file stringByDeletingPathExtension];
             skin.path = [NSString stringWithFormat:@"%@%@",self.skinFolderPath,file];
             [skins addObject:skin];
@@ -69,19 +69,19 @@
 }
 
 
-- (void)loadSkin:(ZSSkin *)skin
+- (void)loadSkin:(ZSkin *)skin
 {
     if (!skin.color)
     {
-        skin.color = [[ZSColorSkin alloc] initWithDictionary:[self loadSkinContent:skin.name type:@"color"]];
+        skin.color = [[ZColorSkin alloc] initWithDictionary:[self loadSkinContent:skin.name type:@"color"]];
     }
     if (!skin.font)
     {
-        skin.font = [[ZSFontSkin alloc] initWithDictionary:[self loadSkinContent:skin.name type:@"font"]];
+        skin.font = [[ZFontSkin alloc] initWithDictionary:[self loadSkinContent:skin.name type:@"font"]];
     }
     if (!skin.image)
     {
-        skin.image = [[ZSImageSkin alloc] initWithPath:[NSString stringWithFormat:@"%@%@.bundle/",self.skinFolderPath,skin.name]];
+        skin.image = [[ZImageSkin alloc] initWithPath:[NSString stringWithFormat:@"%@%@.bundle/",self.skinFolderPath,skin.name]];
     }
 }
 

@@ -1,15 +1,15 @@
 //
 //  NSObject+Skin.h
-//  ZSSkinKit
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/14.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "ZSSkinDefine.h"
+#import "ZSkinDefine.h"
 
-@class ZSSkin;
+@class ZSkin;
 
 @interface NSObject (Skin)
 

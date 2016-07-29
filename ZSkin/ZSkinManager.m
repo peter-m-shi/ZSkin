@@ -1,30 +1,30 @@
 //
-//  ZSSkinManager.m
-//  ZSSkinKit
+//  ZSkinManager.m
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/14.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
 #import <objc/objc.h>
-#import "ZSSkinManager.h"
-#import "ZSSkin.h"
-#import "ZSSkinLoader.h"
+#import "ZSkinManager.h"
+#import "ZSkin.h"
+#import "ZSkinLoader.h"
 
-NSString *ZSSkinChangedNotificationKey = @"ZSSkinChangedNotificationKey";
+NSString *ZSkinChangedNotificationKey = @"ZSkinChangedNotificationKey";
 
-@interface ZSSkinManager ()
+@interface ZSkinManager ()
 
-@property (nonatomic) ZSSkinLoader *skinLoader;
+@property (nonatomic) ZSkinLoader *skinLoader;
 @property (readwrite, strong, nonatomic) NSArray *skins;
 
 @end
 
-@implementation ZSSkinManager
+@implementation ZSkinManager
 
 + (instancetype)instance
 {
-    static ZSSkinManager *staticInstance = nil;
+    static ZSkinManager *staticInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         staticInstance = [[self alloc] init];
@@ -38,7 +38,7 @@ NSString *ZSSkinChangedNotificationKey = @"ZSSkinChangedNotificationKey";
     self = [super init];
     if (self)
     {
-        _skinLoader = [ZSSkinLoader new];
+        _skinLoader = [ZSkinLoader new];
         _skins = [_skinLoader loadSkins];
         [self setSkin:[_skins firstObject]];
     }
@@ -47,13 +47,13 @@ NSString *ZSSkinChangedNotificationKey = @"ZSSkinChangedNotificationKey";
 }
 
 
-- (void)setSkin:(ZSSkin *)skin
+- (void)setSkin:(ZSkin *)skin
 {
     if (skin != _skin)
     {
         _skin = skin;
         [_skinLoader loadSkin:_skin];
-        [[NSNotificationCenter defaultCenter] postNotificationName:ZSSkinChangedNotificationKey
+        [[NSNotificationCenter defaultCenter] postNotificationName:ZSkinChangedNotificationKey
                                                             object:_skin
                                                           userInfo:nil];
     }
@@ -73,11 +73,11 @@ NSString *ZSSkinChangedNotificationKey = @"ZSSkinChangedNotificationKey";
 }
 
 
-- (ZSSkin *)skinNamed:(NSString *)name
+- (ZSkin *)skinNamed:(NSString *)name
 {
     if (name.length <= 0)return nil;
 
-    for (ZSSkin *skin in self.skins)
+    for (ZSkin *skin in self.skins)
     {
         if ([skin.name isEqualToString:name])
         {

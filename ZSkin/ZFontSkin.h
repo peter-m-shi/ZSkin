@@ -1,15 +1,15 @@
 //
-//  ZSFontSkin.h
-//  ZSSkinKit
+//  ZFontSkin.h
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/14.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "ZSObject.h"
+#import "ZObject.h"
 
-@interface ZSFontSkin : ZSObject
+@interface ZFontSkin : ZObject
 
 @property (nonatomic) NSString *familyName;
 @property (nonatomic) NSNumber *largeSize;

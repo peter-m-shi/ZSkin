@@ -1,6 +1,6 @@
 //
-//  ZSRuntimeUtility.h
-//  ZSSkinKit
+//  ZRuntimeUtility.h
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/14.
 //  Copyright © 2016年 peter.shi. All rights reserved.
@@ -10,7 +10,7 @@
 #import <objc/NSObject.h>
 #import <objc/objc.h>
 
-@interface ZSRuntimeUtility : NSObject
+@interface ZRuntimeUtility : NSObject
 
 + (BOOL)isPropertyReadOnly:(Class)klass propertyName:(NSString *)propertyName;
 

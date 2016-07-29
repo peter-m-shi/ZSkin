@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZSSkin.h"
+#import "ZSkin.h"
 
 @interface BaseViewController : UIViewController
 
-@property (nonatomic) ZSSkin *skin;
+@property (nonatomic) ZSkin *skin;
 
 - (void)prepareUI;
 - (void)prepareData;

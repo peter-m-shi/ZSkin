@@ -1,22 +1,22 @@
 //
-//  ZSBindingAssistant.m
-//  ZSSkinKit
+//  ZBindingAssistant.m
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/14.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
-#import "ZSBindingAssistant.h"
-#import "ZSSkinKit.h"
+#import "ZBindingAssistant.h"
+#import "ZSkinKit.h"
 
-@interface ZSBindingAssistant ()
+@interface ZBindingAssistant ()
 
 // The object to bind to.
 @property (nonatomic, strong, readonly) id target;
 
 @end
 
-@implementation ZSBindingAssistant
+@implementation ZBindingAssistant
 
 - (id)initWithTarget:(id)target
 {

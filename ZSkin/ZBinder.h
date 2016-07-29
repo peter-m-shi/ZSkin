@@ -1,22 +1,22 @@
 //
-//  ZSBinder.h
-//  ZSSkinKitDemo
+//  ZBinder.h
+//  ZSkinDemo
 //
 //  Created by peter.shi on 16/7/28.
 //  Copyright © 2016年 peter.shi. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "ZSSkinDefine.h"
+#import "ZSkinDefine.h"
 
-@interface ZSBinder : NSObject
+@interface ZBinder : NSObject
 
 @property (nonatomic, weak, readonly) id target;
 @property (nonatomic, copy, readonly) NSString *identifier;
 
 @end
 
-@interface ZSKVOBinder : ZSBinder
+@interface ZKVOBinder : ZBinder
 
 @property (nonatomic, readonly) id observer;
 @property (nonatomic, copy, readonly) NSString *tKeyPath;
@@ -33,7 +33,7 @@
 
 @end
 
-@interface ZSBlockBinder : ZSBinder
+@interface ZBlockBinder : ZBinder
 
 @property (nonatomic, copy, readonly) callBackBlock block;
 

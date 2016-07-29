@@ -22,23 +22,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.button bind:^(ZSSkin *skin) {
+    [self.button bind:^(ZSkin *skin) {
         [self.button setImage:[skin.image imageNamed:@"folder1/test.png"] forState:UIControlStateNormal];
     }];
 
-    [self.image bind:^(ZSSkin *skin) {
+    [self.image bind:^(ZSkin *skin) {
         [self.image setImage:[skin.image imageNamed:@"folder1/test.png"]];
     }];
 
     [self.image2 setBackgroundColor:[UIColor redColor]];
-    [self.image2 bind:^(ZSSkin *skin) {
+    [self.image2 bind:^(ZSkin *skin) {
         if (self.count % 2 == 0)
         {
-            [self.image2 setImage:[ZSImageSkin imageNamed:@"aspectSelect_btn0_normal" inBundle:@"1403909a57b446bb8e55094e7450ff8f"]];
+            [self.image2 setImage:[ZImageSkin imageNamed:@"aspectSelect_btn0_normal" inBundle:@"1403909a57b446bb8e55094e7450ff8f"]];
         }
         else
         {
-            [self.image2 setImage:[ZSImageSkin imageNamed:@"aspectSelect_btn0_normal" inBundle:@"e02ae0e472604e47bfcf389e4ccf37ba"]];
+            [self.image2 setImage:[ZImageSkin imageNamed:@"aspectSelect_btn0_normal" inBundle:@"e02ae0e472604e47bfcf389e4ccf37ba"]];
         }
         self.count += 1;
     }];
