@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
     s.source       = { :git => "https://github.com/peter-m-shi/ZSkin.git", :tag => "0.0.9"}
 
-    s.source_files  = 'ZSkin/**/*.{h,m}'
+    s.source_files  = 'ZSkin/*.{h,m}'
 
     s.requires_arc = true
 
