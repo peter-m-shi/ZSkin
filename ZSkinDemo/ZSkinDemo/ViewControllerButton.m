@@ -101,8 +101,6 @@
 }
 
 - (IBAction)clickTestRebind:(id)sender {
-    [self.skin.image imageNamed:@"test.png" maskColor:[[UIColor redColor] colorWithAlphaComponent:0.5]];
-    
     //Binding in repeatable function
     [self.button4 bind:^(ZSkin *skin) {
         //TODO:do something
