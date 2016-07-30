@@ -112,6 +112,12 @@
     for (int i = 0; i < 3; i++) {
         [self test];
     }
+    
+    MyButton* test = [[MyButton alloc] init];
+    test.tag = 999;
+    [test bind:^(ZSkin *skin) {
+        NSLog(@"skin = %@", skin);
+    }];
 }
 
 - (void)test

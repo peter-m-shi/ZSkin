@@ -21,7 +21,7 @@
 @property (nonatomic, readonly) id observer;
 @property (nonatomic, copy, readonly) NSString *tKeyPath;
 @property (nonatomic, copy, readonly) NSString *oKeyPath;
-@property (nonatomic) SEL selector;
+@property (nonatomic) SEL sel;
 @property (nonatomic, readonly) void *parameter;
 
 - (instancetype)initWithTarget:(id)target

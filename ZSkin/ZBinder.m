@@ -9,6 +9,8 @@
 #import "ZBinder.h"
 #import "ZRuntimeUtility.h"
 
+#define KWhiteSpace @"          "
+
 #pragma mark - ZSKVOBinder -
 
 @interface ZBinder ()
@@ -31,23 +33,6 @@
     return self;
 }
 
-
-#pragma GCC diagnostic ignored "-Warc-performSelector-leaks"
-- (NSString *)description
-{
-    NSMutableString *description = [NSMutableString new];
-
-    [description appendString:[NSString stringWithFormat:@"#<%@: id = %p>\r\n", [self class], self]];
-
-    for (NSString *property in [ZRuntimeUtility propertyNames:[self class]])
-    {
-        SEL selector = NSSelectorFromString(property);
-        id value = [self performSelector:selector];
-        [description appendString:[NSString stringWithFormat:@"   %@:%@\r\n", property, value]];
-    }
-
-    return description;
-}
 @end
 
 #pragma mark - ZSKVOBinder -
@@ -94,17 +79,17 @@
 
 - (void)notifyTarget:(id)value
 {
-    if (nil == self.selector)
+    if (nil == self.sel)
     {
-        self.selector = [self selectorFromKeyPath:self];
+        self.sel = [self selectorFromKeyPath:self];
     }
 
-    if ([self.target respondsToSelector:self.selector])
+    if ([self.target respondsToSelector:self.sel])
     {
-        NSMethodSignature *sig = [self.target methodSignatureForSelector:self.selector];
+        NSMethodSignature *sig = [self.target methodSignatureForSelector:self.sel];
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:sig];
         [invocation setTarget:self.target];
-        [invocation setSelector:self.selector];
+        [invocation setSelector:self.sel];
         [invocation setArgument:&value atIndex:2];
         if (self.parameter)
         {
@@ -114,7 +99,7 @@
     }
     else
     {
-        NSLog(@"[ZKVOBinder] target:%@ not response SEL: %@", self.target, NSStringFromSelector(self.selector));
+        NSLog(@"[ZKVOBinder] target:%@ not response SEL: %@", self.target, NSStringFromSelector(self.sel));
     }
 }
 
@@ -132,6 +117,21 @@
     return NSSelectorFromString(selectorStr);
 }
 
+
+- (NSString *)description
+{
+    NSMutableString *description = [[NSMutableString alloc] init];
+
+    [description appendString:[NSString stringWithFormat:@"#<%@ : id = %p>\r", [self class], self]];
+
+    [description appendString:[NSString stringWithFormat:@"%@target : %@\r",KWhiteSpace,self.target]];
+    [description appendString:[NSString stringWithFormat:@"%@identifier : %@\r",KWhiteSpace,self.identifier]];
+    [description appendString:[NSString stringWithFormat:@"%@tKeyPath : %@\r",KWhiteSpace,self.tKeyPath]];
+    [description appendString:[NSString stringWithFormat:@"%@oKeyPath : %@\r",KWhiteSpace,self.oKeyPath]];
+    [description appendString:[NSString stringWithFormat:@"%@parameter : %s\r",KWhiteSpace,self.parameter]];
+
+    return description;
+}
 
 @end
 
@@ -159,5 +159,16 @@
     return self;
 }
 
+- (NSString *)description
+{
+    NSMutableString *description = [NSMutableString new];
 
+    [description appendString:[NSString stringWithFormat:@"#<%@ : id = %p>\r", [self class], self]];
+
+    [description appendString:[NSString stringWithFormat:@"%@target : %@\r",KWhiteSpace,self.target]];
+    [description appendString:[NSString stringWithFormat:@"%@identifier : %@\r",KWhiteSpace,self.identifier]];
+    [description appendString:[NSString stringWithFormat:@"%@block : %@\r",KWhiteSpace,self.block]];
+
+    return description;
+}
 @end

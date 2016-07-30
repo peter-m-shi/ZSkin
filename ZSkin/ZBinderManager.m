@@ -100,13 +100,13 @@
         return;
     }
 
-    ZKVOBinder *info = [[ZKVOBinder alloc] initWithTarget:target
+    ZKVOBinder *binder = [[ZKVOBinder alloc] initWithTarget:target
                                                  identifier:identifier
                                                    tKeyPath:tKeyPath
                                                    observer:observer
                                                   oKeyPatrh:oKeyPath
                                                   parameter:parameter];
-    [self appendBinder:info forKey:key];
+    [self appendBinder:binder forKey:key];
 }
 
 
@@ -114,16 +114,16 @@
 {
     NSString *key = [NSString stringWithFormat:@"%@.%@", K_SKIN_MANAGER_KEY_PATH, oKeyPath];
 
-    NSMutableArray *binderInfoList = self.binderMap[key];
+    NSMutableArray *binderList = self.binderMap[key];
 
-    for (int i = (int)binderInfoList.count - 1; i >= 0; --i)
+    for (int i = (int)binderList.count - 1; i >= 0; --i)
     {
-        ZKVOBinder *binderInfo = binderInfoList[i];
-        if (binderInfo.target == target
-            && [binderInfo.tKeyPath isEqualToString:tKeyPath]
-            && [binderInfo.oKeyPath isEqualToString:oKeyPath])
+        ZKVOBinder *binder = binderList[i];
+        if (binder.target == target
+            && [binder.tKeyPath isEqualToString:tKeyPath]
+            && [binder.oKeyPath isEqualToString:oKeyPath])
         {
-            [binderInfoList removeObjectAtIndex:i];
+            [binderList removeObjectAtIndex:i];
             break;
         }
     }
@@ -132,14 +132,14 @@
 
 - (NSString *)bindInfo:(id)target tKeyPath:(NSString *)tKeyPath
 {
-    for (NSMutableArray *binderInfoList in [self.binderMap allValues])
+    for (NSMutableArray *binderList in [self.binderMap allValues])
     {
-        for (ZKVOBinder *binderInfo in binderInfoList)
+        for (ZKVOBinder *binder in binderList)
         {
-            if (binderInfo.target == target
-                && [binderInfo.tKeyPath isEqualToString:tKeyPath])
+            if (binder.target == target
+                && [binder.tKeyPath isEqualToString:tKeyPath])
             {
-                return binderInfo.oKeyPath;
+                return binder.oKeyPath;
             }
         }
     }
@@ -156,6 +156,8 @@
 
 - (void)skinDidChanged:(NSNotification *)notification
 {
+    [self collectGarbage];
+
     for (ZBinder *binder in self.binderMap[K_BINDER_KEY_NORAML])
     {
         if ([binder isKindOfClass:[ZBlockBinder class]])
@@ -170,6 +172,23 @@
 
 #pragma mark - private function -
 
+- (void)collectGarbage
+{
+    for (NSString *key in [self.binderMap allKeys])
+    {
+        NSMutableArray *array = self.binderMap[key];
+        for (int i = (int)array.count - 1; i >= 0; --i)
+        {
+            ZBinder *binder = array[i];
+            if (!binder.target)
+            {
+                NSLog(@"Garbage Collect : binder = %@", binder);
+                [array removeObjectAtIndex:i];
+            }
+        }
+        [self.binderMap setObject:array forKey:key];
+    }
+}
 
 - (BOOL)binderExisted:(NSString *)key identifier:(NSString *)identifier
 {
@@ -186,9 +205,9 @@
 
 - (void)appendBinder:(ZBinder *)binder forKey:(NSString *)key
 {
-    NSMutableArray *binderInfoList = [self binderListWithKey:key];
-    [binderInfoList addObject:binder];
-    [self.binderMap setObject:binderInfoList forKey:key];
+    NSMutableArray *binderList = [self binderListWithKey:key];
+    [binderList addObject:binder];
+    [self.binderMap setObject:binderList forKey:key];
 
     if ([binder isKindOfClass:[ZKVOBinder class]])
     {
@@ -214,15 +233,23 @@
 
 - (NSMutableArray *)binderListWithKey:(NSString *)key
 {
-    NSMutableArray *binderInfoList = self.binderMap[key];
-    if (nil == binderInfoList)
+    NSMutableArray *binderList = self.binderMap[key];
+    if (nil == binderList)
     {
-        binderInfoList = [NSMutableArray new];
+        binderList = [NSMutableArray new];
     }
-    return binderInfoList;
+    return binderList;
 }
 
 
+- (NSString *)description
+{
+    NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];
 
+    [description appendString:[NSString stringWithFormat:@"%@",self.binderMap]];
+
+    [description appendString:@">"];
+    return description;
+}
 
 @end

@@ -79,6 +79,9 @@ static NSMutableDictionary *propertyClassByClassAndPropertyName;
     }
     free(properties);
 
+    if (!propertyNamesArray) {
+        NSLog(@"");
+    }
     [propertyListByClass setObject:propertyNamesArray forKey:className];
     NSArray *arr = [ZRuntimeUtility propertyNames:class_getSuperclass(klass)];
     [propertyNamesArray addObjectsFromArray:arr];
