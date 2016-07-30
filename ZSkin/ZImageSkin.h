@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @class UIImage;
+@class UIColor;
 
+@import CoreGraphics;
 /**
  *  ZImageSkin
  */
@@ -20,6 +22,10 @@
 - (id)initWithPath:(NSString *)path;
 
 - (UIImage *)imageNamed:(NSString *)name;
+
+- (UIImage *)imageNamed:(NSString *)name maskColor:(UIColor *)color;
+
+- (UIImage *)imageNamed:(NSString *)name withColor:(UIColor *)color;
 
 + (UIImage *)imageNamed:(NSString *)name inBundle:(NSString *)bundleName;
 
