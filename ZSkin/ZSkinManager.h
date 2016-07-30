@@ -13,6 +13,9 @@
 /*a notification named ZSkinChangedNotificationKey will be posted when the selected skin be changed.*/
 extern NSString *ZSkinChangedNotificationKey;
 
+/**
+ *  ZSkinManager
+ */
 @interface ZSkinManager : NSObject
 
 /*current selected skin*/

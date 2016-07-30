@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "ZObject.h"
 
+/**
+ *  ZFontSkin
+ */
 @interface ZFontSkin : ZObject
 
 @property (nonatomic) NSString *familyName;

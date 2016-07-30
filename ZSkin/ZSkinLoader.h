@@ -10,6 +10,9 @@
 
 @class ZSkin;
 
+/**
+ *  ZSkinLoader
+ */
 @interface ZSkinLoader : NSObject
 
 @property (nonatomic) NSString *skinFolderPath;

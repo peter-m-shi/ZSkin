@@ -11,6 +11,9 @@
 
 @class UIColor;
 
+/**
+ *  ZColorSkin
+ */
 @interface ZColorSkin : ZObject
 
 /*

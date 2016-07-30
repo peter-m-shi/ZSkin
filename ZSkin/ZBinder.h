@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "ZSkinDefine.h"
 
+/**
+ *  ZBinder
+ */
 @interface ZBinder : NSObject
 
 @property (nonatomic, weak, readonly) id target;
@@ -16,6 +19,9 @@
 
 @end
 
+/**
+ *  ZKVOBinder
+ */
 @interface ZKVOBinder : ZBinder
 
 @property (nonatomic, readonly) id observer;
@@ -33,6 +39,9 @@
 
 @end
 
+/**
+ *  ZBlockBinder
+ */
 @interface ZBlockBinder : ZBinder
 
 @property (nonatomic, copy, readonly) callBackBlock block;

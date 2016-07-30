@@ -10,6 +10,9 @@
 #import <objc/NSObject.h>
 #import <objc/objc.h>
 
+/**
+ *  ZObject
+ */
 @interface ZObject : NSObject<NSCoding>
 
 @property (nonatomic, copy) NSString *objectId;

@@ -10,6 +10,9 @@
 
 @class UIImage;
 
+/**
+ *  ZImageSkin
+ */
 @interface ZImageSkin : NSObject
 
 @property (nonatomic) NSString *path;

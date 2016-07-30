@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  UIButton (ExProperty)
+ */
 @interface UIButton (ExProperty)
 
 @property (nonatomic, strong) UIColor *titleColorNormal;

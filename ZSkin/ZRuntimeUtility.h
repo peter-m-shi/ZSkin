@@ -10,6 +10,9 @@
 #import <objc/NSObject.h>
 #import <objc/objc.h>
 
+/**
+ *  ZRuntimeUtility
+ */
 @interface ZRuntimeUtility : NSObject
 
 + (BOOL)isPropertyReadOnly:(Class)klass propertyName:(NSString *)propertyName;

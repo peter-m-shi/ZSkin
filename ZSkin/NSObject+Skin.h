@@ -11,6 +11,9 @@
 
 @class ZSkin;
 
+/**
+ *  NSObject (Skin)
+ */
 @interface NSObject (Skin)
 
 /**

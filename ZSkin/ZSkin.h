@@ -11,6 +11,9 @@
 #import "ZFontSkin.h"
 #import "ZImageSkin.h"
 
+/**
+ *  ZSkin
+ */
 @interface ZSkin : NSObject
 
 @property (nonatomic) NSString *name;

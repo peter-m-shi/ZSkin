@@ -35,6 +35,9 @@
 #define ZSB_(TARGET, KEYPATH) \
     [[ZBindingAssistant alloc] initWithTarget:(TARGET)][@__keypath(TARGET, KEYPATH)]
 
+/**
+ *  ZBindingAssistant
+ */
 @interface ZBindingAssistant : NSMutableDictionary
 
 - (id)initWithTarget:(id)target;

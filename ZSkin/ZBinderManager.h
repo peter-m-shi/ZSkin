@@ -11,6 +11,9 @@
 
 @class ZSkin;
 
+/**
+ *  ZBinderManager
+ */
 @interface ZBinderManager : NSObject
 
 + (instancetype)instance;
