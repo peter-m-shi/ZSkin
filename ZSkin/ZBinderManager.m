@@ -164,7 +164,7 @@
         {
             callBackBlock block = ((ZBlockBinder *)binder).block;
             if (block)
-            {((callBackBlock)block)(notification.object);}
+            {((callBackBlock)block)(binder.target, notification.object);}
         }
     }
 }
@@ -221,7 +221,7 @@
         callBackBlock block = ((ZBlockBinder *)binder).block;
         if (block)
         {
-            block(self.skinManager.skin);
+            block(binder.target, self.skinManager.skin);
         }
     }
     else

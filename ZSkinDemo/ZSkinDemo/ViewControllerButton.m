@@ -72,11 +72,12 @@
     ZSB(self.button2, titleColorSelected) = SK(color.background);
     
     //Custom Binding
-    [self.button3 bind:^(ZSkin *skin) {
-        [self.button3 setBackgroundColor:skin.color.foreground];
-        [self.button3 setTitleColor:skin.color.background forState:UIControlStateNormal];
-        [self.button3 setTitle:skin.name forState:UIControlStateNormal];
-        [self.button3.titleLabel setFont:[UIFont boldSystemFontOfSize:[skin.font.largeSize floatValue]]];
+    [self.button3 bind:^(id sender, ZSkin *skin) {
+        UIButton *btn = sender;
+        [btn setBackgroundColor:skin.color.foreground];
+        [btn setTitleColor:skin.color.background forState:UIControlStateNormal];
+        [btn setTitle:skin.name forState:UIControlStateNormal];
+        [btn.titleLabel setFont:[UIFont boldSystemFontOfSize:[skin.font.largeSize floatValue]]];
     }];
 }
 
@@ -102,7 +103,7 @@
 
 - (IBAction)clickTestRebind:(id)sender {
     //Binding in repeatable function
-    [self.button4 bind:^(ZSkin *skin) {
+    [self.button4 bind:^(id sender, ZSkin *skin) {
         //TODO:do something
         NSLog(@"repeatable examle called back");
     }];
@@ -115,7 +116,7 @@
     
     MyButton* test = [[MyButton alloc] init];
     test.tag = 999;
-    [test bind:^(ZSkin *skin) {
+    [test bind:^(id sender, ZSkin *skin) {
         NSLog(@"skin = %@", skin);
     }];
 }

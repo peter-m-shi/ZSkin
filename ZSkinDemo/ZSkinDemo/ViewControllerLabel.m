@@ -50,14 +50,14 @@
         [colorLabel setFont:font];
 
 
-        [colorLabel bind:^(ZSkin *skin) {
+        [colorLabel bind:^(id sender, ZSkin *skin) {
             SEL selector = NSSelectorFromString(property);
             UIColor *color = [self.skin.color performSelector:selector];
             CGFloat r, g, b, a;
             [color getRed:&r green:&g blue:&b alpha:&a];
 
-            [colorLabel setText:[NSString stringWithFormat:@"0x%02x%02x%02x", (int)r * 255, (int)g * 255, (int)b * 255]];
-            [colorLabel setTextColor:color];
+            [(UILabel *)sender setText:[NSString stringWithFormat:@"0x%02x%02x%02x", (int)r * 255, (int)g * 255, (int)b * 255]];
+            [(UILabel *)sender setTextColor:color];
         }];
 
         [self.view addSubview:colorLabel];
@@ -65,13 +65,13 @@
         UILabel *descLabel = [[UILabel alloc] initWithFrame:CGRectMake(nameWidth + colorWidth, offsetY, descWidth, height)];
         [descLabel setFont:font];
         [descLabel setTextColor:[UIColor blackColor]];
-        [descLabel bind:^(ZSkin *skin) {
+        [descLabel bind:^(id sender, ZSkin *skin) {
             SEL selector = NSSelectorFromString(property);
             UIColor *color = [self.skin.color performSelector:selector];
             CGFloat r, g, b, a;
             [color getRed:&r green:&g blue:&b alpha:&a];
 
-            [descLabel setText:[NSString stringWithFormat:@"rgb : %.2f %.2f %.2f %.2f",r,g,b,a]];
+            [(UILabel *)sender setText:[NSString stringWithFormat:@"rgb : %.2f %.2f %.2f %.2f",r,g,b,a]];
         }];
 
         [self.view addSubview:descLabel];

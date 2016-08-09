@@ -12,7 +12,7 @@
 
 @class ZSkin;
 
-typedef void (^callBackBlock)(ZSkin *skin);
+typedef void (^callBackBlock)(id sender,ZSkin *skin);
 
 //
 #define OP(target,keypath) @__keypath(target,keypath)
