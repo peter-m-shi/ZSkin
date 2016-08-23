@@ -58,14 +58,11 @@
 
 - (NSString *)collectIdentifier
 {
-    NSArray *callStackSymbols = [NSThread callStackSymbols];
+    NSArray *callStackSymbols = [NSThread callStackReturnAddresses];
     assert(callStackSymbols.count >= 4);
 
-    NSString *callStackInfo1 = [callStackSymbols[2] componentsSeparatedByString:@"0x"].lastObject;
-    NSString *callStackInfo2 = [callStackSymbols[3] componentsSeparatedByString:@"0x"].lastObject;
-    NSString *identifier = [NSString stringWithFormat:@"%p_%@_0x%@_0x%@", self, [self class], callStackInfo1,callStackInfo2];
+    NSString *identifier = [NSString stringWithFormat:@"%p_%@_%@_%@", self, [self class], callStackSymbols[2],callStackSymbols[3]];
 
-//    NSLog(@"id : %@",identifier);
     return identifier;
 }
 @end
