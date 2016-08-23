@@ -18,10 +18,6 @@
 
 @property (nonatomic) NSString *path;
 
-- (id)initWithPath:(NSString *)path;
-
 - (UIImage *)imageNamed:(NSString *)name;
-
-+ (UIImage *)imageNamed:(NSString *)name inBundle:(NSString *)bundleName;
 
 @end

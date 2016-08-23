@@ -9,11 +9,12 @@
 #import "ZSkinLoader.h"
 #import "ZSkin.h"
 
-#define KDefaultSkinFolderName @"Skins"
+#define KDefaultSkinFolderName @"BuiltInSkins"
+#define KExtendSkinFolderName @"Skins"
 
 @interface ZSkinLoader()
 
-@property (nonatomic) NSString *innerSkinsFolderPath;
+@property (nonatomic) NSString *builtInSkinsFolderPath;
 
 @end
 
@@ -24,35 +25,27 @@
     self = [super init];
     if (self)
     {
-        self.skinFolderPath = [NSString stringWithFormat:@"%@/Library/Caches/%@/",NSHomeDirectory(),KDefaultSkinFolderName];
-        self.innerSkinsFolderPath = [NSString stringWithFormat:@"%@/%@",[[NSBundle mainBundle] bundlePath],KDefaultSkinFolderName];
-        [self checkSkinFolder];
+        self.builtInSkinsFolderPath = [NSString stringWithFormat:@"%@/%@",[[NSBundle mainBundle] bundlePath],KDefaultSkinFolderName];
+        self.extendSkinFolderPath = [NSString stringWithFormat:@"%@/Library/Caches/%@",NSHomeDirectory(),KExtendSkinFolderName];
     }
 
     return self;
 }
 
-- (void)checkSkinFolder
-{
-#ifdef DEBUG
-    //To make the skin files always be latest when developing period
-    [[NSFileManager defaultManager] removeItemAtPath:self.skinFolderPath error:nil];
-#endif
-    BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:self.skinFolderPath];
-    if (!exists)
-    {
-        NSError *error;
-        BOOL ret = [[NSFileManager defaultManager] copyItemAtPath:self.innerSkinsFolderPath toPath:self.skinFolderPath error:&error];
-        if (!ret)
-        {
-            NSLog(@"copy skins folder to cache folder failed! %@",error);
-        }
-    }
-}
 
 - (NSArray *)loadSkins
 {
-    NSDirectoryEnumerator* enumerator = [[NSFileManager defaultManager] enumeratorAtPath:self.skinFolderPath];
+    NSMutableArray *skins = [[NSMutableArray alloc] init];
+    //load skin from built-in path,default in the main bundle
+    [skins addObjectsFromArray:[self loadSkinsFromPath:self.builtInSkinsFolderPath]];
+    //load skin from extend path,etc download from network
+    [skins addObjectsFromArray:[self loadSkinsFromPath:self.extendSkinFolderPath]];
+    return skins;
+}
+
+- (NSArray *)loadSkinsFromPath:(NSString *)path
+{
+    NSDirectoryEnumerator* enumerator = [[NSFileManager defaultManager] enumeratorAtPath:path];
     NSString *file;
     NSMutableArray *skins = [NSMutableArray new];
     while (file = [enumerator nextObject])
@@ -60,42 +53,13 @@
         if ([[file pathExtension] hasSuffix:@"bundle"])
         {
             ZSkin *skin = [[ZSkin alloc] init];
-            skin.name = [file stringByDeletingPathExtension];
-            skin.path = [NSString stringWithFormat:@"%@%@",self.skinFolderPath,file];
+            skin.path = [NSString stringWithFormat:@"%@/%@",path,file];
+            skin.builtIn = [[path lastPathComponent] isEqualToString:KDefaultSkinFolderName];
             [skins addObject:skin];
         }
     }
     return skins;
 }
-
-
-- (void)loadSkin:(ZSkin *)skin
-{
-    if (!skin.color)
-    {
-        skin.color = [[ZColorSkin alloc] initWithDictionary:[self loadSkinContent:skin.name type:@"color"]];
-    }
-    if (!skin.font)
-    {
-        skin.font = [[ZFontSkin alloc] initWithDictionary:[self loadSkinContent:skin.name type:@"font"]];
-    }
-    if (!skin.image)
-    {
-        skin.image = [[ZImageSkin alloc] initWithPath:[NSString stringWithFormat:@"%@%@.bundle/",self.skinFolderPath,skin.name]];
-    }
-}
-
-
-- (NSDictionary *)loadSkinContent:(NSString *)name type:(NSString *)type
-{
-    assert(name && type);
-    
-    NSString *filePath = [NSString stringWithFormat:@"%@/%@.bundle/%@.plist",self.skinFolderPath,name,type];
-    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:filePath];
-
-    return dictionary;
-}
-
 
 #pragma mark - private function -
 

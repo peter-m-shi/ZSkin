@@ -15,23 +15,16 @@
  */
 @interface ZSkinLoader : NSObject
 
-@property (nonatomic) NSString *skinFolderPath;
+@property (nonatomic) NSString *extendSkinFolderPath;
 
 /**
  *  Load skins in default folder
- *  
- *  This will not load configratures and resources of all the skins 
- *  until it be loaded by @selectore(loadSkin:)
+ *
+ *  This will not load configratures and resources of all the skins
+ *  until it be loaded by @selectore(load) of ZSkin
  *
  *  @return array
  */
 - (NSArray *)loadSkins;
-
-/**
- *  Load all the configratures and resources with given skin
- *
- *  @param skin who want be loaded.
- */
-- (void)loadSkin:(ZSkin *)skin;
 
 @end

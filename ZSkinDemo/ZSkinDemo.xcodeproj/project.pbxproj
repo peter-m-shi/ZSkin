@@ -20,7 +20,6 @@
 		D00BD7061D4AF4CA008B4B24 /* ZSkin.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6F51D4AF4CA008B4B24 /* ZSkin.m */; };
 		D00BD7071D4AF4CA008B4B24 /* ZSkinLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6F91D4AF4CA008B4B24 /* ZSkinLoader.m */; };
 		D00BD7081D4AF4CA008B4B24 /* ZSkinManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6FB1D4AF4CA008B4B24 /* ZSkinManager.m */; };
-		D00BD70A1D4AF4DA008B4B24 /* Skins in Resources */ = {isa = PBXBuildFile; fileRef = D00BD7091D4AF4DA008B4B24 /* Skins */; };
 		D00BD70F1D4AF552008B4B24 /* 1403909a57b446bb8e55094e7450ff8f.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D00BD70C1D4AF552008B4B24 /* 1403909a57b446bb8e55094e7450ff8f.bundle */; };
 		D00BD7101D4AF552008B4B24 /* e02ae0e472604e47bfcf389e4ccf37ba.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D00BD70D1D4AF552008B4B24 /* e02ae0e472604e47bfcf389e4ccf37ba.bundle */; };
 		D00BD7111D4AF552008B4B24 /* test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D00BD70E1D4AF552008B4B24 /* test@2x.png */; };
@@ -38,6 +37,8 @@
 		D05256B51D4AF11F000876B9 /* ViewControllerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D05256AD1D4AF11F000876B9 /* ViewControllerLabel.m */; };
 		D05256B61D4AF11F000876B9 /* ViewControllerMain.m in Sources */ = {isa = PBXBuildFile; fileRef = D05256AF1D4AF11F000876B9 /* ViewControllerMain.m */; };
 		D05256B71D4AF11F000876B9 /* ZColorSkin+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = D05256B11D4AF11F000876B9 /* ZColorSkin+Custom.m */; };
+		D0BFCA681D6C5F8600BA0F02 /* BuiltInSkins in Resources */ = {isa = PBXBuildFile; fileRef = D0BFCA671D6C5F8600BA0F02 /* BuiltInSkins */; };
+		D0BFCA6C1D6C647100BA0F02 /* extendSkinsForTest in Resources */ = {isa = PBXBuildFile; fileRef = D0BFCA6B1D6C647100BA0F02 /* extendSkinsForTest */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +87,6 @@
 		D00BD6F91D4AF4CA008B4B24 /* ZSkinLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSkinLoader.m; sourceTree = "<group>"; };
 		D00BD6FA1D4AF4CA008B4B24 /* ZSkinManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSkinManager.h; sourceTree = "<group>"; };
 		D00BD6FB1D4AF4CA008B4B24 /* ZSkinManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSkinManager.m; sourceTree = "<group>"; };
-		D00BD7091D4AF4DA008B4B24 /* Skins */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Skins; path = ../Skins; sourceTree = "<group>"; };
 		D00BD70C1D4AF552008B4B24 /* 1403909a57b446bb8e55094e7450ff8f.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = 1403909a57b446bb8e55094e7450ff8f.bundle; sourceTree = "<group>"; };
 		D00BD70D1D4AF552008B4B24 /* e02ae0e472604e47bfcf389e4ccf37ba.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = e02ae0e472604e47bfcf389e4ccf37ba.bundle; sourceTree = "<group>"; };
 		D00BD70E1D4AF552008B4B24 /* test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test@2x.png"; sourceTree = "<group>"; };
@@ -118,6 +118,8 @@
 		D05256AF1D4AF11F000876B9 /* ViewControllerMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerMain.m; sourceTree = "<group>"; };
 		D05256B01D4AF11F000876B9 /* ZColorSkin+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZColorSkin+Custom.h"; sourceTree = "<group>"; };
 		D05256B11D4AF11F000876B9 /* ZColorSkin+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZColorSkin+Custom.m"; sourceTree = "<group>"; };
+		D0BFCA671D6C5F8600BA0F02 /* BuiltInSkins */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BuiltInSkins; path = ../BuiltInSkins; sourceTree = "<group>"; };
+		D0BFCA6B1D6C647100BA0F02 /* extendSkinsForTest */ = {isa = PBXFileReference; lastKnownFileType = folder; name = extendSkinsForTest; path = ZSkinDemo/extendSkinsForTest; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,8 +197,9 @@
 		D05256671D4AEFCA000876B9 = {
 			isa = PBXGroup;
 			children = (
+				D0BFCA6B1D6C647100BA0F02 /* extendSkinsForTest */,
+				D0BFCA671D6C5F8600BA0F02 /* BuiltInSkins */,
 				D00BD70B1D4AF552008B4B24 /* Resources */,
-				D00BD7091D4AF4DA008B4B24 /* Skins */,
 				D00BD6DF1D4AF4CA008B4B24 /* ZSkin */,
 				D05256721D4AEFCA000876B9 /* ZSkinDemo */,
 				D052568C1D4AEFCA000876B9 /* ZSkinDemoTests */,
@@ -373,12 +376,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D05256831D4AEFCA000876B9 /* LaunchScreen.storyboard in Resources */,
-				D00BD70A1D4AF4DA008B4B24 /* Skins in Resources */,
+				D0BFCA6C1D6C647100BA0F02 /* extendSkinsForTest in Resources */,
 				D00BD70F1D4AF552008B4B24 /* 1403909a57b446bb8e55094e7450ff8f.bundle in Resources */,
 				D05256801D4AEFCA000876B9 /* Assets.xcassets in Resources */,
 				D052567E1D4AEFCA000876B9 /* Main.storyboard in Resources */,
 				D00BD7111D4AF552008B4B24 /* test@2x.png in Resources */,
 				D00BD7101D4AF552008B4B24 /* e02ae0e472604e47bfcf389e4ccf37ba.bundle in Resources */,
+				D0BFCA681D6C5F8600BA0F02 /* BuiltInSkins in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

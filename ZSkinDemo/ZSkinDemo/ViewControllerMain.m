@@ -20,27 +20,44 @@
 
 - (void)viewDidLoad
 {
+    [self copyTestSkin];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor clearColor];
-
-
-    [self prepareData];
 }
 
 
 - (void)prepareData
 {
     [super prepareData];
-
+    
     self.menuList = [NSMutableArray new];
     [self.menuList addObject:@"label"];
     [self.menuList addObject:@"button"];
     [self.menuList addObject:@"image"];
 }
 
+
+- (void)copyTestSkin
+{
+    NSString* builtInPath = [NSString stringWithFormat:@"%@/%@",[[NSBundle mainBundle] bundlePath],@"extendSkinsForTest"];
+    NSString* extendPath = [NSString stringWithFormat:@"%@/Library/Caches/%@",NSHomeDirectory(),@"Skins"];
+    [[NSFileManager defaultManager] removeItemAtPath:extendPath error:
+     nil];
+    BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:extendPath];
+    if (!exists)
+    {
+        NSError *error;
+        BOOL ret = [[NSFileManager defaultManager] copyItemAtPath:builtInPath toPath:extendPath error:&error];
+        if (!ret)
+        {
+            NSLog(@"copy skins folder to cache folder failed! %@",error);
+        }
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {

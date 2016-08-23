@@ -18,6 +18,7 @@
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *path;
+@property (nonatomic) BOOL builtIn;
 @property (nonatomic) ZColorSkin *color;
 @property (nonatomic) ZFontSkin *font;
 @property (nonatomic) ZImageSkin *image;

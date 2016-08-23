@@ -73,6 +73,11 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     id value = [change objectForKey:@"new"];
+    if ([value isKindOfClass:[NSNull class]])
+    {
+//        assert(false);
+        return;
+    }
     [self notifyTarget:value];
 }
 

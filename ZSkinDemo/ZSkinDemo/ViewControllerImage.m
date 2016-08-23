@@ -36,11 +36,11 @@
     [self.image2 bind:^(id sender, ZSkin *skin) {
         if (weakSelf.count % 2 == 0)
         {
-            [weakSelf.image2 setImage:[ZImageSkin imageNamed:@"aspectSelect_btn0_normal" inBundle:@"1403909a57b446bb8e55094e7450ff8f"]];
+            [weakSelf.image2 setImage:[UIImage imageNamed:@"1403909a57b446bb8e55094e7450ff8f.bundle/aspectSelect_btn0_normal"]];
         }
         else
         {
-            [weakSelf.image2 setImage:[ZImageSkin imageNamed:@"aspectSelect_btn0_normal" inBundle:@"e02ae0e472604e47bfcf389e4ccf37ba"]];
+//            [weakSelf.image2 setImage:[ZImageSkin imageNamed:@"aspectSelect_btn0_normal" inBundle:@"e02ae0e472604e47bfcf389e4ccf37ba"]];
         }
         weakSelf.count += 1;
     }];

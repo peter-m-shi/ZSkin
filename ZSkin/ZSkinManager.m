@@ -52,7 +52,6 @@ NSString *ZSkinChangedNotificationKey = @"ZSkinChangedNotificationKey";
     if (skin != _skin)
     {
         _skin = skin;
-        [_skinLoader loadSkin:_skin];
         [[NSNotificationCenter defaultCenter] postNotificationName:ZSkinChangedNotificationKey
                                                             object:_skin
                                                           userInfo:nil];

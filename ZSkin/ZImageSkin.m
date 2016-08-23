@@ -10,24 +10,20 @@
 
 @import UIKit;
 
+#pragma mark - ZImageSkin Class -
+
 @implementation ZImageSkin
 
-- (id)initWithPath:(NSString *)path
-{
-    self = [super init];
-    if (self)
-    {
-        self.path = path;
-    }
-    return self;
-}
+#pragma mark - private function -
 
+- (NSString *)imageFilePath:(NSString *)name
+{
+    return [NSString stringWithFormat:@"%@/image/%@", self.path, name];
+}
 
 - (UIImage *)imageNamed:(NSString *)name
 {
-//    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%@/image/%@", self.path, name]];
-    //TODO:imageNamed获取图片有缓存问题。暂时支持绝对全路径。
-    UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/image/%@", self.path, name]];
+    UIImage *image = [UIImage imageWithContentsOfFile:[self imageFilePath:name]];
 
     if (!image)
     {
@@ -36,18 +32,6 @@
     return image;
 }
 
-
-+ (UIImage *)imageNamed:(NSString *)name inBundle:(NSString *)bundleName
-{
-    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.bundle/%@", bundleName, name]];
-    if (!image)
-    {
-        image = [UIImage imageNamed:name];
-    }
-    return image;
-}
-
-
-#pragma mark - private function -
+//TODO:缓存
 
 @end
