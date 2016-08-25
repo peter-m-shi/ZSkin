@@ -23,7 +23,7 @@
 ///
 /// Examples
 ///
-///  ZSB(self, objectProperty) = @"color.background";
+///  ZSB(self, objectProperty) = SK(color.background);
 ///
 /// WARNING: Under certain conditions, use of this macro can be thread-unsafe.
 ///          See the documentation of -setKeyPath:onObject:nilValue:.
@@ -31,7 +31,7 @@
 #define ZSB(TARGET, ...) \
         (ZSB_(TARGET, __VA_ARGS__)) \
 
-/// Do not use this directly. Use the RAC macro above.
+/// Do not use this directly. Use the ZSB macro above.
 #define ZSB_(TARGET, KEYPATH) \
     [[ZBindingAssistant alloc] initWithTarget:(TARGET)][@__keypath(TARGET, KEYPATH)]
 

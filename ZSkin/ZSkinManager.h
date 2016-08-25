@@ -10,7 +10,9 @@
 
 @class ZSkin;
 
-/*a notification named ZSkinChangedNotificationKey will be posted when the selected skin be changed.*/
+/**
+ *  a notification named ZSkinChangedNotificationKey will be posted when the selected skin be changed.
+ */
 extern NSString *ZSkinChangedNotificationKey;
 
 /**
@@ -18,12 +20,19 @@ extern NSString *ZSkinChangedNotificationKey;
  */
 @interface ZSkinManager : NSObject
 
-/*current selected skin*/
+/**
+ * current selected skin
+ */
 @property (readwrite, strong, nonatomic) ZSkin *skin;
 
-/*supported skin array*/
+/**
+ * supported skin array
+ */
 @property (readonly, strong, nonatomic) NSArray *skins;
 
+/**
+ * shared instance
+ */
 + (instancetype)instance;
 
 /**

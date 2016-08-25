@@ -39,7 +39,7 @@ typedef void (^callBackBlock)(id sender,ZSkin *skin);
  
  #import <objc/runtime.h>
  @implementation NSObject (MyAdd)
- PROPERTY(myColor, setMyColor, UIColor *)
+ DYNAMIC(myColor, setMyColor, UIColor *)
  @end
  */
 #ifndef DYNAMIC
