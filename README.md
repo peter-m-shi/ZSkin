@@ -1,13 +1,17 @@
 ![ZSkin](https://github.com/peter-m-shi/ZSkin/raw/master/Images/Logo.jpg)
 
-ZSkin is a skin manager tool for iOS
+> ZSkin is a powerful skin/theme kit for iOS.
+
+> You can easily customize and change your app's appearance using ZSkin.
+
+> Contact Me : peter.m.shi@outlook.com
 
 ## Installation
 
 ZSkin is available on [CocoaPods](http://cocoapods.org). Just add the following to your project Podfile:
 
 ```ruby
-pod 'ZSkin', '~> 1.0'
+pod 'ZSkin'
 ```
 
 Bugs are first fixed in master and then made available via a designated release. If you tend to live on the bleeding edge, you can use ZSkin from master with the following Podfile entry:
@@ -17,60 +21,11 @@ pod 'ZSkin', :git => 'https://github.com/peter-m-shi/ZSkin.git'
 ```
 
 ## Demo
-Gif演示图
+Gif of demo(coming soon)
 
-## Skin Package
 
-### Bundle Struct
-```
-skin.bundle
-├── color.plist     // color config file
-├── font.plist      // font config file
-└── image           // image config folder
-	└── test.jpg
- 
-```
-
-### Color
-JPG截图
-
-### Font
-JPG截图
-
-### Image
-JPG截图
 
 ## Usage
-
-
-### Color Extend
-a Category Class Named(Custom) should be created if you add any key to "color.plist"
-And the new property with the same name should be add to Category Class. etc.
-
-```objective-c
- 
-ZColorSkin+Custom.h
- 
-@interface ZColorSkin (Custom)
- 
-@property (nonatomic) UIColor *customColor;
-
-...
-
-@end
- 
- 
- 
-ZColorSkin+Custom.m
- 
-@implementation ZColorSkin (Custom)
-
-DYNAMIC(customColor,setCustomColor,UIColor*)
-
-...
- 
-@end
-```
 
 ### Import
 Use by including the following import:
@@ -108,7 +63,20 @@ ZSB(self.button, titleColorNormal) = SK(color.foreground);
 ZSB(self.button, titleColorHightlight) = SK(color.hightlight);
 ZSB(self.button, titleColorSelected) = SK(color.selected);
 ```
-#### Binding and Unbinding
+
+More other binding way(not recommend)
+
+```objective-c
+//Binding By Literal
+[self.textField bind:@"backgroundColor" to:@"color.background"];
+
+//Binding By Macro Definition
+[self.textField bind:OP(self.textField, backgroundColor) to:SK(color.background)];
+[self.textField bind:OPView(backgroundColor) to:SK(color.foreground)];
+[self.label bind:OPLabel(textColor) to:SK(color.background)];
+```
+
+#### Dynamic Binding And UnBinding
 
 ```objective-c
 - (IBAction)clickToBindOrUnBind:(id)sender
@@ -134,6 +102,7 @@ ZSB(self.button, titleColorSelected) = SK(color.selected);
 #### Custom Binding
 ```objective-c
 [self.button3 bind:^(id sender, ZSkin *skin) {
+	//update UI here
     UIButton *btn = sender;
     [btn setBackgroundColor:skin.color.foreground];
     [btn setTitleColor:skin.color.background forState:UIControlStateNormal];
@@ -152,9 +121,111 @@ ZSB(self.button, titleColorSelected) = SK(color.selected);
 
 - (void)receiveNotification:(NSNotification *)notification
 {
-    NSLog(@"%@ receive skin change notification", self.class);
-    self.title = self.skin.name;
+    ZSkin *skin = notification.object;
+    NSLog(@"%@ receive skin change notification:%@", self.class, skin);
+    self.title = skin.name;
 }
+```
+
+## Change Skin
+
+easily change skin as follow:
+
+```objective-c
+//Change skin with index number
+[[ZSkinManager instance] setSkinIndexed:0];
+
+//Change skin with name string
+[[ZSkinManager instance] setSkinNamed:@"dark"];
+
+//Change skin
+self.skin = [[ZSkinManager instance].skins objectAtIndex:self.segment.selectedSegmentIndex];
+[ZSkinManager instance].skin = self.skin;
+```
+
+## Skin Package
+
+### Bundle Struct
+```
+skin.bundle
+├── color.plist     // color config file
+├── font.plist      // font config file
+└── image           // image config folder
+	└── test.jpg
+ 
+```
+
+### Color
+![ZSkin](https://github.com/peter-m-shi/ZSkin/raw/master/Images/Color.png)
+
+value supported formats in color.plist:
+
+```objective-c
+
+// "0xffcc00"			//RGB
+// "#ffcc00"			//RGB
+// "255,204,0"			//RGB
+
+// "0xffcc00dd"			//RGBA
+// "#ffcc00dd"			//RGBA
+// "255,204,0,0.87"		//RGBA
+
+// "red"            Color property of UIColor
+
+```
+
+Access a color property as follow:
+
+```objective-c
+[ZSkinManager instance].skin.color.foreground;
+c
+
+### Custom Color
+A Category Class Named(Custom) should be created if you add any key to "color.plist"
+And the new property with the same name should be add to Category Class. etc.
+
+```objective-c
+ 
+ZColorSkin+Custom.h
+ 
+@interface ZColorSkin (Custom)
+ 
+@property (nonatomic) UIColor *customColor;
+
+...
+
+@end
+ 
+ 
+ 
+ZColorSkin+Custom.m
+ 
+@implementation ZColorSkin (Custom)
+
+DYNAMIC(customColor,setCustomColor,UIColor*)
+
+...
+ 
+@end
+```
+
+### Font
+![ZSkin](https://github.com/peter-m-shi/ZSkin/raw/master/Images/Font.png)
+
+Access a font property as follow:
+
+```objective-c
+[ZSkinManager instance].skin.font.largeSize;
+```
+
+### Image
+
+Access a image as follow:
+
+```objective-c
+[self.image bind:^(id sender, ZSkin *skin) {
+    [(UIImageView *)sender setImage:[skin.image imageNamed:@"folder1/test.png"]];
+}];
 ```
 
 ## Resources

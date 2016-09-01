@@ -72,6 +72,13 @@
 
 - (IBAction)segmentValueChanged:(id)sender
 {
+//    //Change skin with index number
+//    [[ZSkinManager instance] setSkinIndexed:0];
+//
+//    //Change skin with name string
+//    [[ZSkinManager instance] setSkinNamed:@"dark"];
+
+    //Change skin
     self.skin = [[ZSkinManager instance].skins objectAtIndex:self.segment.selectedSegmentIndex];
     [ZSkinManager instance].skin = self.skin;
 }
@@ -93,7 +100,8 @@
 
 - (void)receiveNotification:(NSNotification *)notification
 {
-    NSLog(@"%@ receive skin change notification", self.class);
-    self.title = self.skin.name;
+    ZSkin *skin = notification.object;
+    NSLog(@"%@ receive skin change notification:%@", self.class, skin);
+    self.title = skin.name;
 }
 @end
