@@ -1,4 +1,6 @@
-ZSkin is a skin manager tool
+![ZSkin](https://github.com/peter-m-shi/ZSkin/raw/master/Images/Logo.jpg)
+
+ZSkin is a skin manager tool for iOS
 
 ## Installation
 
