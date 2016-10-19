@@ -45,9 +45,7 @@ typedef void (^callBackBlock)(id sender,ZSkin *skin);
 #ifndef DYNAMIC
 #define DYNAMIC(_getter_, _setter_, _type_) \
 - (void)_setter_ : (_type_)object { \
-[self willChangeValueForKey:@#_getter_]; \
 objc_setAssociatedObject(self, _cmd, object, OBJC_ASSOCIATION_RETAIN_NONATOMIC); \
-[self didChangeValueForKey:@#_getter_]; \
 } \
 - (_type_)_getter_ { \
 return objc_getAssociatedObject(self, @selector(_setter_:)); \
