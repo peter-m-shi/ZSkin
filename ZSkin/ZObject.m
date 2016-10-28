@@ -8,8 +8,7 @@
 
 #import "ZObject.h"
 #import "ZRuntimeUtility.h"
-
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 #pragma GCC diagnostic ignored "-Warc-performSelector-leaks"
 
