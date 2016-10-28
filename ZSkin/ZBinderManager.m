@@ -72,6 +72,8 @@
   identifier:(NSString *)identifier
     callback:(callBackBlock)callback
 {
+    [self collectGarbage];
+    
     NSString *key = K_BINDER_KEY_NORAML;
     if ([self binderExisted:key identifier:identifier])
     {
@@ -92,6 +94,8 @@
    oKeyPatrh:(NSString *)oKeyPath
    parameter:(void *)parameter
 {
+    [self collectGarbage];
+    
     NSString *key = [NSString stringWithFormat:@"%@.%@", K_SKIN_MANAGER_KEY_PATH, oKeyPath];
 
     if ([self binderExisted:key identifier:identifier])
