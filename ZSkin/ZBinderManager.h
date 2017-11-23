@@ -43,7 +43,7 @@
   identifier:(NSString *)identifier
     tKeyPath:(NSString *)tKeyPath
     observer:(id)observer
-   oKeyPatrh:(NSString *)oKeyPath
+    oKeyPath:(NSString *)oKeyPath
    parameter:(void *)parameter;
 
 /**
