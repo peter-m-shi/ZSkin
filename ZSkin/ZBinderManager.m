@@ -266,8 +266,8 @@
         return NO;
     }
     NSObject *obj = [self.skinManager.skin performSelector:sel];
-    SEL sel1 = NSSelectorFromString(oKeyPaths[1]);
-    if (![obj respondsToSelector:sel1]) {
+    SEL sel2 = NSSelectorFromString(oKeyPaths[1]);
+    if (![obj respondsToSelector:sel2]) {
         [self log:[NSString stringWithFormat:@"Object 'skin.%@' doesn't have a method named '%@'", oKeyPaths[0], oKeyPaths[1]]];
         return NO;
     }
