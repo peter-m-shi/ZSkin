@@ -91,10 +91,15 @@
   identifier:(NSString *)identifier
     tKeyPath:(NSString *)tKeyPath
     observer:(id)observer
-   oKeyPatrh:(NSString *)oKeyPath
+    oKeyPath:(NSString *)oKeyPath
    parameter:(void *)parameter
 {
     [self collectGarbage];
+    
+    // 判断oKeyPath是否合法
+    if (![self isOKeyPathValid:oKeyPath]) {
+        return;
+    }
     
     NSString *key = [NSString stringWithFormat:@"%@.%@", K_SKIN_MANAGER_KEY_PATH, oKeyPath];
 
@@ -243,6 +248,38 @@
         binderList = [NSMutableArray new];
     }
     return binderList;
+}
+
+- (BOOL)isOKeyPathValid:(NSString *)oKeyPath {
+    if (!oKeyPath) {
+        [self log:@"oKeyPath is nil"];
+        return NO;
+    }
+    NSArray *oKeyPaths = [oKeyPath componentsSeparatedByString:@"."];
+    if (oKeyPaths.count != 2) {
+        [self log:@"oKeyPath must be like 'color.background'"];
+        return NO;
+    }
+    SEL sel = NSSelectorFromString(oKeyPaths[0]);
+    if (![self.skinManager.skin respondsToSelector:sel]) {
+        [self log:[NSString stringWithFormat:@"Object 'skin' doesn't have a method named '%@'", oKeyPaths[0]]];
+        return NO;
+    }
+    NSObject *obj = [self.skinManager.skin performSelector:sel];
+    SEL sel1 = NSSelectorFromString(oKeyPaths[1]);
+    if (![obj respondsToSelector:sel1]) {
+        [self log:[NSString stringWithFormat:@"Object 'skin.%@' doesn't have a method named '%@'", oKeyPaths[0], oKeyPaths[1]]];
+        return NO;
+    }
+    return YES;
+}
+
+- (void)log:(NSString *)logStr {
+#ifdef DEBUG
+//    NSAssert(NO, logStr);
+#else
+    NSLog(logStr);
+#endif
 }
 
 

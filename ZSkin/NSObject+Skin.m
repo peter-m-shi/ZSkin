@@ -19,7 +19,7 @@
                          identifier:[self collectIdentifier]
                            tKeyPath:tKeyPath
                            observer:[ZSkinManager instance]
-                          oKeyPatrh:oKeyPath
+                           oKeyPath:oKeyPath
                           parameter:nil];
 }
 
@@ -30,7 +30,7 @@
                           identifier:[self collectIdentifier]
                             tKeyPath:tKeyPath
                             observer:[ZSkinManager instance]
-                           oKeyPatrh:oKeyPath
+                            oKeyPath:oKeyPath
                            parameter:param];
 }
 
