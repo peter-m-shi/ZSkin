@@ -276,7 +276,7 @@
 
 - (void)log:(NSString *)logStr {
 #ifdef DEBUG
-//    NSAssert(NO, logStr);
+    NSAssert(NO, logStr);
 #else
     NSLog(logStr);
 #endif
