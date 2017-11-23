@@ -254,33 +254,33 @@
 - (BOOL)isOKeyPathValid:(NSString *)oKeyPath {
     if (!oKeyPath)
     {
-        [self log:@"oKeyPath is nil"];
+        [self printLog:@"oKeyPath is nil"];
         return NO;
     }
     NSArray *oKeyPaths = [oKeyPath componentsSeparatedByString:@"."];
     if (oKeyPaths.count != 2)
     {
-        [self log:@"oKeyPath must be like 'color.background'"];
+        [self printLog:@"oKeyPath must be like 'color.background'"];
         return NO;
     }
     SEL sel = NSSelectorFromString(oKeyPaths[0]);
     if (![self.skinManager.skin respondsToSelector:sel])
     {
-        [self log:[NSString stringWithFormat:@"Object 'skin' doesn't have a method named '%@'", oKeyPaths[0]]];
+        [self printLog:[NSString stringWithFormat:@"Object 'skin' doesn't have a method named '%@'", oKeyPaths[0]]];
         return NO;
     }
     NSObject *obj = [self.skinManager.skin performSelector:sel];
     SEL sel2 = NSSelectorFromString(oKeyPaths[1]);
     if (![obj respondsToSelector:sel2])
     {
-        [self log:[NSString stringWithFormat:@"Object 'skin.%@' doesn't have a method named '%@'", oKeyPaths[0], oKeyPaths[1]]];
+        [self printLog:[NSString stringWithFormat:@"Object 'skin.%@' doesn't have a method named '%@'", oKeyPaths[0], oKeyPaths[1]]];
         return NO;
     }
-    [self log:@"oKeyPath is not valid"];
+    [self printLog:@"oKeyPath is not valid"];
     return YES;
 }
 
-- (void)log:(NSString *)logStr {
+- (void)printLog:(NSString *)logStr {
 #ifdef DEBUG
     NSAssert(NO, logStr);
 #else
