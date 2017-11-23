@@ -97,7 +97,8 @@
     [self collectGarbage];
     
     // 判断oKeyPath是否合法
-    if (![self isOKeyPathValid:oKeyPath]) {
+    if (![self isOKeyPathValid:oKeyPath])
+    {
         return;
     }
     
