@@ -10,6 +10,8 @@
 #import "ZSkinManager.h"
 #import "ZSkin.h"
 #import "ZBinder.h"
+#import "NSObject+KeyPath.h"
+#import "ZRuntimeUtility.h"
 
 @import UIKit;
 
@@ -96,8 +98,24 @@
 {
     [self collectGarbage];
     
-    // 判断oKeyPath是否合法
-    if (![self isOKeyPathValid:oKeyPath])
+    // Verify oKeyPath is valid
+    if (![self.skinManager.skin isValidKeyPath:oKeyPath])
+    {
+        return;
+    }
+    
+    Class tClass;
+    if ([@"backgroundColor" isEqualToString:tKeyPath] && [target isKindOfClass:[UIView class]])
+    {
+        tClass = [UIColor class];
+    }
+    else
+    {
+        tClass = [ZRuntimeUtility propertyClassForPropertyName:tKeyPath ofClass:[target class]];
+    }
+    
+    Class oClass = [self.skinManager.skin classOfKeyPath:oKeyPath];
+    if (![[oClass new] isKindOfClass:tClass])
     {
         return;
     }
@@ -250,44 +268,6 @@
     }
     return binderList;
 }
-
-- (BOOL)isOKeyPathValid:(NSString *)oKeyPath {
-    if (!oKeyPath)
-    {
-        [self printLog:@"oKeyPath is nil"];
-        return NO;
-    }
-    NSArray *oKeyPaths = [oKeyPath componentsSeparatedByString:@"."];
-    if (oKeyPaths.count != 2)
-    {
-        [self printLog:@"oKeyPath must be like 'color.background'"];
-        return NO;
-    }
-    SEL sel = NSSelectorFromString(oKeyPaths[0]);
-    if (![self.skinManager.skin respondsToSelector:sel])
-    {
-        [self printLog:[NSString stringWithFormat:@"Object 'skin' doesn't have a method named '%@'", oKeyPaths[0]]];
-        return NO;
-    }
-    NSObject *obj = [self.skinManager.skin performSelector:sel];
-    SEL sel2 = NSSelectorFromString(oKeyPaths[1]);
-    if (![obj respondsToSelector:sel2])
-    {
-        [self printLog:[NSString stringWithFormat:@"Object 'skin.%@' doesn't have a method named '%@'", oKeyPaths[0], oKeyPaths[1]]];
-        return NO;
-    }
-    [self printLog:@"oKeyPath is not valid"];
-    return YES;
-}
-
-- (void)printLog:(NSString *)logStr {
-#ifdef DEBUG
-    NSAssert(NO, logStr);
-#else
-    NSLog(logStr);
-#endif
-}
-
 
 - (NSString *)description
 {
