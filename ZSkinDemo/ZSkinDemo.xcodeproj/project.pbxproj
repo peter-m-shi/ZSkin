@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E36959B1FC6BB9000540F6C /* NSObject+KeyPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E36959A1FC6BB9000540F6C /* NSObject+KeyPath.m */; };
 		D00BD6FC1D4AF4CA008B4B24 /* NSObject+Skin.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6E11D4AF4CA008B4B24 /* NSObject+Skin.m */; };
 		D00BD6FD1D4AF4CA008B4B24 /* UIButton+ExProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6E31D4AF4CA008B4B24 /* UIButton+ExProperty.m */; };
 		D00BD6FE1D4AF4CA008B4B24 /* ZBinder.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BD6E51D4AF4CA008B4B24 /* ZBinder.m */; };
@@ -60,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E3695991FC6BB9000540F6C /* NSObject+KeyPath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+KeyPath.h"; sourceTree = "<group>"; };
+		7E36959A1FC6BB9000540F6C /* NSObject+KeyPath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KeyPath.m"; sourceTree = "<group>"; };
 		D00BD6E01D4AF4CA008B4B24 /* NSObject+Skin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Skin.h"; sourceTree = "<group>"; };
 		D00BD6E11D4AF4CA008B4B24 /* NSObject+Skin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Skin.m"; sourceTree = "<group>"; };
 		D00BD6E21D4AF4CA008B4B24 /* UIButton+ExProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ExProperty.h"; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 		D00BD6DF1D4AF4CA008B4B24 /* ZSkin */ = {
 			isa = PBXGroup;
 			children = (
+				7E3695991FC6BB9000540F6C /* NSObject+KeyPath.h */,
+				7E36959A1FC6BB9000540F6C /* NSObject+KeyPath.m */,
 				D00BD6E01D4AF4CA008B4B24 /* NSObject+Skin.h */,
 				D00BD6E11D4AF4CA008B4B24 /* NSObject+Skin.m */,
 				D00BD6E21D4AF4CA008B4B24 /* UIButton+ExProperty.h */,
@@ -430,6 +435,7 @@
 				D00BD7081D4AF4CA008B4B24 /* ZSkinManager.m in Sources */,
 				D00BD6FF1D4AF4CA008B4B24 /* ZBinderManager.m in Sources */,
 				D05256B41D4AF11F000876B9 /* ViewControllerImage.m in Sources */,
+				7E36959B1FC6BB9000540F6C /* NSObject+KeyPath.m in Sources */,
 				D05256B71D4AF11F000876B9 /* ZColorSkin+Custom.m in Sources */,
 				D00BD7001D4AF4CA008B4B24 /* ZBindingAssistant.m in Sources */,
 				D00BD7051D4AF4CA008B4B24 /* ZRuntimeUtility.m in Sources */,

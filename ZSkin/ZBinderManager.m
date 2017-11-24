@@ -10,6 +10,8 @@
 #import "ZSkinManager.h"
 #import "ZSkin.h"
 #import "ZBinder.h"
+#import "NSObject+KeyPath.h"
+#import "ZRuntimeUtility.h"
 
 @import UIKit;
 
@@ -91,10 +93,32 @@
   identifier:(NSString *)identifier
     tKeyPath:(NSString *)tKeyPath
     observer:(id)observer
-   oKeyPatrh:(NSString *)oKeyPath
+    oKeyPath:(NSString *)oKeyPath
    parameter:(void *)parameter
 {
     [self collectGarbage];
+    
+    // Verify oKeyPath is valid
+    if (![self.skinManager.skin isValidKeyPath:oKeyPath])
+    {
+        return;
+    }
+    
+    Class tClass;
+    if ([@"backgroundColor" isEqualToString:tKeyPath] && [target isKindOfClass:[UIView class]])
+    {
+        tClass = [UIColor class];
+    }
+    else
+    {
+        tClass = [ZRuntimeUtility propertyClassForPropertyName:tKeyPath ofClass:[target class]];
+    }
+    
+    Class oClass = [self.skinManager.skin classOfKeyPath:oKeyPath];
+    if (![[oClass new] isKindOfClass:tClass])
+    {
+        return;
+    }
     
     NSString *key = [NSString stringWithFormat:@"%@.%@", K_SKIN_MANAGER_KEY_PATH, oKeyPath];
 
@@ -244,7 +268,6 @@
     }
     return binderList;
 }
-
 
 - (NSString *)description
 {
