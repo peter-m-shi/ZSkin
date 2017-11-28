@@ -38,6 +38,7 @@
     CGFloat descWidth = self.view.frame.size.width * 2 / 4;
 
     UIFont *font = [UIFont systemFontOfSize:11];
+    __weak typeof(self) weakSelf = self;
     for (NSString *property in propertys)
     {
         UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, offsetY, nameWidth, height)];
@@ -52,7 +53,7 @@
 
         [colorLabel bind:^(id sender, ZSkin *skin) {
             SEL selector = NSSelectorFromString(property);
-            UIColor *color = [self.skin.color performSelector:selector];
+            UIColor *color = [weakSelf.skin.color performSelector:selector];
             CGFloat r, g, b, a;
             [color getRed:&r green:&g blue:&b alpha:&a];
 
@@ -67,7 +68,7 @@
         [descLabel setTextColor:[UIColor blackColor]];
         [descLabel bind:^(id sender, ZSkin *skin) {
             SEL selector = NSSelectorFromString(property);
-            UIColor *color = [self.skin.color performSelector:selector];
+            UIColor *color = [weakSelf.skin.color performSelector:selector];
             CGFloat r, g, b, a;
             [color getRed:&r green:&g blue:&b alpha:&a];
 
@@ -78,6 +79,10 @@
 
         offsetY += height + interval;
     }
+}
+
+- (void)dealloc{
+    NSLog(@"Dealloc ViewControllerButton");
 }
 
 

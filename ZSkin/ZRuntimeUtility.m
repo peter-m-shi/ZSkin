@@ -11,16 +11,13 @@
 #import "ZObject.h"
 
 
-static const char *property_getTypeName(objc_property_t property)
-{
+static const char *property_getTypeName(objc_property_t property) {
     const char *attributes = property_getAttributes(property);
     char buffer[1 + strlen(attributes)];
     strcpy(buffer, attributes);
     char *state = buffer, *attribute;
-    while ((attribute = strsep(&state, ",")) != NULL)
-    {
-        if (attribute[0] == 'T')
-        {
+    while ((attribute = strsep(&state, ",")) != NULL) {
+        if (attribute[0] == 'T') {
             size_t len = strlen(attribute);
             attribute[len - 1] = '\0';
             return (const char *)[[NSData dataWithBytes:(attribute + 3) length:len - 2] bytes];
@@ -36,8 +33,7 @@ static NSMutableDictionary *propertyListByClass;
 static NSMutableDictionary *propertyClassByClassAndPropertyName;
 
 
-+ (BOOL)isPropertyReadOnly:(Class)klass propertyName:(NSString *)propertyName
-{
++ (BOOL)isPropertyReadOnly:(Class)klass propertyName:(NSString *)propertyName {
     const char *type = property_getAttributes(class_getProperty(klass, [propertyName UTF8String]));
     NSString *typeString = [NSString stringWithUTF8String:type];
     NSArray *attributes = [typeString componentsSeparatedByString:@","];
@@ -47,22 +43,18 @@ static NSMutableDictionary *propertyClassByClassAndPropertyName;
 }
 
 
-+ (NSArray *)propertyNames:(Class)klass
-{
-    if (klass == [ZObject class])
-    {
++ (NSArray *)propertyNames:(Class)klass {
+    if (!klass || klass == [ZObject class]) {
         return [NSArray array];
     }
-    if (!propertyListByClass)
-    {
+    if (!propertyListByClass) {
         propertyListByClass = [[NSMutableDictionary alloc] init];
     }
 
     NSString *className = NSStringFromClass(klass);
     NSArray *value = [propertyListByClass objectForKey:className];
 
-    if (value)
-    {
+    if (value) {
         return value;
     }
 
@@ -70,8 +62,7 @@ static NSMutableDictionary *propertyClassByClassAndPropertyName;
     unsigned int propertyCount = 0;
     objc_property_t *properties = class_copyPropertyList(klass, &propertyCount);
 
-    for (unsigned int i = 0; i < propertyCount; ++i)
-    {
+    for (unsigned int i = 0; i < propertyCount; ++i) {
         objc_property_t property = properties[i];
         const char *name = property_getName(property);
 
@@ -79,9 +70,6 @@ static NSMutableDictionary *propertyClassByClassAndPropertyName;
     }
     free(properties);
 
-    if (!propertyNamesArray) {
-        NSLog(@"");
-    }
     [propertyListByClass setObject:propertyNamesArray forKey:className];
     NSArray *arr = [ZRuntimeUtility propertyNames:class_getSuperclass(klass)];
     [propertyNamesArray addObjectsFromArray:arr];
@@ -89,18 +77,15 @@ static NSMutableDictionary *propertyClassByClassAndPropertyName;
 }
 
 
-+ (Class)propertyClassForPropertyName:(NSString *)propertyName ofClass:(Class)klass
-{
-    if (!propertyClassByClassAndPropertyName)
-    {
++ (Class)propertyClassForPropertyName:(NSString *)propertyName ofClass:(Class)klass {
+    if (!propertyClassByClassAndPropertyName) {
         propertyClassByClassAndPropertyName = [[NSMutableDictionary alloc] init];
     }
 
     NSString *key = [NSString stringWithFormat:@"%@:%@", NSStringFromClass(klass), propertyName];
     NSString *value = [propertyClassByClassAndPropertyName objectForKey:key];
 
-    if (value)
-    {
+    if (value) {
         return NSClassFromString(value);
     }
 
@@ -109,12 +94,10 @@ static NSMutableDictionary *propertyClassByClassAndPropertyName;
 
     const char *cPropertyName = [propertyName UTF8String];
 
-    for (unsigned int i = 0; i < propertyCount; ++i)
-    {
+    for (unsigned int i = 0; i < propertyCount; ++i) {
         objc_property_t property = properties[i];
         const char *name = property_getName(property);
-        if (strcmp(cPropertyName, name) == 0)
-        {
+        if (strcmp(cPropertyName, name) == 0) {
             free(properties);
             NSString *className = [NSString stringWithUTF8String:property_getTypeName(property)];
             [propertyClassByClassAndPropertyName setObject:className forKey:key];
@@ -122,7 +105,7 @@ static NSMutableDictionary *propertyClassByClassAndPropertyName;
         }
     }
     free(properties);
-    return [self propertyClassForPropertyName:propertyName ofClass:class_getSuperclass(klass)];
+    return klass ? [self propertyClassForPropertyName:propertyName ofClass:class_getSuperclass(klass)] : nil;
 }
 
 @end

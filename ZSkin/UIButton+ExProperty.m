@@ -10,38 +10,32 @@
 
 @implementation UIButton (ExProperty)
 
-- (UIColor *)titleColorNormal
-{
+- (UIColor *)titleColorNormal {
     return [self titleColorForState:UIControlStateNormal];
 }
 
 
-- (void)setTitleColorNormal:(UIColor *)titleColorNormal
-{
+- (void)setTitleColorNormal:(UIColor *)titleColorNormal {
     [self setTitleColor:titleColorNormal forState:UIControlStateNormal];
 }
 
 
-- (UIColor *)titleColorHightlight
-{
+- (UIColor *)titleColorHightlight {
     return [self titleColorForState:UIControlStateHighlighted];
 }
 
 
-- (void)setTitleColorHightlight:(UIColor *)titleColorHightlight
-{
+- (void)setTitleColorHightlight:(UIColor *)titleColorHightlight {
     [self setTitleColor:titleColorHightlight forState:UIControlStateHighlighted];
 }
 
 
-- (UIColor *)titleColorSelected
-{
+- (UIColor *)titleColorSelected {
     return [self titleColorForState:UIControlStateSelected];
 }
 
 
-- (void)setTitleColorSelected:(UIColor *)titleColorSelected
-{
+- (void)setTitleColorSelected:(UIColor *)titleColorSelected {
     [self setTitleColor:titleColorSelected forState:UIControlStateSelected];
 }
 

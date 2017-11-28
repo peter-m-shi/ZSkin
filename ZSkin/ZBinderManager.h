@@ -1,6 +1,6 @@
 //
 //  ZBinderManager.h
-//  ZSkinDemo
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/18.
 //  Copyright © 2016年 peter.shi. All rights reserved.

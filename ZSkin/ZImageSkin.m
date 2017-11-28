@@ -16,17 +16,16 @@
 
 #pragma mark - private function -
 
-- (NSString *)imageFilePath:(NSString *)name
-{
+
+- (NSString *)imageFilePath:(NSString *)name {
     return [NSString stringWithFormat:@"%@/image/%@", self.path, name];
 }
 
-- (UIImage *)imageNamed:(NSString *)name
-{
+
+- (UIImage *)imageNamed:(NSString *)name {
     UIImage *image = [UIImage imageWithContentsOfFile:[self imageFilePath:name]];
 
-    if (!image)
-    {
+    if (!image) {
         image = [UIImage imageNamed:name];
     }
     return image;

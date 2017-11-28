@@ -1,6 +1,6 @@
 //
 //  ZBinder.h
-//  ZSkinDemo
+//  ZSkin
 //
 //  Created by peter.shi on 16/7/28.
 //  Copyright © 2016年 peter.shi. All rights reserved.
@@ -15,6 +15,7 @@
 @interface ZBinder : NSObject
 
 @property (nonatomic, weak, readonly) id target;
+@property (nonatomic, copy, readonly) NSString *pointer;
 @property (nonatomic, copy, readonly) NSString *identifier;
 
 @end

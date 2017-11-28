@@ -10,6 +10,7 @@
 #import "ZSkinManager.h"
 #import "NSObject+Skin.h"
 #import "ZSkinDefine.h"
+#import "ZBinderManager.h"
 
 @interface BaseViewController ()
 
@@ -80,6 +81,7 @@
 
     //Change skin
     self.skin = [[ZSkinManager instance].skins objectAtIndex:self.segment.selectedSegmentIndex];
+    NSLog(@"%@",[ZBinderManager instance]);
     [ZSkinManager instance].skin = self.skin;
 }
 

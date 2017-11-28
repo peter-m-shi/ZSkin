@@ -1,6 +1,6 @@
 //
 //  NSObject+KeyPath.h
-//  ZSkinDemo
+//  ZSkin
 //
 //  Created by peter.shi. on 2017/11/23.
 //  Copyright © 2017年 peter.shi. All rights reserved.

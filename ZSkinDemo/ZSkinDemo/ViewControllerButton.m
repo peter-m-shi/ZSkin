@@ -49,6 +49,9 @@
     [self initUIColor];
 }
 
+- (void)dealloc{
+    NSLog(@"Dealloc ViewControllerButton");
+}
 
 - (void)initUIColor
 {
@@ -65,12 +68,12 @@
     ZSB(self.button, titleColorNormal) = SK(color.foreground);
     ZSB(self.button, titleColorHightlight) = SK(color.foreground);
     ZSB(self.button, titleColorSelected) = SK(color.foreground);
-    
+
     ZSB(self.button2, backgroundColor) = SK(color.foreground);
     ZSB(self.button2, titleColorNormal) = SK(color.background);
     ZSB(self.button2, titleColorHightlight) = SK(color.background);
     ZSB(self.button2, titleColorSelected) = SK(color.background);
-    
+
     //Custom Binding
     [self.button3 bind:^(id sender, ZSkin *skin) {
         UIButton *btn = sender;

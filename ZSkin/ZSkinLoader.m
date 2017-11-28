@@ -12,7 +12,7 @@
 #define KDefaultSkinFolderName @"BuiltInSkins"
 #define KExtendSkinFolderName @"Skins"
 
-@interface ZSkinLoader()
+@interface ZSkinLoader ()
 
 @property (nonatomic) NSString *builtInSkinsFolderPath;
 
@@ -20,21 +20,18 @@
 
 @implementation ZSkinLoader
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
-    if (self)
-    {
-        self.builtInSkinsFolderPath = [NSString stringWithFormat:@"%@/%@",[[NSBundle mainBundle] bundlePath],KDefaultSkinFolderName];
-        self.extendSkinFolderPath = [NSString stringWithFormat:@"%@/Library/Caches/%@",NSHomeDirectory(),KExtendSkinFolderName];
+    if (self) {
+        self.builtInSkinsFolderPath = [NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] bundlePath], KDefaultSkinFolderName];
+        self.extendSkinFolderPath = [NSString stringWithFormat:@"%@/Library/Caches/%@", NSHomeDirectory(), KExtendSkinFolderName];
     }
 
     return self;
 }
 
 
-- (NSArray *)loadSkins
-{
+- (NSArray *)loadSkins {
     NSMutableArray *skins = [[NSMutableArray alloc] init];
     //load skin from built-in path,default in the main bundle
     [skins addObjectsFromArray:[self loadSkinsFromPath:self.builtInSkinsFolderPath]];
@@ -43,23 +40,22 @@
     return skins;
 }
 
-- (NSArray *)loadSkinsFromPath:(NSString *)path
-{
-    NSDirectoryEnumerator* enumerator = [[NSFileManager defaultManager] enumeratorAtPath:path];
+
+- (NSArray *)loadSkinsFromPath:(NSString *)path {
+    NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtPath:path];
     NSString *file;
     NSMutableArray *skins = [NSMutableArray new];
-    while (file = [enumerator nextObject])
-    {
-        if ([[file pathExtension] hasSuffix:@"bundle"])
-        {
+    while (file = [enumerator nextObject]) {
+        if ([[file pathExtension] hasSuffix:@"bundle"]) {
             ZSkin *skin = [[ZSkin alloc] init];
-            skin.path = [NSString stringWithFormat:@"%@/%@",path,file];
+            skin.path = [NSString stringWithFormat:@"%@/%@", path, file];
             skin.builtIn = [[path lastPathComponent] isEqualToString:KDefaultSkinFolderName];
             [skins addObject:skin];
         }
     }
     return skins;
 }
+
 
 #pragma mark - private function -
 

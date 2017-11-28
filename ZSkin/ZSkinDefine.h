@@ -12,10 +12,10 @@
 
 @class ZSkin;
 
-typedef void (^callBackBlock)(id sender,ZSkin *skin);
+typedef void (^callBackBlock)(id sender, ZSkin *skin);
 
 //
-#define OP(target,keypath) @__keypath(target,keypath)
+#define OP(target, keypath) @__keypath(target,keypath)
 #define OPLayer(keypath) @__keypath(CALayer.new,keypath)
 #define OPView(keypath) @__keypath(UIView.new,keypath)
 #define OPBtn(keypath) @__keypath(UIButton.new,keypath)

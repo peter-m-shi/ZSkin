@@ -22,8 +22,7 @@ NSString *ZSkinChangedNotificationKey = @"ZSkinChangedNotificationKey";
 
 @implementation ZSkinManager
 
-+ (instancetype)instance
-{
++ (instancetype)instance {
     static ZSkinManager *staticInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -33,11 +32,9 @@ NSString *ZSkinChangedNotificationKey = @"ZSkinChangedNotificationKey";
 }
 
 
-- (id)init
-{
+- (id)init {
     self = [super init];
-    if (self)
-    {
+    if (self) {
         _skinLoader = [ZSkinLoader new];
         _skins = [_skinLoader loadSkins];
         [self setSkin:[_skins firstObject]];
@@ -47,39 +44,34 @@ NSString *ZSkinChangedNotificationKey = @"ZSkinChangedNotificationKey";
 }
 
 
-- (void)setSkin:(ZSkin *)skin
-{
-    if (skin != _skin)
-    {
+- (void)setSkin:(ZSkin *)skin {
+    if (skin != _skin) {
         _skin = skin;
         [[NSNotificationCenter defaultCenter] postNotificationName:ZSkinChangedNotificationKey
-                                                            object:_skin
-                                                          userInfo:nil];
+                               object:_skin
+                               userInfo:nil];
     }
 }
 
 
-- (void)setSkinNamed:(NSString *)name
-{
+- (void)setSkinNamed:(NSString *)name {
     self.skin = [self skinNamed:name];
 }
 
 
-- (void)setSkinIndexed:(NSInteger)index
-{
+- (void)setSkinIndexed:(NSInteger)index {
     assert(index >= 0 && index < self.skins.count);
     self.skin = [self.skins objectAtIndex:index];
 }
 
 
-- (ZSkin *)skinNamed:(NSString *)name
-{
-    if (name.length <= 0)return nil;
+- (ZSkin *)skinNamed:(NSString *)name {
+    if (name.length <= 0) {
+        return nil;
+    }
 
-    for (ZSkin *skin in self.skins)
-    {
-        if ([skin.name isEqualToString:name])
-        {
+    for (ZSkin *skin in self.skins) {
+        if ([skin.name isEqualToString:name]) {
             return skin;
         }
     }

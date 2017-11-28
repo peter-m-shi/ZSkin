@@ -18,16 +18,17 @@
 
 @implementation ZBindingAssistant
 
-- (id)initWithTarget:(id)target
-{
+- (id)initWithTarget:(id)target {
     // This is often a programmer error, but this prevents crashes if the target
     // object has unexpectedly deallocated.
-    if (target == nil)
-    {return nil;}
+    if (target == nil) {
+        return nil;
+    }
 
     self = [super init];
-    if (self == nil)
-    {return nil;}
+    if (self == nil) {
+        return nil;
+    }
 
     _target = target;
 
@@ -35,8 +36,7 @@
 }
 
 
-- (void)setObject:(NSString *)tKeyPath forKeyedSubscript:(NSString *)oKeyPath
-{
+- (void)setObject:(NSString *)tKeyPath forKeyedSubscript:(NSString *)oKeyPath {
     [self.target bind:oKeyPath to:tKeyPath];
 }
 

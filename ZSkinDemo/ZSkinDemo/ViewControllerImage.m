@@ -46,6 +46,10 @@
     }];
 }
 
+- (void)dealloc{
+    NSLog(@"Dealloc ViewContollerImage");
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

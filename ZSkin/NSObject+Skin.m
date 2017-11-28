@@ -13,42 +13,37 @@
 
 @implementation NSObject (Skin)
 
-- (void)bind:(NSString *)tKeyPath to:(NSString *)oKeyPath;
-{
+- (void)bind:(NSString *)tKeyPath to:(NSString *)oKeyPath; {
     [[ZBinderManager instance] bind:self
-                         identifier:[self collectIdentifier]
-                           tKeyPath:tKeyPath
-                           observer:[ZSkinManager instance]
-                           oKeyPath:oKeyPath
-                          parameter:nil];
+                     identifier:[self collectIdentifier]
+                     tKeyPath:tKeyPath
+                     observer:[ZSkinManager instance]
+                     oKeyPath:oKeyPath
+                     parameter:nil];
 }
 
 
-- (void)bind:(NSString *)tKeyPath to:(NSString *)oKeyPath withParam:(void *)param
-{
+- (void)bind:(NSString *)tKeyPath to:(NSString *)oKeyPath withParam:(void *)param {
     [[ZBinderManager instance] bind:self
-                          identifier:[self collectIdentifier]
-                            tKeyPath:tKeyPath
-                            observer:[ZSkinManager instance]
-                            oKeyPath:oKeyPath
-                           parameter:param];
+                     identifier:[self collectIdentifier]
+                     tKeyPath:tKeyPath
+                     observer:[ZSkinManager instance]
+                     oKeyPath:oKeyPath
+                     parameter:param];
 }
 
 
-- (void)bind:(callBackBlock)callback
-{
+- (void)bind:(callBackBlock)callback {
     [[ZBinderManager instance] bind:self identifier:[self collectIdentifier] callback:callback];
 }
 
 
-- (void)unBind:(NSString *)tKeyPath to:(NSString *)oKeyPath
-{
+- (void)unBind:(NSString *)tKeyPath to:(NSString *)oKeyPath {
     [[ZBinderManager instance] unBind:self tKeyPath:tKeyPath oKeyPath:oKeyPath];
 }
 
 
-- (NSString *)bindInfo:(NSString *)tKeyPath
-{
+- (NSString *)bindInfo:(NSString *)tKeyPath {
     return [[ZBinderManager instance] bindInfo:self tKeyPath:tKeyPath];
 }
 
@@ -56,12 +51,11 @@
 #pragma mark - private function -
 
 
-- (NSString *)collectIdentifier
-{
+- (NSString *)collectIdentifier {
     NSArray *callStackSymbols = [NSThread callStackReturnAddresses];
     assert(callStackSymbols.count >= 4);
 
-    NSString *identifier = [NSString stringWithFormat:@"%p_%@_%@_%@", self, [self class], callStackSymbols[2],callStackSymbols[3]];
+    NSString *identifier = [NSString stringWithFormat:@"%p_%@_%@_%@", self, [self class], callStackSymbols[2], callStackSymbols[3]];
 
     return identifier;
 }

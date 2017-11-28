@@ -24,6 +24,7 @@
 		D00BD70F1D4AF552008B4B24 /* 1403909a57b446bb8e55094e7450ff8f.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D00BD70C1D4AF552008B4B24 /* 1403909a57b446bb8e55094e7450ff8f.bundle */; };
 		D00BD7101D4AF552008B4B24 /* e02ae0e472604e47bfcf389e4ccf37ba.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D00BD70D1D4AF552008B4B24 /* e02ae0e472604e47bfcf389e4ccf37ba.bundle */; };
 		D00BD7111D4AF552008B4B24 /* test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D00BD70E1D4AF552008B4B24 /* test@2x.png */; };
+		D022176B1FCC018000964C81 /* UIResponder+Dealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = D022176A1FCC017F00964C81 /* UIResponder+Dealloc.m */; };
 		D027C1631DC34E0700866676 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D027C1621DC34E0700866676 /* UIKit.framework */; };
 		D05256751D4AEFCA000876B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D05256741D4AEFCA000876B9 /* main.m */; };
 		D05256781D4AEFCA000876B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D05256771D4AEFCA000876B9 /* AppDelegate.m */; };
@@ -94,6 +95,8 @@
 		D00BD70C1D4AF552008B4B24 /* 1403909a57b446bb8e55094e7450ff8f.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = 1403909a57b446bb8e55094e7450ff8f.bundle; sourceTree = "<group>"; };
 		D00BD70D1D4AF552008B4B24 /* e02ae0e472604e47bfcf389e4ccf37ba.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = e02ae0e472604e47bfcf389e4ccf37ba.bundle; sourceTree = "<group>"; };
 		D00BD70E1D4AF552008B4B24 /* test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test@2x.png"; sourceTree = "<group>"; };
+		D02217691FCC017F00964C81 /* UIResponder+Dealloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+Dealloc.h"; sourceTree = "<group>"; };
+		D022176A1FCC017F00964C81 /* UIResponder+Dealloc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Dealloc.m"; sourceTree = "<group>"; };
 		D027C1621DC34E0700866676 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D05256701D4AEFCA000876B9 /* ZSkin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZSkin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D05256741D4AEFCA000876B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 		D00BD6DF1D4AF4CA008B4B24 /* ZSkin */ = {
 			isa = PBXGroup;
 			children = (
+				D02217691FCC017F00964C81 /* UIResponder+Dealloc.h */,
+				D022176A1FCC017F00964C81 /* UIResponder+Dealloc.m */,
 				7E3695991FC6BB9000540F6C /* NSObject+KeyPath.h */,
 				7E36959A1FC6BB9000540F6C /* NSObject+KeyPath.m */,
 				D00BD6E01D4AF4CA008B4B24 /* NSObject+Skin.h */,
@@ -445,6 +450,7 @@
 				D00BD6FD1D4AF4CA008B4B24 /* UIButton+ExProperty.m in Sources */,
 				D05256B21D4AF11F000876B9 /* BaseViewController.m in Sources */,
 				D05256781D4AEFCA000876B9 /* AppDelegate.m in Sources */,
+				D022176B1FCC018000964C81 /* UIResponder+Dealloc.m in Sources */,
 				D05256751D4AEFCA000876B9 /* main.m in Sources */,
 				D00BD6FE1D4AF4CA008B4B24 /* ZBinder.m in Sources */,
 				D05256B31D4AF11F000876B9 /* ViewControllerButton.m in Sources */,
@@ -590,7 +596,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Qiang Zhu (N3YQQZE5KP)";
+				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ZSkinDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -598,7 +604,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pinguo.ZSkinDemo;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = ZSkin;
-				PROVISIONING_PROFILE_SPECIFIER = chengdu_development_all;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -606,7 +612,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Qiang Zhu (N3YQQZE5KP)";
+				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ZSkinDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -614,7 +620,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pinguo.ZSkinDemo;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = ZSkin;
-				PROVISIONING_PROFILE_SPECIFIER = chengdu_development_all;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

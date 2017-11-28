@@ -22,40 +22,35 @@ Class nsDictionaryClass;
 Class nsArrayClass;
 
 
-+ (id)objectFromDictionary:(NSDictionary *)dictionary
-{
++ (id)objectFromDictionary:(NSDictionary *)dictionary {
     id item = [[self alloc] initWithDictionary:dictionary];
     return item;
 }
 
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
-{
-    if (!nsDictionaryClass)
-    {nsDictionaryClass = [NSDictionary class];}
-    if (!nsArrayClass)
-    {nsArrayClass = [NSArray class];}
+- (id)initWithDictionary:(NSDictionary *)dictionary {
+    if (!nsDictionaryClass) {
+        nsDictionaryClass = [NSDictionary class];
+    }
+    if (!nsArrayClass) {
+        nsArrayClass = [NSArray class];
+    }
 
-    if ((self = [super init]))
-    {
-        for (NSString *key in [ZRuntimeUtility propertyNames:[self class]])
-        {
+    if ((self = [super init])) {
+        for (NSString *key in [ZRuntimeUtility propertyNames:[self class]]) {
 
             id value = [dictionary valueForKey:[[self map] valueForKey:key]];
 
-            if (value == [NSNull null] || value == nil)
-            {
+            if (value == [NSNull null] || value == nil) {
                 continue;
             }
 
-            if ([ZRuntimeUtility isPropertyReadOnly:[self class] propertyName:key])
-            {
+            if ([ZRuntimeUtility isPropertyReadOnly:[self class] propertyName:key]) {
                 continue;
             }
 
             id ret = [self handleParseFor:value key:key];
-            if (ret)
-            {
+            if (ret) {
                 value = ret;
             }
 
@@ -63,10 +58,8 @@ Class nsArrayClass;
         }
 
         id objectIdValue;
-        if ((objectIdValue = [dictionary objectForKey:idPropertyName]) && objectIdValue != [NSNull null])
-        {
-            if (![objectIdValue isKindOfClass:[NSString class]])
-            {
+        if ((objectIdValue = [dictionary objectForKey:idPropertyName]) && objectIdValue != [NSNull null]) {
+            if (![objectIdValue isKindOfClass:[NSString class]]) {
                 objectIdValue = [NSString stringWithFormat:@"%@", objectIdValue];
             }
             [self setValue:objectIdValue forKey:idPropertyNameOnObject];
@@ -76,38 +69,30 @@ Class nsArrayClass;
 }
 
 
-- (id)handleParseFor:(id)value key:(NSString *)key
-{
+- (id)handleParseFor:(id)value key:(NSString *)key {
     id result;
 
-    if ([value isKindOfClass:nsDictionaryClass])
-    {
+    if ([value isKindOfClass:nsDictionaryClass]) {
         Class klass = [ZRuntimeUtility propertyClassForPropertyName:key ofClass:[self class]];
         result = [[klass alloc] initWithDictionary:value];
     }
         // handle array
-    else if ([value isKindOfClass:nsArrayClass])
-    {
+    else if ([value isKindOfClass:nsArrayClass]) {
 
         NSMutableArray *childObjects = [NSMutableArray arrayWithCapacity:[(NSArray *)value count]];
 
-        for (id child in value)
-        {
-            if ([[child class] isSubclassOfClass:nsDictionaryClass])
-            {
+        for (id child in value) {
+            if ([[child class] isSubclassOfClass:nsDictionaryClass]) {
                 Class arrayItemType = [[self class] performSelector:NSSelectorFromString([NSString stringWithFormat:@"%@_class", key])];
-                if ([arrayItemType isSubclassOfClass:[NSDictionary class]])
-                {
+                if ([arrayItemType isSubclassOfClass:[NSDictionary class]]) {
                     [childObjects addObject:child];
                 }
-                else if ([arrayItemType isSubclassOfClass:[ZObject class]])
-                {
+                else if ([arrayItemType isSubclassOfClass:[ZObject class]]) {
                     ZObject *childDTO = [[arrayItemType alloc] initWithDictionary:child];
                     [childObjects addObject:childDTO];
                 }
             }
-            else
-            {
+            else {
                 [childObjects addObject:child];
             }
         }
@@ -118,31 +103,25 @@ Class nsArrayClass;
     return result;
 }
 
-- (void)encodeWithCoder:(NSCoder *)encoder
-{
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:self.objectId forKey:idPropertyNameOnObject];
-    for (NSString *key in [ZRuntimeUtility propertyNames:[self class]])
-    {
+    for (NSString *key in [ZRuntimeUtility propertyNames:[self class]]) {
         [encoder encodeObject:[self valueForKey:key] forKey:key];
     }
 }
 
 
-- (id)initWithCoder:(NSCoder *)decoder
-{
-    if ((self = [super init]))
-    {
+- (id)initWithCoder:(NSCoder *)decoder {
+    if ((self = [super init])) {
         [self setValue:[decoder decodeObjectForKey:idPropertyNameOnObject] forKey:idPropertyNameOnObject];
 
-        for (NSString *key in [ZRuntimeUtility propertyNames:[self class]])
-        {
-            if ([ZRuntimeUtility isPropertyReadOnly:[self class] propertyName:key])
-            {
+        for (NSString *key in [ZRuntimeUtility propertyNames:[self class]]) {
+            if ([ZRuntimeUtility isPropertyReadOnly:[self class] propertyName:key]) {
                 continue;
             }
             id value = [decoder decodeObjectForKey:key];
-            if (value != [NSNull null] && value != nil)
-            {
+            if (value != [NSNull null] && value != nil) {
                 [self setValue:value forKey:key];
             }
         }
@@ -151,40 +130,31 @@ Class nsArrayClass;
 }
 
 
-- (NSMutableDictionary *)toDictionary
-{
+- (NSMutableDictionary *)toDictionary {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    if (self.objectId)
-    {
+    if (self.objectId) {
         [dic setObject:self.objectId forKey:idPropertyName];
     }
 
-    for (NSString *key in [ZRuntimeUtility propertyNames:[self class]])
-    {
+    for (NSString *key in [ZRuntimeUtility propertyNames:[self class]]) {
         id value = [self valueForKey:key];
-        if (value && [value isKindOfClass:[ZObject class]])
-        {
+        if (value && [value isKindOfClass:[ZObject class]]) {
             [dic setObject:[value toDictionary] forKey:[[self map] valueForKey:key]];
         }
-        else if (value && [value isKindOfClass:[NSArray class]] && ((NSArray *)value).count > 0)
-        {
+        else if (value && [value isKindOfClass:[NSArray class]] && ((NSArray *)value).count > 0) {
             id internalValue = [value objectAtIndex:0];
-            if (internalValue && [internalValue isKindOfClass:[ZObject class]])
-            {
+            if (internalValue && [internalValue isKindOfClass:[ZObject class]]) {
                 NSMutableArray *internalItems = [NSMutableArray array];
-                for (id item in value)
-                {
+                for (id item in value) {
                     [internalItems addObject:[item toDictionary]];
                 }
                 [dic setObject:internalItems forKey:[[self map] valueForKey:key]];
             }
-            else
-            {
+            else {
                 [dic setObject:value forKey:[[self map] valueForKey:key]];
             }
         }
-        else if (value != nil)
-        {
+        else if (value != nil) {
             [dic setObject:value forKey:[[self map] valueForKey:key]];
         }
     }
@@ -192,39 +162,36 @@ Class nsArrayClass;
 }
 
 
-- (NSDictionary *)map
-{
+- (NSDictionary *)map {
     NSArray *properties = [ZRuntimeUtility propertyNames:[self class]];
     NSMutableDictionary *mapDictionary = [[NSMutableDictionary alloc] initWithCapacity:properties.count];
-    for (NSString *property in properties)
-    {
+    for (NSString *property in properties) {
         [mapDictionary setObject:property forKey:property];
     }
     return [NSDictionary dictionaryWithDictionary:mapDictionary];
 }
 
 
-- (BOOL)isEqual:(id)object
-{
-    if (object == nil || ![object isKindOfClass:[ZObject class]])
-    {return NO;}
+- (BOOL)isEqual:(id)object {
+    if (object == nil || ![object isKindOfClass:[ZObject class]]) {
+        return NO;
+    }
 
     ZObject *model = (ZObject *)object;
 
     return [self.objectId isEqualToString:model.objectId];
 }
 
-- (NSString *)description
-{
+
+- (NSString *)description {
     NSMutableString *description = [NSMutableString new];
 
     [description appendString:[NSString stringWithFormat:@"#<%@: id = %p>\r\n", [self class], self]];
 
-    for (NSString *property in [ZRuntimeUtility propertyNames:[self class]])
-    {
+    for (NSString *property in [ZRuntimeUtility propertyNames:[self class]]) {
         SEL selector = NSSelectorFromString(property);
         id value = [self performSelector:selector];
-        [description appendString:[NSString stringWithFormat:@"   %@:%@\r\n",property,value]];
+        [description appendString:[NSString stringWithFormat:@"   %@:%@\r\n", property, value]];
     }
 
     return description;
