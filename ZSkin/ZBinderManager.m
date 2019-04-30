@@ -128,18 +128,20 @@
 
 - (void)unBind:(id)target tKeyPath:(NSString *)tKeyPath oKeyPath:(NSString *)oKeyPath {
     NSString *key = [NSString stringWithFormat:@"%@.%@", K_SKIN_MANAGER_KEY_PATH, oKeyPath];
-
+    
     NSMutableArray *binderList = self.binderMap[key];
-
+    NSMutableArray *removeArray = [NSMutableArray array];
+    
     for (int i = (int)binderList.count - 1; i >= 0; --i) {
         ZKVOBinder *binder = binderList[i];
         if (binder.target == target
             && [binder.tKeyPath isEqualToString:tKeyPath]
             && [binder.oKeyPath isEqualToString:oKeyPath]) {
-            [binderList removeObjectAtIndex:i];
-            break;
+            [removeArray addObject:binder];
+            [self removeObserver:binder forKeyPath:key];
         }
     }
+    [binderList removeObjectsInArray:removeArray];
 }
 
 
