@@ -39,8 +39,12 @@ Class nsArrayClass;
     if ((self = [super init])) {
         for (NSString *key in [ZRuntimeUtility propertyNames:[self class]]) {
 
-            id value = [dictionary valueForKey:[[self map] valueForKey:key]];
-
+            NSString *colorKey = [[self map] valueForKey:key];
+            id value = [dictionary valueForKey:colorKey];
+            if (value == [NSNull null] || value == nil) {
+                colorKey = [@"skin_" stringByAppendingString:colorKey];
+                value = [dictionary valueForKey:colorKey];
+            }
             if (value == [NSNull null] || value == nil) {
                 continue;
             }
